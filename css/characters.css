@@ -1,0 +1,183 @@
+#dialog .convoThread>li.speaker-victoria {
+	padding: 11px 25px 16px 25px;
+}
+
+#dialog .convoThread>li.speaker-jaeji {
+	padding: 11px 25px 16px 25px;
+}
+
+#dialog .convoThread>li.speaker-declan {
+	padding: 11px 25px 16px 120px;
+}
+
+#dialog .convoThread>li.speaker-minicomp {
+	padding: 11px 25px 16px 25px;
+}
+
+#dialog .convoThread>li.speaker-minicomp > p {
+	font-family: VT323;
+	-webkit-font-smoothing: none;
+	font-size: 18px;
+	text-transform: uppercase;
+}
+
+#dialog .convoThread>li.speaker-frank {
+	padding: 11px 25px 16px 25px;
+}
+
+#dialog .convoThread>li.speaker-none {
+	padding: 11px 25px 16px 25px;
+}
+
+#conversation.active .convoThread>li.speaker-declan>p:before {
+	content: "Declan: ";
+}
+
+#conversation.active .convoThread>li.speaker-victoria>p:before {
+	content: "Victoria: ";
+}
+
+#conversation.active .convoThread>li.speaker-jaeji>p:before {
+	content: "Jae-Ji: ";
+}
+
+#conversation.active .convoThread>li.speaker-frank>p:before {
+	content: "Frank: ";
+}
+
+#conversation.active .convoThread>li.speaker-minicomp>p:before {
+	content: "> ";
+}
+
+#conversation.active .convoThread>li.speaker-declan>p:before,
+#conversation.active .convoThread>li.speaker-victoria>p:before,
+#conversation.active .convoThread>li.speaker-jaeji>p:before,
+#conversation.active .convoThread>li.speaker-frank>p:before,
+#conversation.active .convoThread>li.speaker-minicomp>p:before {
+	font-weight: bold;
+	color: #cc9;
+	font-style: normal;
+}
+
+#dialogScrim .charProfile.source {
+	background-image: url(../images/sprite_Declan-default.png);
+	background-size: 250px auto;
+	background-position: -78px -38px;
+}
+
+.listener-frank #dialogScrim .charProfile.source {
+	background-image: url(../images/sprite_Declan-default.png);
+}
+
+.listener-noone #dialogScrim .charProfile.source,
+.listener-self #dialogScrim .charProfile.source {
+	background-image: url(../images/sprite_Declan-default.png);
+}
+
+.pose-pondering #dialogScrim .charProfile.source {
+	background-image: url(../images/sprite_Declan-pondering.png);
+}
+
+.pose-analyzing #dialogScrim .charProfile.source {
+	background-image: url(../images/sprite_Declan-analyzing.png);
+}
+
+.pose-wtf #dialogScrim .charProfile.source {
+	background-image: url(../images/sprite_Declan-wtf.png);
+}
+
+.pose-slowburn #dialogScrim .charProfile.source {
+	background-image: url(../images/sprite_Declan-slowburn.png);
+}
+
+.pose-shocked #dialogScrim .charProfile.source {
+	background-image: url(../images/sprite_Declan-shocked.png);
+}
+
+.pose-surprised #dialogScrim .charProfile.source {
+	background-image: url(../images/sprite_Declan-surprised.png);
+}
+
+.pose-wondering #dialogScrim .charProfile.source {
+	background-image: url(../images/sprite_Declan-wondering.png);
+}
+
+.pose-smirk #dialogScrim .charProfile.source {
+	background-image: url(../images/sprite_Declan-smirk.png);
+}
+
+.pose-squint #dialogScrim .charProfile.source {
+	background-image: url(../images/sprite_Declan-squint.png);
+}
+
+.pose-unsure #dialogScrim .charProfile.source {
+	background-image: url(../images/sprite_Declan-unsure.png);
+}
+
+.pose-confirming #dialogScrim .charProfile.source {
+	background-image: url(../images/sprite_Declan-confirming.png);
+}
+
+.pose-waitaminute #dialogScrim .charProfile.source {
+	background-image: url(../images/sprite_Declan-waitaminute.png);
+}
+
+.pose-facepalm #dialogScrim .charProfile.source {
+	background-image: url(../images/sprite_Declan-facepalm.png);
+}
+
+.pose-dark #dialogScrim .charProfile.source {
+	background-image: url(../images/sprite_Declan-dark.png);
+}
+
+/*
+.locked-seePoliceStation .listener-self #dialogScrim .charProfile.source {
+	background-image: url(../images/Declan_anime-dark.png);
+}
+*/
+
+#dialog.speaking-minicomp #dialogScrim .charProfile.source {
+	left: -112px;
+}
+
+#conversation > .charProfile.Frank {
+	width: 280px;
+	height: 600px;
+	right: -5px;
+	bottom: -180px;
+	background-image: url(../images/sprite_Frank-scowl.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: right center;
+	-webkit-transform: translate3d(285px,0,0);
+}
+
+#conversation.active.listener-frank > .charProfile.Frank {
+	-webkit-transform: translate3d(0,0,0);
+}
+
+#conversation.poselistener-shouting > .charProfile.Frank {
+	background-image: url(../images/sprite_Frank-yelling.png);
+}
+
+#conversation.poselistener-sulk > .charProfile.Frank {
+	background-image: url(../images/sprite_Frank-sulk.png);
+}
+
+#conversation.poselistener-thinking > .charProfile.Frank {
+	background-image: url(../images/sprite_Frank-thinking.png);
+}
+/*
+#conversation > .charProfile.Frank .charOverlay {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-image: url(../images/FRANK_listening-blink.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: right center;
+	display: none;
+}
+*/

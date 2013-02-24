@@ -1,0 +1,111 @@
+html, body, p {
+  margin: 0;
+  padding: 0;
+}
+
+#container {
+	-webkit-perspective: 320px;
+	width: 480px;
+	height: 320px;
+	margin: 0;
+	-webkit-transition-duration: .5s;
+}
+
+#faceplate {
+	width: 480px;
+	height: 480px;
+	position: relative;
+	top: -80px;
+	left: 0;
+	-webkit-transform-style: preserve-3d;
+	-webkit-transform: translateZ(320px);
+}
+
+#top {
+	position: absolute;
+	width: 480px;
+	height: 480px;
+	background-image: url(../images/holding%20cell-ceiling.jpg);
+	-webkit-transform: translateY(-239.5px) rotateX(-90deg);
+	background-position: center center;
+	-webkit-background-size: cover;
+}
+
+#bottom {
+	position: absolute;
+	width: 480px;
+	height: 480px;
+	background-image: url(../images/holding%20cell-floor.jpg);
+	-webkit-transform: translateY(239.5px) rotateX(90deg);
+	background-position: center center;
+	-webkit-background-size: cover;
+}
+
+#cube,
+#sphere {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 480px;
+	height: 480px;
+	-webkit-transform-style: preserve-3d;
+	-webkit-backface-visibility: hidden;
+}
+
+#cube .rotator {
+	position: absolute;
+	width: 480px;
+	height: 480px;
+	left: 0;
+	top: 0;
+	-webkit-transform-style: preserve-3d;
+	-webkit-backface-visibility: hidden;
+}
+
+#cube .face {
+	background-repeat: no-repeat;
+	width: 480px;
+	height: 480px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	text-align: center;
+	-webkit-backface-visibility: hidden;
+	-webkit-transition-duration: 1s;
+	-webkit-transform: translateZ(-239.5px); /* <- fudged from 240px to minimize visible gaps */
+	background-position: center center;
+	-webkit-background-size: cover;
+	-webkit-transform-style: preserve-3d;
+}
+
+#cube .rotator:nth-child(1) {
+	-webkit-transform: rotateY(0deg);
+}
+
+#cube .rotator:nth-child(2) {
+	-webkit-transform: rotateY(90deg);
+}
+
+#cube .rotator:nth-child(3) {
+	-webkit-transform: rotateY(180deg);
+}
+
+#cube .rotator:nth-child(4) {
+	-webkit-transform: rotateY(-90deg);
+}
+
+#cube .rotator:nth-child(1) .face {
+	background-image: url(../images/holding%20cell0000.jpg);
+}
+
+#cube .rotator:nth-child(2) .face {
+	background-image: url(../images/holding%20cell0003.jpg);
+}
+
+#cube .rotator:nth-child(3) .face {
+	background-image: url(../images/holding%20cell0006.jpg);
+}
+
+#cube .rotator:nth-child(4) .face {
+	background-image: url(../images/holding%20cell0009.jpg);
+}

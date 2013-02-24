@@ -1,0 +1,512 @@
+html {
+	font-size: 10px;
+	background-color: #000;
+	height: 100%;
+}
+
+body {
+	background-color: #000;
+	height: 100%;
+}
+
+h1 {
+	color: #fff;
+	font-family: verdana;
+	margin: 0.5em 0.5em 60px 25px;
+}
+
+h1>em {
+	font-style: italic;
+}
+
+* {
+	/* This eliminates tap- and tap-hold-related highlighting, selections and contextual menus. */
+	-webkit-user-select: none;
+	-webkit-touch-callout: none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-text-size-adjust: none;
+}
+
+#screenFrame {
+	color: #fff;
+	font-family: "cartogothic_pro_bookregular", GillSans, "Lucida Grande", Verdana, sans-serif;
+	position: relative;
+	width: 960px;
+	height: 100%;
+	max-height: 640px; /* 640px; */
+	overflow: hidden;
+}
+
+#gameWindow {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+#sceneScrutiny {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	-webkit-transition-property: opacity;
+	-webkit-transition-duration: .666s;	
+}
+
+.blind #sceneScrutiny {
+	opacity: 0;
+}
+
+.nexusState-active #sceneScrutiny {
+	opacity: 0;
+}
+
+#visorplate {
+	-webkit-perspective: 960px;
+}
+
+.visorbar {
+	position: absolute;
+	background-color: rgba(0,0,0,.12);
+	-webkit-transform-style: preserve-3d;
+	-webkit-transition-duration: 333ms;
+	-webkit-transition-timing-function: cubic-bezier(0.67,0,0,1);
+}
+
+#visortop {
+	top: -100px;
+	left: -150px;
+	right: -150px;
+	height: 100px;
+	-webkit-transform-origin: 50% 0%;
+	-webkit-transform: rotateX(-45deg) translateY(-60px) translateZ(120px);
+}
+
+.hudActive-up #visortop {
+	-webkit-transform: rotateX(0deg) translateY(80px);
+}
+
+#visorbottom {
+	bottom: -960px;
+	left: -150px;
+	right: -150px;
+	height: 120px;
+	border-top: 1px solid #444;
+	-webkit-transform-origin: 50% 50%;
+	-webkit-transform: rotateX(30deg) translateY(-20px);
+}
+
+.hudActive-down #visorbottom {
+	-webkit-transform: rotateX(0deg) translateY(-100px);
+}
+
+.visorbar h4 {
+	font-family: VT323;
+	-webkit-font-smoothing: none;
+	font-size: 18px;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+#visortop h4 {
+	margin-bottom: 20px;
+}
+
+#visorbottom h4 {
+	margin-top: 20px;
+}
+
+#sceneScrutiny.inactive #ssHUD-left {
+	bottom: 130px;
+}
+
+.locked-seeHUD #ssHUD-left {
+	left: -10px;
+}
+
+#ssHUD-right {
+	position: absolute;
+	top: 10px;
+	width: 5px;
+	bottom: 10px;
+	right: 10px;
+	z-index: 2;
+	border-top: 1px #333 solid;
+	border-right: 2px #333 solid;
+	border-bottom: 1px #333 solid;
+	-webkit-transition-duration: 300ms;
+	-webkit-transition-timing-function: ease-out;
+}
+
+#sceneScrutiny.inactive #ssHUD-right {
+	bottom: 130px;
+}
+
+.locked-seeHUD #ssHUD-right {
+	right: -10px;
+}
+
+#conversation {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	-webkit-transform: translateY(-960px);
+	z-index: 1;
+}
+
+#conversation.active,
+#conversation.transitioning {
+	-webkit-transform: translateY(0px);
+}
+
+#conversation > #convoScrim {
+	position: absolute;
+	width: 1056px;
+	height: 704px;
+	left: -48px;
+	top: -32px;
+	opacity: 0.01;
+	background-image: url(../images/BGD_vignette.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	-webkit-transition-duration: 500ms;
+	-webkit-transform: translate3d(0,0,-100px);
+}
+
+#conversation.active > #convoScrim {
+	opacity: 1;
+}
+
+#conversation.active.decisionMode > #convoScrim {
+	background-color: rgba(0,0,0,.5);
+}
+
+#conversation.active > #decisionScrim {
+	position: absolute;
+	width: 960px;
+	height: 640px;
+	left: 0;
+	top: 0;
+	opacity: 0;
+	-webkit-transition-duration: 500ms;
+	background-color: rgba(0,0,0,.25);
+	z-index: 2;
+}
+
+#conversation.active.decisionMode > #decisionScrim {
+	opacity: 1;
+}
+
+#conversation #dialogScrim {
+	position: absolute;
+	z-index: 3;
+	width: 920px;
+	height: 0px;
+	left: 20px;
+	bottom: 132px;
+	opacity: 0;
+	border-radius: 16px 16px 16px 16px;
+	-webkit-transform: translate3d(0,0,0);
+	-webkit-transition-duration: 150ms;
+	-webkit-transition-timing-function: ease-in-out;
+}
+
+#conversation.transitioning #dialogScrim {
+	opacity: 0.125;
+}
+
+#conversation.active #dialogScrim {
+	width: 920px;
+	height: 200px;
+	bottom: 32px;
+	opacity: 1;
+}
+
+
+#conversation.active.decisionMode #dialogScrim {
+	height: 380px;
+}
+
+#dialogScrim .charProfile.source {
+	position: absolute;
+	top: 0;
+	left: 0;
+	-webkit-tranform: translate3d (-112px,0,0);
+	z-index: 6;
+	width: 100px;
+	height: 100%;
+	background-color: rgba(2,2,2,.33);
+	border-right: 1px #808055 solid;
+	background-repeat: no-repeat;
+	opacity: 0.01;
+	-webkit-transition: 50ms ease-out;
+	border-radius: 6px 0 0 6px;
+}
+
+#dialog.speaking-declan #dialogScrim .charProfile.source {
+	-webkit-tranform: translate3d (0,0,0);
+	opacity: 1;
+}
+
+.locked-seePoliceStation #container {
+	opacity: 0;
+	-webkit-perspective: 640px;
+}
+
+#dialogScrim .charProfile.remote {
+	position: absolute;
+	top: 0;
+	right: -112px;
+	z-index: 6;
+	width: 100px;
+	height: 100%;
+	background-color: rgba(2,2,2,.33);
+	border-left: 1px solid #663;
+	background-repeat: no-repeat;
+	border-radius: 0 6px 6px 0;
+}
+
+#dialogScrim > #charRemotes {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border-radius: 8px 8px 8px 8px;
+	overflow: hidden;
+}
+
+#dialogScrim > #dialogChrome {
+	position: absolute;
+	z-index: 4;
+	top: -2px;
+	left: -2px;
+	right: -2px;
+	bottom: -2px;
+	border-radius: 8px 8px 8px 8px;
+	border: 2px #bfbf80 solid;
+	opacity: .75;
+}
+
+#dialogScrim .scrimFill {
+	position: absolute;
+	z-index: 5;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border-radius: 8px 8px 8px 8px;
+	background-color: #222;
+}
+
+#dialogScrim .scrimPointer {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	-webkit-transform: rotateZ(45deg);
+	z-index: 4;
+	top: 2px;
+	right: -400px;
+	border-radius: 5px;
+	background-color: #222;
+	border: 2px solid #cc9;
+	-webkit-transition-duration: 350ms;
+	-webkit-transition-timing-function: ease-out;
+	opacity: 0;
+	display: none;
+}
+
+
+#conversation > .charProfile {
+	position: absolute;
+	right: 0;
+	-webkit-transition-duration: 200ms;
+	-webkit-transition-timing-function: ease-in-out;
+	z-index: 2;
+	opacity: 0.01;
+}
+
+#conversation.active > .charProfile {
+	opacity: 1;
+}
+
+
+#dialog {
+	position: absolute;
+	width: 100%;
+	height: 232px;
+	bottom: 0;
+	z-index: 3;
+	-webkit-transition-duration: 150ms;
+	-webkit-transform: translateZ(1000px); /* <- Should allow dialog to be clickable no matter what else is going on onscreen. */
+}
+
+.decisionMode #dialog {
+	height: 618px;
+}
+
+
+#convoThread>li {
+	height: 166px;
+	position: relative;
+	display: none;
+	z-index: 10;
+	cursor: default;
+}
+
+#convoThread>li.active {
+	display: block;
+}
+
+#convoThread>li.reminder {
+	display: block;
+	padding-bottom: 18px;
+}
+
+#convoThread>li.branchChoose {
+	height: 464px;
+}
+
+#convoThread>li.branchPoint {
+}
+
+#convoThread>li.branchChoose>p {
+	display: none;
+}
+
+#convoThread>li.branchChoose>ul {
+	margin-left: 1em;
+}
+
+#convoThread>li.speaker-declan.branchChoose {
+	position: relative;
+}
+
+#convoThread > li p {
+	color: #fff;
+	/* font-family: "Ropa Sans", sans-serif; */
+	text-shadow: #ffc 0px -1px 11px, #000 0px 1px 3px;
+	font-size: 30px; /* 32px; */
+	line-height: 41px; /* 40px; */
+	margin-bottom: 1em;
+}
+
+#convoThread > li.thinking p {
+	font-style: italic;
+}
+
+#dialog .decision > ol > li.refIsRead {
+	display: none;
+}
+
+#dialog .decision > ol > li.return.refIsRead {
+	display: block;
+}
+
+#dialog .decision > ol {
+	opacity: 0;
+	-webkit-transition-duration: 200ms;
+}
+
+.decisionMode #dialog .decision > ol {
+	opacity: 1;
+}
+
+#dialog .decision > ol > li > ol { /* < - hides inline decision branches */
+	display: none;
+}
+
+#dialog .decision > ol > li p {
+	font-size: 19px;
+	color: #fff;
+	text-shadow: #ffc 0px -1px 11px, #000 0px 1px 3px;
+	line-height: 1.2em;
+	margin-bottom: .7em;
+	margin-left: 1em;
+	position: relative;
+	cursor: default;
+}
+
+#dialog .decision > ol > li p:before {
+	content: ">";
+	position: absolute;
+	left: -1em;
+}
+
+#convoRepo {
+	display: none;
+}
+
+#touchPlates {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	-webkit-transform: translateZ(1000px);
+	display: none;
+}
+
+.nexusState-active.serverState-expanded #touchPlates {
+	display: block;
+}
+
+.nexusState-active.puzzleActive #touchPlates {
+	display: none;
+}
+
+#browserPlate {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 120px;
+}
+
+.browserOpen #browserPlate {
+	width: 640px;
+}
+
+.browserdragging #browserPlate {
+	width: 640px;
+}
+
+#spindlePlate {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 840px;
+}
+
+.browserOpen #spindlePlate {
+	width: 320px;
+}
+
+.puzzleActive #browserPlate,
+.puzzleActive #spindlePlate,
+.puzzleActive #touchPlates {
+	display: none;
+}
+/*
+#puzzlePlate {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	display: none;
+}
+*/
+@media all and (min-device-width: 960px) {
+	#screenFrame {
+		margin: 0 auto 0 auto;
+		border: 1px solid #333;
+		position: relative;
+		top: 20%;
+	}
+}

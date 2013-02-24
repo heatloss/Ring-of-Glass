@@ -1,0 +1,46 @@
+$fangsproposal
+	Playthrough 1?
+		Victoria "(looks left) So who hired you to drop off that purse on the Manhattan Bridge?"
+		Fang "Listen. You're so hot for info on my mysterious client?"
+		Fang "Take this card and extract whatever you can from it. Give me the proceeds and in exchange I'll tell you whatever."
+		Declan (thinking) "Oh great. Vic's gonna hit the roof."
+		Declan "What do you think? Should we do it?"
+	Continue
+	Is $order or $reason unread?
+	Victoria "(looks angry) More illegal stuff? How in over our heads do you want to go, here?", "(looks angry) I'm not robbing a bank for you."
+		Decision:
+			$plead "Beg her"
+			$order "Order her"
+			$reason "Reason with her"
+			$stall "Exit"
+		Continue
+	Continue
+	Victoria "(looks miffed) Fine. Jeez."
+	Victoria "(looks left) Gimme the stupid card."
+	Unlock $atmcard
+	Mark $0001 completed
+	Archive this
+	Exit
+
+$plead
+	Declan "Aw please. Work with me, here."
+	Victoria "(looks shocked) Robbing a bank?"
+	Declan "Hacking an ATM isn't really the same th—"
+	Victoria "(looks miffed) No."
+	Archive this
+	
+$order
+	Declan "My mind's made up. We're doing it."
+	Victoria "(looks amused) ORLY?"
+	Declan "It's our only chance."
+	Victoria "(looks angry) What do you mean \"our\"? I'm the one doing all the work, and taking all the risks."
+	Declan "Either help me or don't. I'll find someone else if I have to."
+	Archive this
+	
+$reason
+	Declan "I'm already in jail for murder, Vic. I understand if you don't want to risk it, but... I do."
+	Archive this
+	
+$stall
+	Declan "I need to think about this."
+	Exit

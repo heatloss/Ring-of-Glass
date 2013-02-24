@@ -1,0 +1,157 @@
+#dialog .convoThread>li.speaker-victoria {
+	padding: 11px 25px 16px 25px;
+}
+
+#dialog .convoThread>li.speaker-jaeji {
+	padding: 11px 25px 16px 25px;
+}
+
+#dialog .convoThread>li.speaker-declan {
+/*
+	padding: 11px 25px 16px 120px;
+*/
+	padding: 11px 25px 16px 25px;
+}
+
+#dialog .convoThread>li.speaker-minicomp {
+	padding: 11px 25px 16px 25px;
+}
+
+#dialog .convoThread>li.speaker-frank {
+	padding: 11px 25px 16px 25px;
+}
+
+#dialog .convoThread>li.speaker-none {
+	padding: 11px 25px 16px 25px;
+}
+
+#dialog.active .convoThread>li.speaker-declan>p:before {
+	content: "Declan: ";
+}
+
+#dialog.active .convoThread>li.speaker-victoria>p:before {
+	content: "Victoria: ";
+}
+
+#dialog.active .convoThread>li.speaker-jaeji>p:before {
+	content: "Jae-Ji: ";
+}
+
+#dialog.active .convoThread>li.speaker-frank>p:before {
+	content: "Frank: ";
+}
+
+#dialog.active .convoThread>li.speaker-minicomp>p:before {
+	content: "";
+}
+
+#dialog.active .convoThread>li.speaker-declan>p:before,
+#dialog.active .convoThread>li.speaker-victoria>p:before,
+#dialog.active .convoThread>li.speaker-jaeji>p:before,
+#dialog.active .convoThread>li.speaker-frank>p:before,
+#dialog.active .convoThread>li.speaker-minicomp>p:before {
+	font-weight: bold;
+	color: #cc9;
+	font-style: normal;
+}
+
+#sceneScrutiny.inactive + #conversation #dialogScrim .scrimPointer {
+	opacity: 1;
+}
+
+#conversation #dialogScrim .scrimPointer.Victoria {
+	right: 70px;
+}
+
+#conversation.with-Victoria #dialogScrim .scrimPointer.Victoria {
+	top: -10px;
+}
+
+#conversation #dialogScrim .scrimPointer.JaeJi {
+	left: 70px;
+}
+
+#conversation.with-JaeJi #dialogScrim .scrimPointer.JaeJi {
+	top: -10px;
+}
+
+#dialog #dialogScrim .charProfile.source {
+/*
+	background-image: url(../images/declan-preview.png);
+*/
+	background-size: 200px auto;
+	background-position: -58px -30px;
+}
+
+.locked-seePoliceStation .participant-self #dialog #dialogScrim .charProfile.source {
+	background-image: url(../images/Declan_anime-dark.png);
+}
+
+#dialog.speaking-minicomp #dialogScrim .charProfile.source {
+	left: -112px;
+}
+
+#sceneScrutiny + #conversation > .charProfile.Declan {
+	width: 210px;
+	height: 600px;
+	left: -200px;
+	bottom: -230px;
+	background-image: url(../images/declan-portrait.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: right center;
+}
+
+#sceneScrutiny + #conversation > .charProfile.Victoria .charOverlay {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-image: url(../images/Vic-anime-blink1.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: right center;
+	display: none;
+}
+
+#sceneScrutiny.inactive + #conversation.participant-declanfrank > .charProfile.Declan {
+	left: 0;
+}
+
+#sceneScrutiny + #conversation > .charProfile.Victoria.toOther {
+	background-image: url(../images/Vic_anime.png);
+}
+
+#sceneScrutiny + #conversation > .charProfile.JaeJi.toOther {
+	background-image: url(../images/Jae-Ji-sprite-profile.png);
+}
+
+#sceneScrutiny + #conversation > .charProfile.Frank {
+	width: 260px;
+	height: 600px;
+	right: -260px;
+	bottom: -185px;
+	background-image: url(../images/Frank-anime.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: right center;
+}
+
+#sceneScrutiny.inactive + #conversation.participant-frank > .charProfile.Frank,
+#sceneScrutiny.inactive + #conversation.participant-declanfrank > .charProfile.Frank {
+	right: 0;
+}
+
+#sceneScrutiny + #conversation > .charProfile.Frank .charOverlay {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-image: url(../images/Frank-anime-blink1.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: right center;
+	display: none;
+}
