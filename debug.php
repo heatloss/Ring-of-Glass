@@ -32,7 +32,7 @@
 <?php include 'conversation2.php'; ?>
 	</div>
 </div>
-<script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
 <script src="js/convoImport.js" type="text/javascript"></script>
 <script src="js/global.js" type="text/javascript"></script>
 <script src="js/gamedata.js" type="text/javascript"></script>
@@ -45,10 +45,12 @@ $(document).ready(function(){
 	fireEvent("showjail");
 	fireEvent("missionphonecall");
 	fireEvent("offerhelpwithcomputer");
-// 	initNexus();
-// 	enablePinchRotate();
+	markAsRead("lookatdataroom");
+	markAsRead("lookatprinter");
+ 	initNexus();
+ 	enablePinchRotate();
 // 	restoreNexus();
-// 	bindConvoQ("browsertitle-manuals","whichmanual");
+ 	bindConvoQ("browsertitle-manuals","whichmanual");
 });
 </script> 
 </body>

@@ -203,6 +203,11 @@ gamedata.events = {
 			startConversation("afterpuzzle1solve");	
 		}, 500);
 	},
+	"missionManualHunt" : function () {
+		unLock("missionManualHunt");
+		setConvoQ("frank", "solveerror84");
+		updateGoal("Help the guard reboot the print server.");
+	},
 	"failpuzzle1" : function () {
 		hidePuzzle();
 		setConvoQ("frank", "failerror84");
@@ -225,7 +230,7 @@ gamedata.events = {
 	},
 	"planyourhack" : function () {
 		updateGoal("Revisit the gridphone; figure out a way to hack it.");
-		setConvoQ("frank", "whatsyourpassword");
+		setConvoQ("phone", "planyourhack");
 // 		$("#cube div.scenePanel.phone").attr("data-convoqueue","planyourhack");
 	},
 	"timetoobfuscate" : function () {

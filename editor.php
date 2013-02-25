@@ -38,6 +38,6 @@
 
 </div>
 </div>
-<script src="js/jquery-1.7.1.min.js" type="text/javascript"></script> <script src="js/editor.js" type="text/javascript"></script> 
+<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script> <script src="js/editor.js" type="text/javascript"></script> 
 </body>
 </html>

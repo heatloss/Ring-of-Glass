@@ -346,7 +346,7 @@
 		<li class="playthrough" data-reqplay="1"> 
 		<ol>
 			<li class="thinking" data-speaker="declan" data-pose="grim" data-unlock="missionManualHunt">Yeah, that&#8217;s about what I figured. I got my whole archive of computer manuals in here, but no way to know which one&#8217;s got the answers to this &#8220;ERROR -38&#8221; thing.</li>
-			<li class="thinking" data-speaker="declan" data-pose="pondering">I know the guard is running some sort of Fieldbus terminal, so that eliminates anything from the last decade or so. Cable port looked like an X.27, which means&#8230; nothing, really.</li>
+			<li class="thinking" data-speaker="declan" data-pose="pondering">The guard is running some sort of Fieldbus terminal, so that eliminates anything from the last decade or so. Cable port looked like an X.27, which means&#8230; nothing, really.</li>
 		</ol>
 		<ol class="otherwise">
 			<li class="thinking" data-speaker="declan">All right, let&#8217;s see what we&#8217;ve got.</li>
@@ -398,8 +398,17 @@
 			</li>
 		</ol>
 		<ol class="otherwise">
-			<li class="thinking" data-speaker="declan" data-pose="pondering">Based on everything I&#8217;ve seen, I&#8217;m looking for a thin-client system that&#8217;s more than ten years old, runs some flavor of XALGO, and supports print serving.</li>
-			<li class="thinking" data-speaker="declan" data-pose="smirk">RESUME HERE That&#8217;s a pretty small stack. I should be able to narrow it down from there.</li>
+			<li class="thinking" data-speaker="declan" data-pose="pondering">Thin-client system, more than ten years old, runs some flavor of XALGO, and supports print serving.</li>
+			<li data-speaker="declan" data-pose="squint">Minicomp, list printer reset commands for systems matching that description.</li>
+			<li data-speaker="minicomp">One match: &#8220;Error -84. Print queue not responding.&#8221;</li>
+			<li data-event="missionManualHunt" class="thinking" data-speaker="declan" data-pose="default">Well, that&#8217;s not too bad. Just gotta send a reboot command to the printer, then. Right, time to go talk to that guard.</li>
+			<li class="locked" data-reqlocked="deactivateNexus"> 
+			<ol>
+				<li data-unlock="deactivateNexus" data-speaker="declan" data-pose="default">Minicomp, disengage the Nexus.</li>
+				<li class="exit" data-speaker="minicomp" data-event="displayexitnexushelp">Command not understood. Loading Nexus helpscreen&#8230;</li>
+			</ol>
+			</li>
+
 <!-- 
 			<li class="decision" data-decision="whatisthenexus" data-pose="smirk"> 
 			<ol>
@@ -504,7 +513,7 @@
 		</li>
 	</ol>
 	<ol class="root phonetodatacenter" data-ident="phonetodatacenter">
-		<li class="thinking" data-speaker="declan" data-listener="noone" data-pose="squint">It would be really great if I could hack into that data center. I could spent the night wiping out my entire police dossier. Hell, why stop there?</li>
+		<li class="thinking" data-speaker="declan" data-listener="noone" data-pose="squint">It would be really great if I could hack into that data center. I could spend the night wiping out my entire police dossier. Hell, why stop there?</li>
 		<li class="thinking" data-speaker="declan" data-pose="wondering">All right, all right. Plenty of time for mad schemes later. The real question is, how do I do this?</li>
 		<li class="thinking" data-speaker="declan" data-pose="wondering">The gridphone&#8217;s only set up to make phone calls and provide basic directory functions. To get access to the data center, I&#8217;d have to&#8230;</li>
 		<li class="decision" data-decision="patchintodatacenter"> 
@@ -558,7 +567,7 @@
 		<li class="thinking" data-speaker="declan" data-listener="noone" data-pose="grim">I could use the phone interface to telnet into the data room, wipe out all my records. Then just wait it out in my cell until tomorrow morning, and then&#8230;</li>
 		<li class="thinking" data-speaker="declan" data-pose="wtf">Then what? They just let me go free? The cops obviously rely on pen and paper around here. I could clean out their whole database and they might not even notice!</li>
 		<li class="thinking" data-speaker="declan" data-pose="squint">Plus, I question my ability to hack through data-room security protocols on a 15-year-old phone with a numeric keypad.</li>
-		<li class="thinking" data-speaker="declan" data-pose="pondering">A job like that, you&#8217;d want a cluster of petaFLOP rigs, packed to the brim with de-cryptkits. Even then&#8230;</li>
+		<li class="thinking" data-speaker="declan" data-pose="pondering">A job like that, you&#8217;d want a cluster of petaFLOP rigs, packed to the brim with cryptkits. Even then&#8230;</li>
 		<li class="thinking" data-speaker="declan" data-pose="grim">No. Unworkable.</li>
 	</ol>
 	<ol class="root phonetodatacenter-barricade" data-ident="phonetodatacenter-barricade">

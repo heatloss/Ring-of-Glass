@@ -224,7 +224,7 @@
 </div>
 
 <?php /* 
-<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script> <script type="text/javascript">
+<script src="../js/jquery-1.9.1.min.js" type="text/javascript"></script> <script type="text/javascript">
 	$('#choiceGrid tr > td input:checkbox').attr("data-suppress", 0);
 	$("#choiceGrid").on("change","tr>td>input:checkbox",function(){
 		var chkBox = $(this);

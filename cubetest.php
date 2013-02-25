@@ -68,7 +68,7 @@
 <script src="js/zepto.min.js" type="text/javascript"></script>
 <script src="js/zeptofix.js" type="text/javascript"></script>
  -->
-<script src="js/jquery-1.7.1.min.js" type="text/javascript"></script> 
+<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script> 
 <!-- 
 <script src="js/3d.js" type="text/javascript"></script>
  -->
