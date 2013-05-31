@@ -24,42 +24,35 @@
 		Computer Manuals 
 	</h3>
 	<ol>
-		<li>A</li>
-		<li>GAJILLION</li>
-		<li>COMPUTER</li>
-		<li>MANUALS</li>
-		<li>ARE</li>
-		<li>IN</li>
-		<li>HERE</li>
+		<li>Library Subserver</li>
+		<li>Total documents in memory: 5883</li>
+		<li>_</li>
+		<li>Select a document to decompress</li>
 	</ol>
 	</li>
 	<li class="welcome active" data-browser="welcome"> 
 	<h3>
-		Welcome to the Nexus 
+		Welcome to Nexus 
 	</h3>
 	<h4>
 		NAME 
 	</h4>
 	<p>
-		scons - a software construction tool 
+		ALTrIS - Active-Layer Traversal of Interlinked Subnetworks
 	</p>
+<!-- 
 	<h4>
-		SYNOPSIS 
+		SETTINGS 
 	</h4>
 	<p>
-		scons [ options... ] [ name=val... ] [ targets... ] 
+		select [ options... ] [ name=val... ] [ targets... ] 
 	</p>
+ -->
 	<h4>
 		DESCRIPTION 
 	</h4>
 	<p>
-		The scons utility builds software (or other files) by determining which component pieces must be rebuilt and executing the necessary commands to rebuild them. 
-	</p>
-	<p>
-		By default, scons searches for a file named SConstruct, Sconstruct, or sconstruct (in that order) in the current directory and reads its configuration from the first file found. An alternate file name may be specified via the -f option. 
-	</p>
-	<p>
-		The SConstruct file can specify subsidiary configuration files using the SConscript() function. By convention, these subsidiary files are named SConscript, although any name may be used. (Because of this naming convention, the term "SConscript files" is sometimes used to refer generically to all scons configuration files, regardless of actual file name.) The configuration files specify the target files to be built, and (optionally) the rules to build those targets. Reasonable default rules exist for building common software components (executable programs, object files, libraries), so that for most software projects, only the target and input files need be specified. Before reading the SConstruct file, scons looks for a directory named site_scons in various system directories (see below) and the directory containing the SConstruct file; for each of those dirs which exists, site_scons is prepended to sys.path, the file site_scons/site_init.py, is evaluated if it exists, and the directory site_scons/site_tools is prepended to the default toolpath if it exists. See the --no-site-dir and --site-dir options for more details. scons reads and executes the SConscript files as Python scripts, so you may use normal Python scripting capabilities (such as flow control, data manipulation, and imported Python libraries) to handle complicated build situations. scons, however, reads and executes all of the SConscript files before it begins building any targets. To make this obvious, scons prints the following messages about what it is doing: 
+		The ALTrIS software generates a nexus of known sub-networks, and displays it on the user's NAVI. Each node is directly addressable in virtual space using an Active Layer Matrix system, although due to attenuation limits only five subservers can be connected at any given time.
 	</p>
 	</li>
 	<li class="hyperlinks" data-browser="hyperlinks"> 
@@ -71,7 +64,7 @@
 	</h4>
 	<ol>
 		<li>Home network</li>
-		<li>Hack.Ops // BBS</li>
+		<li>Hack.Ops /// BBS</li>
 		<li>Some other link</li>
 	</ol>
 	<h4>

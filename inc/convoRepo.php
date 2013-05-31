@@ -48,7 +48,7 @@
 		<li data-event="showjail" data-speaker="minicomp">&#187; WETWARE PROCESSES STOPPED</li>
 		<li class="thinking" data-speaker="declan" data-pose="surprised">&#8230;</li>
 		<li class="thinking" data-speaker="declan" data-pose="unsure">Right. Jail.</li>
-		<li class="thinking" data-speaker="declan" data-pose="analyzing">Why would I even be in custody, though? Has to be some sort of local crack-down. I mean&#8212;even the worst jobs I&#8217;ve ever done wouldn&#8217;t warrant that level of SWAT response.</li>
+		<li class="thinking" data-speaker="declan" data-pose="analyzing">Why would I even be in custody, though? Has to be some sort of local dragnet. Even the craziest jobs I&#8217;ve done wouldn&#8217;t warrant that level of SWAT response.</li>
 		<li class="exit thinking" data-speaker="declan" data-pose="default">Better have a look around, I guess.</li>
 	</ol>
 	<ol class="root donttalktoguard" data-ident="donttalktoguard">
@@ -284,7 +284,7 @@
 		<ol>
 			<li data-reqread="lookatdataroom" data-reqtype="or"> 
 			<ol>
-				<li class="thinking" data-speaker="declan" data-pose="analyzing">All right, I think that gives me enough to go on. Let&#8217;s go take another look at those manuals.</li>
+				<li class="thinking" data-speaker="declan" data-pose="analyzing">All right, I think that gives me enough to go on. Let&#8217;s pull up the Nexus, take another look at those manuals.</li>
 			</ol>
 			<ol class="otherwise">
 				<li class="thinking" data-speaker="declan" data-pose="confirming">So let&#8217;s see&#8230; No direct cable connection to the terminal, which means it&#8217;s a shared printer. There&#8217;s probably a data center around here.</li>
@@ -399,7 +399,7 @@
 		</ol>
 		<ol class="otherwise">
 			<li class="thinking" data-speaker="declan" data-pose="pondering">Thin-client system, more than ten years old, runs some flavor of XALGO, and supports print serving.</li>
-			<li data-speaker="declan" data-pose="squint">Minicomp, list printer reset commands for systems matching that description.</li>
+			<li data-speaker="declan" data-pose="squint">Minicomp, search printer reset commands for systems matching the three criteria I just listed.</li>
 			<li data-speaker="minicomp">One match: &#8220;Error -84. Print queue not responding.&#8221;</li>
 			<li data-event="missionManualHunt" class="thinking" data-speaker="declan" data-pose="default">Well, that&#8217;s not too bad. Just gotta send a reboot command to the printer, then. Right, time to go talk to that guard.</li>
 			<li class="locked" data-reqlocked="deactivateNexus"> 
@@ -459,7 +459,7 @@
 		<li data-speaker="declan" data-pose="default">The reboot shouldn&#8217;t take more than a few minutes. Let me know when the gibberish stops scrolling.</li>
 		<li data-speaker="frank">Fine.</li>
 		<li data-speaker="declan" class="thinking" data-pose="analyzing" data-listener="noone">All right, this is it. I&#8217;ve only got one shot at hacking that gridphone. One shot&#8230;</li>
-		<li data-speaker="declan" class="thinking" data-pose="unsure">&#8230;That&#8217;s assuming I can conjure up some sort of connection to the grids even with a hacked phone.</li>
+		<li data-speaker="declan" class="thinking" data-pose="unsure">&#8230;That&#8217;s assuming I can conjure up some sort of connection to the grids using nothing but a hacked phone.</li>
 		<li data-speaker="declan" class="thinking" data-pose="pondering" data-event="planyourhack">Let&#8217;s go look at that phone again. I need a solid plan for this.</li>
 	</ol>
 	<ol class="root failerror84" data-ident="failerror84">
