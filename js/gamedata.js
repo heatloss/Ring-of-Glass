@@ -70,7 +70,7 @@ gamedata.readtally = {
 gamedata.nexus = {
 	state: {
 		active: false,
-		last: "galaxy",
+		last: "browser",
 		selectedring: "wetware",
 		activeserverindex: 3,
 		ringdata: { servers: [] },

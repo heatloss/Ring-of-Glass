@@ -111,32 +111,32 @@ html, body, p {
 }
 
 #cube .rotator:nth-child(1) .face {
-	background-image: url(../images/cell0000.jpg);
+	background-image: url(../images/cube0000.jpg);
 }
 
 #cube .rotator:nth-child(2) .face {
-	background-image: url(../images/cell0003.jpg);
+	background-image: url(../images/cube0003.jpg);
 	-webkit-transform: scaleX(-1);
 }
 
 #cube .rotator:nth-child(3) .face {
-	background-image: url(../images/cell0002.jpg);
+	background-image: url(../images/cube0002.jpg);
 }
 
 #cube .rotator:nth-child(4) .face {
-	background-image: url(../images/cell0001.jpg);
+	background-image: url(../images/cube0001.jpg);
 	-webkit-transform: scaleX(-1);
 }
 
-#bottom .face {
-	background-image: url(../images/cubefloor.jpg);
+#top .face {
+	background-image: url(../images/cube0004.jpg);
 	background-position: center center;
 	-webkit-background-size: cover;
 	-webkit-transform: scaleY(-1);
 }
 
-#top .face {
-	background-image: url(../images/cubeceiling.jpg);
+#bottom .face {
+	background-image: url(../images/cube0005.jpg);
 	background-position: center center;
 	-webkit-background-size: cover;
 	-webkit-transform: scaleY(-1);
