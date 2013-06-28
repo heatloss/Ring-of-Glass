@@ -71,10 +71,10 @@ gamedata.nexus = {
 	state: {
 		active: false,
 		last: "galaxy",
+		lastpath: {node: "wetware", subserver: "welcome", page: 1},
 		selectedring: "wetware",
 		activeserverindex: 3,
-		ringdata: { servers: [] },
-		browserpp: 1 // <- Not sure if we'll use this one.
+		ringdata: { servers: [] }
 	},
 	help: {
 		active: false,
