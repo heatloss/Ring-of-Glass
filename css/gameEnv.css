@@ -7,6 +7,9 @@ html {
 body {
 	background-color: #000;
 	height: 100%;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-box-pack: center;
 }
 
 h1 {
@@ -507,6 +510,5 @@ h1>em {
 		margin: 0 auto 0 auto;
 		border: 1px solid #333;
 		position: relative;
-		top: 20%;
 	}
 }

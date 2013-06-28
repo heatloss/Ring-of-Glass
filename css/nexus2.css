@@ -428,6 +428,7 @@
 	-webkit-transition-timing-function: cubic-bezier(0.25,0,0,1);
 	-webkit-transform-style: preserve-3d;
 	display: none;
+	border-radius: 50%; /* <- this does nothing at present */
 }
 
 .zoomLevel-1 #nexusmap .nexusring .servers > li {

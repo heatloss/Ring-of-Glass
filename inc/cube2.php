@@ -30,8 +30,10 @@
 				<div class="face">
 					<div class="scenePanel phone" data-name="phone">
 					</div>
+<!-- 
 					<div class="todoPanel" data-name="getpassword">
 					</div>
+ -->
 				</div>
 			</div>
 			<div class="rotator">
