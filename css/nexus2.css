@@ -561,21 +561,21 @@
 	font-size: 30px;
 	line-height: 1.5em;
 	/*	text-shadow: #fff 0px -1px 11px; */
-	opacity: 0;
-	-webkit-transform: translateX(50px);
+	opacity: .5;
 	-webkit-transition-property: -webkit-transform, opacity;
 	-webkit-transition-duration: .222s, .333s;
 	-webkit-transition-timing-function: cubic-bezier(0.25,0,0,1);
 	margin: 0 40px 0 40px;
 }
 
+/* 
 #nexusmap .nexusring .nexusbrowser.active > .browsercontent {
 	-webkit-transform: translateX(0px);
 	opacity: .5;
 }
+ */
 
-.browserOpen #nexusmap .nexusring .nexusbrowser.active > .browsercontent {
-	/*	text-shadow: none; */
+.browserOpen #nexusmap .nexusring .nexusbrowser > .browsercontent {
 	opacity: 1;
 }
 

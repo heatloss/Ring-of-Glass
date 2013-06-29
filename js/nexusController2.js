@@ -20,8 +20,9 @@ function initNexus() {
   nexus.spindle.y = 0;
   nexus.spindle.z = 0;
 
-  gamedata.nexus.state.activeservertitle = getBrowserTitle();
-  gamedata.nexus.state.ringdata = gamedata.nexus.rings[gamedata.nexus.state.selectedring]; // This is a convenience cache of the selected ring's data.
+  gamedata.nexus.state.ringdata = gamedata.nexus.rings[gamedata.nexus.state.activepath.node]; // This is a convenience cache of the selected ring's data.
+  gamedata.nexus.state.browserpage = getSubserverTitle();
+
   nexus.startSpindleFunc = function(e) {
     if (window.DeviceMotionEvent) {
       if (e.targetTouches.length !== 1) {
@@ -34,9 +35,7 @@ function initNexus() {
     nexus.spindleplate.addEventListener(enviro.moveEvent, nexus.moveSpindleFunc, false);
     nexus.spindleplate.addEventListener(enviro.endEvent, nexus.endSpindleFunc, false);
     nexus.spindleplate.tapped = true;
-    // 		if (!(gamedata.nexus.state.last === "browser")) {
-    // 			removeClass(nexus.browser, "active");
-    // 		}
+		unbindBrowserDrag();
   };
 
   nexus.moveSpindleFunc = function(e) {
@@ -133,12 +132,20 @@ function enterNexus() {
     return false;
   } // <- The invoking listener should really be suppressed when conversation is active...
   triggerEvent("nexusinvoked");
-  rRad = "-1.5708rad"; // 90deg
   deTilt();
+	enterNexusTransition();
+}
+
+function exitNexus() {
+  triggerEvent("nexusdismissed");
+  singleUseListener("nexusexited", reTilt);
+	exitNexusTransition();
+}
+
+function enterNexusTransition() {
   $("#sceneScrutiny").removeClass("active").addClass("inactive"); // <- We need a global modeSwitch function...
   dragplate.style.webkitTransitionDuration = ".666s";
-  dragplate.style.webkitTransform = "scale(.125)"; // rotateX(" + rRad + ") translateY(-240px) translateZ(-240px)"; 
-  // enviro.shifter.style.top = "-320px";
+  dragplate.style.webkitTransform = "scale(.125)"; 
   setTimeout(function() {
     addClass(enviro.screen, "nexusState-active");
     addClass(enviro.screen, "transitioning");
@@ -151,29 +158,34 @@ function enterNexus() {
   }, 1333);
 }
 
-function exitNexus() {
-  triggerEvent("nexusdismissed");
-  //	$("#contextShifter").off("click", "#nexusmap .nexusring", enterRing);
+function exitNexusTransition() {
   addClass(enviro.screen, "transitioning");
-  //	setTimeout(function () { 
-  //		dragplate.style.webkitTransitionDuration = ".666s";
-  //		dragplate.style.webkitTransform = "scale(1.333)"; 
-  //	}, 222);
   setTimeout(function() {
     removeClass(enviro.screen, "transitioning");
     removeClass(enviro.screen, "nexusState-active");
     $("#sceneScrutiny").addClass("active").removeClass("inactive");
   }, 444);
   setTimeout(function() {
-    reTilt();
     triggerEvent("nexusexited");
   }, 555);
 }
 
 function enterRing() {
-  triggerEvent("ringinvoked");
   gamedata.nexus.state.last = "ring";
   nexus.node.removeEventListener("click", enterRing);
+	singleUseListener("ringentered", bindNexusDrag);
+	enterRingTransition();
+}
+
+function exitRing() {
+  gamedata.nexus.state.last = "galaxy";
+  unbindNexusDrag();
+  unbindBrowserDrag();
+	exitRingTransition();
+}
+
+function enterRingTransition() {
+  triggerEvent("ringinvoked");
   addClass(enviro.screen, "zoomLevel-1");
   addClass(enviro.screen, "zooming");
   setTimeout(function() {
@@ -188,23 +200,12 @@ function enterRing() {
     removeClass(enviro.screen, "zooming");
   }, 333);
   setTimeout(function() {
-    bindNexusDrag();
-    addClass(nexus.browser, "active");
-    bindBrowserDrag();
     triggerEvent("ringentered");
   }, 999);
 }
 
-function exitRing() {
-  triggerEvent("ringexited");
-  if (gamedata.nexus.state.last === "browser") {
-    exitBrowser();
-  }
-  gamedata.nexus.state.last = "galaxy";
-  unbindNexusDrag();
-  removeClass(nexus.browser, "active");
-  unbindBrowserDrag();
-  $("#contextShifter").off("click", ".nexusring .ringtitle", exitRing);
+function exitRingTransition() {
+  triggerEvent("ringdismissed");
   nexus.map.style.webkitTransitionDuration = ".333s";
   removeClass(enviro.screen, "serverState-expanded");
   nexus.spindle.style.webkitTransitionDuration = ".666s, .666s";
@@ -219,32 +220,39 @@ function exitRing() {
   }, 222);
   setTimeout(function() {
     nexus.spindle.style.webkitTransitionDuration = "";
+		triggerEvent("ringexited");
   }, 666);
-
 }
 
 function enterBrowser() {
-  triggerEvent("browserinvoked");
-  addClass(enviro.screen, "browserOpen");
   gamedata.nexus.state.last = "browser";
   unbindNexusDrag();
-  setTimeout(function() {
-    gamedata.nexus.state.last = "browser";
-    gamedata.nexus.state.browserpage = getBrowserTitle();
-    triggerEvent("browserentered");
-    triggerEvent("browsertitle-" + gamedata.nexus.state.browserpage);
- 		nexus.browser.style.webkitTransitionDuration = "";
- }, 666);
+	gamedata.nexus.state.browserpage = getSubserverTitle();
+  enterBrowserTransition();
 }
 
 function exitBrowser() {
+  gamedata.nexus.state.last = "ring";
+  singleUseListener("browserexited", bindNexusDrag);
+  exitBrowserTransition();
+}
+
+function enterBrowserTransition() {
+  triggerEvent("browserinvoked");
+  addClass(enviro.screen, "browserOpen");
+  setTimeout(function() {
+    triggerEvent("browserentered");
+    triggerEvent("subservertitle-" + gamedata.nexus.state.browserpage);
+    nexus.browser.style.webkitTransitionDuration = "";
+  }, 666);
+}
+
+function exitBrowserTransition() {
   triggerEvent("browserdismissed");
   removeClass(enviro.screen, "browserOpen");
-  gamedata.nexus.state.last = "ring";
-  bindNexusDrag();
   setTimeout(function() {
     triggerEvent("browserexited");
-		nexus.browser.style.webkitTransitionDuration = "";
+    nexus.browser.style.webkitTransitionDuration = "";
   }, 666);
 }
 
@@ -265,7 +273,7 @@ function hideHelp() {
   gamedata.nexus.help.active = false;
   triggerEvent("hidehelp");
 }
-
+/*
 function showPuzzle(name) {
   puzzle.style.top = "0px";
   addClass(enviro.screen, "puzzleActive");
@@ -290,7 +298,7 @@ function hidePuzzle() {
     scrollColumn.style.webkitTransform = "translateY(0px)";
   }, 500);
 }
-
+*/
 function highlightServer() {
   nearestServerIndex = getClosestIndex(-1 * nexus.spindle.z, nexus.serverSpans);
   var i = 0,
@@ -305,14 +313,15 @@ function highlightServer() {
 
 function snapServer() {
   nearestServerIndex = getClosestIndex(-1 * nexus.spindle.z, nexus.serverSpans);
-  if (nearestServerIndex !== gamedata.nexus.state.activeserverindex) {
-    gamedata.nexus.state.activeserverindex = nearestServerIndex;
-    gamedata.nexus.state.browserpage = getBrowserTitle();
+  if (nearestServerIndex !== gamedata.nexus.state.activepath.subserver) {
+    gamedata.nexus.state.activepath.subserver = nearestServerIndex;
+    gamedata.nexus.state.browserpage = getSubserverTitle();
     if (gamedata.nexus.state.last === "browser") {
-      triggerEvent("browsertitle-" + gamedata.nexus.state.browserpage);
+      triggerEvent("subservertitle-" + gamedata.nexus.state.browserpage);
     }
   }
   nexus.spindle.z = -1 * nexus.serverSpans[nearestServerIndex];
+  bindBrowserDrag();
   adjustSpindle();
 }
 
@@ -320,24 +329,22 @@ function adjustSpindle() {
   nexus.spindle.style.webkitTransform = "translateZ(" + nexus.spindle.z + "px)";
 }
 
-function getBrowserTitle(index) {
-  var browserindex = index || gamedata.nexus.state.activeserverindex; // Allows an optional index parameter to be passed.
-  var activeServerTitle = gamedata.nexus.state.ringdata.servers[browserindex];
+function getSubserverTitle(index) {
+  var browserindex = index || gamedata.nexus.state.activepath.subserver; // Allows an optional index parameter to be passed.
+  var activeServerTitle = gamedata.nexus.state.ringdata.subservers[browserindex];
   return activeServerTitle;
 }
 
 function makeBlind() {
-	addClass(enviro.screen,"blind");
+  addClass(enviro.screen, "blind");
 }
 
 function makeUnblind() {
-	removeClass(enviro.screen,"blind");
+  removeClass(enviro.screen, "blind");
 }
 
-function activateHUD() {
-}
+function activateHUD() {}
 
 function updateGoal(newmission) {
-//	visorGoal.innerHTML = newmission;
+  //	visorGoal.innerHTML = newmission;
 }
-

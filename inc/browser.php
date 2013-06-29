@@ -25,7 +25,7 @@
 	</h3>
 	<ol>
 		<li>Library Subserver</li>
-		<li>Total documents in memory: 5883</li>
+		<li>Total documents in archive: 583</li>
 		<li>_</li>
 		<li>Select a document to decompress</li>
 	</ol>

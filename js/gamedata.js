@@ -71,9 +71,7 @@ gamedata.nexus = {
 	state: {
 		active: false,
 		last: "browser",
-		lastpath: {node: "wetware", subserver: "welcome", page: 1},
-		selectedring: "wetware",
-		activeserverindex: 3,
+		activepath: {node: "wetware", subserver: 3, page: 1},
 		ringdata: { servers: [] }
 	},
 	help: {
@@ -81,7 +79,7 @@ gamedata.nexus = {
 	},
 	rings: {
 		wetware: {
-			servers: ["misc", "tools", "manuals", "welcome", "hyperlinks", "photos", "music"]
+			subservers: ["misc", "tools", "manuals", "welcome", "hyperlinks", "photos", "music"]
 		}
 	}
 };
