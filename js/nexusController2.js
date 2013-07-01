@@ -20,6 +20,12 @@ function initNexus() {
   nexus.spindle.y = 0;
   nexus.spindle.z = 0;
 
+  nexus.browser.snaps = [0, -524];
+  nexus.browser.drag = gamedata.nexus.state.last === "browser" ? nexus.browser.snaps[1] : nexus.browser.snaps[0]; // <- TODO: store this in gamedata
+  nexus.browser.x = 0;
+  nexus.browser.y = 0;
+  nexus.browser.z = 0;
+
   gamedata.nexus.state.ringdata = gamedata.nexus.rings[gamedata.nexus.state.activepath.node]; // This is a convenience cache of the selected ring's data.
   gamedata.nexus.state.browserpage = getSubserverTitle();
 
@@ -173,6 +179,7 @@ function exitNexusTransition() {
 function enterRing() {
   gamedata.nexus.state.last = "ring";
   nexus.node.removeEventListener("click", enterRing);
+  bindBrowserDrag();
 	singleUseListener("ringentered", bindNexusDrag);
 	enterRingTransition();
 }
@@ -243,6 +250,7 @@ function enterBrowserTransition() {
   setTimeout(function() {
     triggerEvent("browserentered");
     triggerEvent("subservertitle-" + gamedata.nexus.state.browserpage);
+    nexus.browser.drag = nexus.browser.snaps[1];
     nexus.browser.style.webkitTransitionDuration = "";
   }, 666);
 }
@@ -252,6 +260,7 @@ function exitBrowserTransition() {
   removeClass(enviro.screen, "browserOpen");
   setTimeout(function() {
     triggerEvent("browserexited");
+    nexus.browser.drag = nexus.browser.snaps[0];
     nexus.browser.style.webkitTransitionDuration = "";
   }, 666);
 }

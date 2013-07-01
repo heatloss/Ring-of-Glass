@@ -71,8 +71,8 @@ gamedata.nexus = {
 	state: {
 		active: false,
 		last: "browser",
-		activepath: {node: "wetware", subserver: 3, page: 1},
-		ringdata: { servers: [] }
+		activepath: {node: "wetware", subserver: 3, browser: 1},
+		ringdata: { subservers: [] }
 	},
 	help: {
 		active: false,

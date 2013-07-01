@@ -68,8 +68,6 @@ function updateGoal(goaltext) {
 }
 	
 function decisionMode(decisionNode) {
-//	unbindDialogHandling(); // <- No longer needed if the handler unbinds itself on each use.
-
 	var newPose = convo.dialog.pendingleaf.decision.pose || "default"; // Prepping a pose variable to serve various swap/fade scenarios.
 	if (convo.participants.avatars[0].character !== "declan") { // If the previous speaker wasn't Declan, add his avatar now.
 		convo.participants.avatars[0] = {"character":"declan","pose":newPose,"transition":"swap"};

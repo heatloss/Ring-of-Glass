@@ -11,6 +11,8 @@ function initEnviro() {
 		"shifter" : document.getElementById("contextShifter"),
 		"todo" : document.getElementById("todo"),
 		"todotilter" : document.querySelector("#todo .tilter"),
+    "tray" : document.getElementById("visortop"),
+    "traygoal" : document.querySelector("#visortop .goal"),
 		"touch" : false,
 		"radius" : 480,
 		"rotation" : 0,
@@ -177,7 +179,7 @@ function doTilt () {
 	var tiltSum = enviro.dragplate.tilt + enviro.dragplate.gyrotilt;
 	enviro.dragplate.style.webkitTransform = "scale(" + enviro.dragplate.scale + ") rotateX("+ tiltSum + "rad) translateY(" + Math.sin(tiltSum)*enviro.radius + "px) translateZ(" + (Math.cos(tiltSum)*enviro.radius - enviro.radius) + "px)";	
 // 	enviro.todotilter.style.webkitTransform = "rotateX("+ 0.5*tiltSum + "rad) translateY(" + Math.sin(tiltSum)*enviro.radius*0 + "px)";	
-//	if (tiltSum > deg15) { showHUD("up"); } else if (tiltSum < deg10) { hideHUD("up"); }
+	if (tiltSum > deg15) { showTray(); } else if (tiltSum < deg10) { hideTray(); }
 //	if (tiltSum < -1*deg15) { showHUD("down"); } else if (tiltSum > -1*deg10) { hideHUD("down"); }
 }
 
@@ -246,4 +248,11 @@ function reTilt() {
 	}, 333);
 }
 
+function showTray() {
+	addClass(enviro.tray,"active");
+}
+
+function hideTray() {
+	removeClass(enviro.tray,"active");
+}
 

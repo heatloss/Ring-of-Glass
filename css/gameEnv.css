@@ -72,7 +72,7 @@ h1>em {
 
 .visorbar {
 	position: absolute;
-	background-color: rgba(0,0,0,.12);
+/* 	background-color: rgba(0,0,0,.12); */
 	-webkit-transform-style: preserve-3d;
 	-webkit-transition-duration: 333ms;
 	-webkit-transition-timing-function: cubic-bezier(0.67,0,0,1);
@@ -82,15 +82,16 @@ h1>em {
 	top: -100px;
 	left: -150px;
 	right: -150px;
-	height: 100px;
+	height: 80px;
 	-webkit-transform-origin: 50% 0%;
-	-webkit-transform: rotateX(-45deg) translateY(-60px) translateZ(120px);
+	-webkit-transform: rotateX(-75deg) translateY(100px) translateZ(0px);
 }
 
-.hudActive-up #visortop {
-	-webkit-transform: rotateX(0deg) translateY(80px);
+#visortop.active {
+	-webkit-transform: rotateX(-30deg) translateY(110px);
 }
 
+/* 
 #visorbottom {
 	bottom: -960px;
 	left: -150px;
@@ -104,21 +105,17 @@ h1>em {
 .hudActive-down #visorbottom {
 	-webkit-transform: rotateX(0deg) translateY(-100px);
 }
+ */
 
 .visorbar h4 {
 	font-family: VT323;
 	-webkit-font-smoothing: none;
-	font-size: 18px;
+	font-weight: bold;
+	font-size: 22px;
 	text-transform: uppercase;
 	text-align: center;
-}
-
-#visortop h4 {
-	margin-bottom: 20px;
-}
-
-#visorbottom h4 {
-	margin-top: 20px;
+	margin: 20px;
+	text-shadow: 0px -4px 2px rgba(255,255,255,0.25), 0px -8px 4px rgba(255,255,255,0.25), 0px -16px 8px rgba(255,255,255,0.25);
 }
 
 #sceneScrutiny.inactive #ssHUD-left {

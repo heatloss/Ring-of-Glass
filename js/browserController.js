@@ -1,11 +1,4 @@
 function bindBrowserDrag() {
-  var initial = 0;
-  var range = 524;
-  nexus.browser.snaps = [initial, initial - range];
-  nexus.browser.drag = hasClass(enviro.screen, "browserOpen") ? nexus.browser.snaps[1] : nexus.browser.snaps[0]; // <- TODO: store this in gamedata
-  nexus.browser.x = 0;
-  nexus.browser.y = 0;
-  nexus.browser.z = 0;
   nexus.browserplate.addEventListener(enviro.startEvent, nexus.startBrowserFunc, false);
   nexus.browserplate.addEventListener(enviro.tapEvent, toggleBrowser, false);
 }
@@ -85,7 +78,6 @@ function snapBrowser() {
     if (perc < 0.8) {
       nexus.browser.style.webkitTransitionDuration = "0.333s";
       exitBrowser();
-      nexus.browser.drag = nexus.browser.snaps[0];
     } else {
       nexus.browser.style.webkitTransitionDuration = "0.1s";
       nexus.browser.drag = nexus.browser.snaps[1];
@@ -94,7 +86,6 @@ function snapBrowser() {
     if (perc > 0.225) {
       nexus.browser.style.webkitTransitionDuration = "0.333s";
       enterBrowser();
-      nexus.browser.drag = nexus.browser.snaps[1];
     } else {
       nexus.browser.style.webkitTransitionDuration = "0.1s";
       nexus.browser.drag = nexus.browser.snaps[0];
@@ -118,9 +109,7 @@ function toggleBrowser() {
   nexus.browser.style.webkitTransitionDuration = "";
   if (gamedata.nexus.state.last === "browser") {
     exitBrowser();
-    nexus.browser.drag = nexus.browser.snaps[0];
   } else {
     enterBrowser();
-    nexus.browser.drag = nexus.browser.snaps[1];
   }
 }
