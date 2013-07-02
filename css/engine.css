@@ -134,6 +134,7 @@
 
 #convoThread>li.speaker-minicomp>p:before {
 	content: "> ";
+	-webkit-font-smoothing: antialiased;
 }
 
 #convoThread>li.speaker-declan>p:before,
@@ -162,9 +163,9 @@
 }
 
 #convoThread > li.speaker-minicomp > p {
-	font-family: VT323;
+	font-family: mcmurdobold;
 	-webkit-font-smoothing: none;
-	font-size: 36px;
+	font-size: 21px;
 	text-transform: uppercase;
 }
 

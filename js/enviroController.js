@@ -10,9 +10,8 @@ function initEnviro() {
 		"help" : document.getElementById("helpScreen"),
 		"shifter" : document.getElementById("contextShifter"),
 		"todo" : document.getElementById("todo"),
-		"todotilter" : document.querySelector("#todo .tilter"),
-    "tray" : document.getElementById("visortop"),
-    "traygoal" : document.querySelector("#visortop .goal"),
+		"todoplate" : document.getElementById("todoPlate"),
+		"todotext" : document.querySelector("#todoPlate .todoReadout .todo"),
 		"touch" : false,
 		"radius" : 480,
 		"rotation" : 0,
@@ -171,28 +170,19 @@ function harmonizeAccelEvents (eventData) {
 }
 
 function doTilt () {
-	var deg10 = 0.174532925;
-	var deg15 = 0.261799388;
-	var deg30 = 0.523598776;
-	var deg45 = 0.785398163;
-	var deg60 = 1.04719755;
+// 	var deg10 = 0.174532925;
+// 	var deg15 = 0.261799388;
+// 	var deg30 = 0.523598776;
+// 	var deg45 = 0.785398163;
+// 	var deg60 = 1.04719755;
 	var tiltSum = enviro.dragplate.tilt + enviro.dragplate.gyrotilt;
 	enviro.dragplate.style.webkitTransform = "scale(" + enviro.dragplate.scale + ") rotateX("+ tiltSum + "rad) translateY(" + Math.sin(tiltSum)*enviro.radius + "px) translateZ(" + (Math.cos(tiltSum)*enviro.radius - enviro.radius) + "px)";	
-// 	enviro.todotilter.style.webkitTransform = "rotateX("+ 0.5*tiltSum + "rad) translateY(" + Math.sin(tiltSum)*enviro.radius*0 + "px)";	
-	if (tiltSum > deg15) { showTray(); } else if (tiltSum < deg10) { hideTray(); }
-//	if (tiltSum < -1*deg15) { showHUD("down"); } else if (tiltSum > -1*deg10) { hideHUD("down"); }
+	enviro.todoplate.style.webkitTransform = "scale(" + enviro.dragplate.scale + ") rotateX("+ tiltSum + "rad) translateY(" + Math.sin(tiltSum)*enviro.radius + "px) translateZ(" + (Math.cos(tiltSum)*enviro.radius - enviro.radius) + "px)";
 }
 
 function doTurn () {
 	var turnSum = enviro.rotation + enviro.gyrotation;
 	enviro.cube.style.webkitTransform = "translateX(" + -1*Math.sin(turnSum)*enviro.radius + "px) translateZ(" + (enviro.radius - Math.cos(turnSum)*enviro.radius) + "px) rotateY("+ turnSum + "rad)";
-// 	console.log(turnSum);
-	// when turnSum = -45 degrees, X should be 22.5 degrees
-	// when turnSum = -60 degrees, X should be 15 degrees
-	// when turnSum = -90 degrees, X should be 0
-	// when turnSum = -120 degrees, X should be -15 degrees
-	// when turnSum = -135 degrees, X should be -22.5 degrees
-// 	enviro.todo.style.webkitTransform = "rotateY(" + (turnSum + 1.57079633)/2 + "rad)";	
 }
 
 function enablePinchRotate () {

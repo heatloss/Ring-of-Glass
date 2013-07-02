@@ -64,7 +64,7 @@ function fireEvent(eventName) {
 }
 	
 function updateGoal(goaltext) {
-	console.log(goaltext); // <- Need to add a goal readout before we can use this.
+	enviro.todotext.innerHTML = goaltext; 
 }
 	
 function decisionMode(decisionNode) {
