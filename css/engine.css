@@ -150,7 +150,7 @@
 	font-weight: bold;
 	font-variant: small-caps;
  */
-	font-family: "cartogothic_caps_bookregular", "DejaVuSansBook",  GillSans, "Lucida Grande", Verdana, sans-serif;
+	font-family: "cartogothic_caps_bookregular",  GillSans, "Lucida Grande", Verdana, sans-serif;
 }
 
 
@@ -163,7 +163,7 @@
 }
 
 #convoThread > li.speaker-minicomp > p {
-	font-family: mcmurdobold;
+	font-family: "mcmurdobold";
 	-webkit-font-smoothing: none;
 	font-size: 21px;
 	text-transform: uppercase;

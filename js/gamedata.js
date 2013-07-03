@@ -70,7 +70,7 @@ gamedata.readtally = {
 gamedata.nexus = {
 	state: {
 		active: false,
-		last: "browser",
+		last: "galaxy",
 		activepath: {node: "wetware", subserver: 3, browser: 1},
 		ringdata: { subservers: [] }
 	},
@@ -145,14 +145,16 @@ gamedata.events = {
 	"gamelaunch" : function () {
 		makeBlind();
 	},
-	"seehud" : function () {
+	"showhud" : function () {
 		activateHUD();
-		updateGoal("Minicomp active.");
+	},
+	"showtodos" : function () {
+		updateGoal("Create a to-do list.");
+		activateTodos();
 	},
 	"showjail" : function () {
 		unLock("seePoliceStation");
 		makeUnblind();
-		updateGoal("Look around; figure out what's going on.");
 	},
 	"missionphonecall" : function () {
 		updateGoal("Convince the guard to let you have a phone call.");

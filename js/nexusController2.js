@@ -1,3 +1,5 @@
+/*global gamedata, enviro, unbindBrowserDrag, triggerEvent, hasClass, addClass, removeClass, matrixToArray, deTilt, reTilt, singleUseListener, dragplate, bindBrowserDrag, unbindBrowserDrag, disableTiltDrag, getClosestIndex */
+
 var nexus = {};
 
 function initNexus() {
@@ -66,7 +68,6 @@ function initNexus() {
       triggerEvent("touchtap", nexus.spindleplate);
     }
   };
-  // 	$("#nexusmap .servers > li > p").wrapInner("<span />");
 }
 
 function bindNexusDrag() {
@@ -134,9 +135,6 @@ function suspendNexus() {
 }
 
 function enterNexus() {
-  if (hasClass(conversation, "active")) {
-    return false;
-  } // <- The invoking listener should really be suppressed when conversation is active...
   triggerEvent("nexusinvoked");
   deTilt();
 	enterNexusTransition();
@@ -309,7 +307,7 @@ function hidePuzzle() {
 }
 */
 function highlightServer() {
-  nearestServerIndex = getClosestIndex(-1 * nexus.spindle.z, nexus.serverSpans);
+  var nearestServerIndex = getClosestIndex(-1 * nexus.spindle.z, nexus.serverSpans);
   var i = 0,
     j = nexus.serverList.length;
   for (; i < j; i++) {
@@ -321,7 +319,7 @@ function highlightServer() {
 }
 
 function snapServer() {
-  nearestServerIndex = getClosestIndex(-1 * nexus.spindle.z, nexus.serverSpans);
+  var nearestServerIndex = getClosestIndex(-1 * nexus.spindle.z, nexus.serverSpans);
   if (nearestServerIndex !== gamedata.nexus.state.activepath.subserver) {
     gamedata.nexus.state.activepath.subserver = nearestServerIndex;
     gamedata.nexus.state.browserpage = getSubserverTitle();
@@ -354,6 +352,13 @@ function makeUnblind() {
 
 function activateHUD() {}
 
-function updateGoal(newmission) {
-  //	visorGoal.innerHTML = newmission;
+function activateTodos() {
+	addClass(enviro.todo, "init");
+	removeClass(enviro.todo, "inactive");
+	setTimeout( function(){ removeClass(enviro.todo, "init"); }, 1000);
+	setTimeout( function(){ updateGoal("Look around; figure out what's going on."); }, 1500);
+}
+
+function updateGoal(goaltext) {
+	enviro.todotext.innerHTML = goaltext; 
 }

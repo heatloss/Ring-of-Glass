@@ -1,3 +1,5 @@
+/*global gamedata, hasClass, addClass, removeClass, plateHandler, suspendNexus, restoreNexus,  */
+
 var enviro = {};
 
 window.addEventListener('DOMContentLoaded', initEnviro, true);
@@ -9,7 +11,7 @@ function initEnviro() {
 		"screen" : document.getElementById("gameWindow"),
 		"help" : document.getElementById("helpScreen"),
 		"shifter" : document.getElementById("contextShifter"),
-		"todo" : document.getElementById("todo"),
+		"todo" : document.getElementById("todoAnchor"),
 		"todoplate" : document.getElementById("todoPlate"),
 		"todotext" : document.querySelector("#todoPlate .todoReadout .todo"),
 		"touch" : false,
@@ -170,11 +172,6 @@ function harmonizeAccelEvents (eventData) {
 }
 
 function doTilt () {
-// 	var deg10 = 0.174532925;
-// 	var deg15 = 0.261799388;
-// 	var deg30 = 0.523598776;
-// 	var deg45 = 0.785398163;
-// 	var deg60 = 1.04719755;
 	var tiltSum = enviro.dragplate.tilt + enviro.dragplate.gyrotilt;
 	enviro.dragplate.style.webkitTransform = "scale(" + enviro.dragplate.scale + ") rotateX("+ tiltSum + "rad) translateY(" + Math.sin(tiltSum)*enviro.radius + "px) translateZ(" + (Math.cos(tiltSum)*enviro.radius - enviro.radius) + "px)";	
 	enviro.todoplate.style.webkitTransform = "scale(" + enviro.dragplate.scale + ") rotateX("+ tiltSum + "rad) translateY(" + Math.sin(tiltSum)*enviro.radius + "px) translateZ(" + (Math.cos(tiltSum)*enviro.radius - enviro.radius) + "px)";

@@ -1,3 +1,5 @@
+/*global gamedata, convo, enviro, addClass, removeClass, enableTiltDrag, disableTiltDrag */
+
 function initConvo() {
 	convo.window = document.getElementById("conversation");
 	convo.window.dialogField = document.getElementById("dialog");
@@ -11,10 +13,6 @@ function initConvo() {
 String.prototype.replaceAt = function(index, char) {
 	return this.substr(0, index) + char + this.substr(index+char.length);
 };
-
-function typeOut(string) {
-	alert(string.replaceAt(3, "a"));
-}
 
 function openDialogWindow() {
 	addClass(convo.window,"active");
@@ -63,10 +61,6 @@ function fireEvent(eventName) {
 	}
 }
 	
-function updateGoal(goaltext) {
-	enviro.todotext.innerHTML = goaltext; 
-}
-	
 function decisionMode(decisionNode) {
 	var newPose = convo.dialog.pendingleaf.decision.pose || "default"; // Prepping a pose variable to serve various swap/fade scenarios.
 	if (convo.participants.avatars[0].character !== "declan") { // If the previous speaker wasn't Declan, add his avatar now.
@@ -94,7 +88,7 @@ function exitDecisionMode() {
 }
 
 function parseDecision(dLeaf){
-	var decList = dLeaf.branch, i = 0, dLnth = decList.length, parsedList = []; // <- Do decision leafs ALWAYS have a branch?
+	var decList = dLeaf.branch, i = 0, dLnth = decList.length, parsedList = [], thisChoice; // <- Do decision leafs ALWAYS have a branch?
 	for (; i < dLnth; i++) { // Loop through the choices array.
 		if (decList[i].hasOwnProperty("condition")) { // If one of the decision's choices is a conditional…
 			thisChoice = getConditional(decList[i]); // …retrieve the conditionally returned array of choices…
@@ -208,9 +202,9 @@ function makeDialog(name) {
 			testLeaf = dialog.getLeaf(i);
 		}
 		return startPoint;
-	}
+	};
 	return dialog;
-};
+}
 
 function loadConversation(treeName,decisionName) {
 	convo.dialog = makeDialog(treeName);
@@ -443,8 +437,7 @@ function getConditional(node) {
 
 function plateHandler() {
 	event.stopPropagation();
-	panelName = this.getAttribute("data-name");
-	var thisConvo = gamedata.convoqueue[panelName];
+	var thisConvo = gamedata.convoqueue[this.getAttribute("data-name")];
 	initConversation(thisConvo);
 }
 
@@ -456,7 +449,7 @@ function bindConvoQ(eventname,title) { // <- Consider merging this with setConvo
 	gamedata.eventconvoqueue[eventname] = function() { // <- Only one conversation will be bound to a given event.
 		initConversation(title);
 		gamedata.window.removeEventListener(eventname, gamedata.eventconvoqueue[eventname]);
-	} 
+	};
 	gamedata.window.addEventListener(eventname, gamedata.eventconvoqueue[eventname]);
 }
 

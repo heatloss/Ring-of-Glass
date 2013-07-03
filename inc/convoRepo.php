@@ -41,15 +41,16 @@
 		<li data-speaker="minicomp">MINICOMPUTER Status: BOOTING</li>
 		<li data-speaker="minicomp">Loading&#8230;</li>
 		<li data-speaker="minicomp">MINICOMPUTER Status: READY</li>
-		<li data-event="seehud" data-speaker="declan">Oh thank God.</li>
+		<li data-event="showhud" data-speaker="declan">Oh thank God.</li>
 		<li data-speaker="declan">All right. Now we&#8217;re getting somewhere. Let&#8217;s see if you can broadcast general commands.</li>
 		<li data-speaker="declan">Minicomp: Command queue: killall brace tick star dot wetware tick comma dash A unbrace. Execute.</li>
 		<li data-speaker="minicomp">Executing&#8230;</li>
-		<li data-event="showjail" data-speaker="minicomp">&#187; WETWARE PROCESSES STOPPED</li>
+		<li data-event="showjail" data-speaker="minicomp">WETWARE PROCESSES STOPPED</li>
 		<li class="thinking" data-speaker="declan" data-pose="surprised">&#8230;</li>
 		<li class="thinking" data-speaker="declan" data-pose="unsure">Right. Jail.</li>
-		<li class="thinking" data-speaker="declan" data-pose="analyzing">Why would I even be in custody, though? Has to be some sort of local dragnet. Even the craziest jobs I&#8217;ve done wouldn&#8217;t warrant that level of SWAT response.</li>
-		<li class="exit thinking" data-speaker="declan" data-pose="default">Better have a look around, I guess.</li>
+		<li class="thinking" data-speaker="declan" data-pose="analyzing">Why am I even in custody, though? Has to be some sort of local dragnet. Even the craziest jobs I&#8217;ve done wouldn&#8217;t warrant that level of SWAT response.</li>
+		<li class="thinking" data-speaker="declan" data-pose="default">Better have a look around, I guess.</li>
+		<li class="exit" data-speaker="declan" data-pose="wondering" data-event="showtodos">Minicomp: new VISOR overlay, type: to-do list. I'll update it as I go.</li>
 	</ol>
 	<ol class="root donttalktoguard" data-ident="donttalktoguard">
 		<li class="thinking" data-speaker="declan" data-pose="unsure">That guy looks mean. Better not bother him without a good reason.</li>
@@ -112,7 +113,7 @@
 				<li class="thinking" data-speaker="declan">Still. That thing&#8217;s gotta have a data connection.</li>
 			</ol>
 			</li>
-			<li class="thinking" data-pose="pondering" data-event="missionphonecall" data-speaker="declan">I could probably hack my way into it&#8230; somehow&#8230; assuming I ever get my phone call.</li>
+			<li class="thinking" data-pose="pondering" data-event="missionphonecall" data-speaker="declan">I could probably crack my way into it&#8230; somehow&#8230; assuming I ever get my phone call.</li>
 			<li data-reqread="lookatcomputer" data-reqtype="or"> 
 			<ol>
 				<li class="thinking" data-speaker="declan" data-pose="grim" data-event="offerhelpwithcomputer">Dunno, maybe if I offer to help the guard with that Soviet-era computer of his&#8230;</li>
@@ -221,7 +222,7 @@
 		<li data-speaker="frank" data-pose="default">It says &#8220;Vidtron 880&#8221; on it.</li>
 		<li data-speaker="declan" data-pose="squint">Er, well, that&#8217;s just the monitor. Your systems are probably running in a thin-client config, which means the actual mainframe is in a server room somewhere. Do you know if&#8212;</li>
 		<li data-speaker="frank">No.</li>
-		<li data-speaker="declan" data-pose="grim">Just tell me if the drivers are SMC-compatible, that would&#8230; Wait&#8212; are you guys aren&#8217;t using paravirtualization, are you?</li>
+		<li data-speaker="declan" data-pose="grim">Just tell me if the drivers are SMC-compatible, that would&#8230; Wait&#8212; you guys aren&#8217;t using paravirtualization, are you?</li>
 		<li data-speaker="frank" data-pose="sulk">You know what? Forget it. Forget I said anything about computers.</li>
 		<li data-speaker="declan" data-listener="noone" data-pose="surprised">Aw, c&#8217;mon.</li>
 		<li class="thinking" data-speaker="declan" data-pose="squint">Jeez. How can you sit at a terminal all day and not know anything about computers?</li>

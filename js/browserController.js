@@ -1,3 +1,5 @@
+/*global gamedata, enviro, nexus, bindNexusDrag, unbindNexusDrag, addClass, removeClass, triggerEvent, enterBrowser, exitBrowser  */
+
 function bindBrowserDrag() {
   nexus.browserplate.addEventListener(enviro.startEvent, nexus.startBrowserFunc, false);
   nexus.browserplate.addEventListener(enviro.tapEvent, toggleBrowser, false);

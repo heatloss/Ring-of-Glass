@@ -43,6 +43,7 @@
 <script src="js/browserController.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+ 	fireEvent("showtodos");
 	fireEvent("showjail");
 	fireEvent("missionphonecall");
 	fireEvent("offerhelpwithcomputer");

@@ -5,7 +5,7 @@ function initGame() {
 	if (!window.DeviceMotionEvent || window.navigator.standalone) {
 		if (isLocked("seePoliceStation")) {
 			addClass(document.getElementById("gameWindow"),"blind");
-			startTimer = setTimeout(startTheGame, 4000);
+			startTimer = setTimeout(startTheGame, 3000);
 // 			singleUseListener("click", startTheGame);
 			gamedata.window.addEventListener("click", startTheGame); 
 		}
