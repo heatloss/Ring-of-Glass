@@ -52,7 +52,7 @@
 		DESCRIPTION 
 	</h4>
 	<p>
-		The ALTrIS software generates a nexus of known sub-networks, and displays it on the user's NAVI. Each node is directly addressable in virtual space using an Active Layer Matrix system, although due to attenuation limits only five subservers can be connected at any given time.
+		The ALTrIS software generates a nexus of known sub-networks, and displays it on the user's VISOR. Each node is directly addressable in virtual space using an Active Layer Matrix system, although due to attenuation limits only five subservers can be connected at any given time.
 	</p>
 	</li>
 	<li class="hyperlinks" data-browser="hyperlinks"> 

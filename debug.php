@@ -23,7 +23,7 @@
 <body>
 <div id="screenFrame">
 	<div id="gameWindow">
-		<div id="sceneScrutiny" class="inactive">
+		<div id="sceneScrutiny">
 <?php include 'cube2.php'; ?>
 		</div>
 <?php include 'nexus.php'; ?>

@@ -54,8 +54,12 @@ h1>em {
 	height: 100%;
 	top: 0;
 	left: 0;
-	-webkit-transition-property: opacity;
+	-webkit-transition-property: opacity, -webkit-filter;
 	-webkit-transition-duration: .666s;	
+}
+
+#sceneScrutiny.inactive {
+	-webkit-filter: blur(4px);  
 }
 
 .blind #sceneScrutiny {
