@@ -23,7 +23,7 @@
 <body>
 <div id="screenFrame">
 	<div id="gameWindow">
-		<div id="sceneScrutiny" class="inactive">
+		<div id="sceneScrutiny">
 <?php include 'cube2.php'; ?>
 		</div>
 <?php include 'nexus.php'; ?>
@@ -43,6 +43,7 @@
 <script src="js/browserController.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+ 	fireEvent("showtodos");
 	fireEvent("showjail");
 	fireEvent("missionphonecall");
 	fireEvent("offerhelpwithcomputer");
@@ -51,7 +52,8 @@ $(document).ready(function(){
  	initNexus();
  	enablePinchRotate();
 // 	restoreNexus();
- 	bindConvoQ("browsertitle-manuals","whichmanual");
+	bindConvoQ("nexusentered","meetyournexus");
+ 	bindConvoQ("browserpagetitle-manuals","whichmanual");
 });
 </script> 
 </body>

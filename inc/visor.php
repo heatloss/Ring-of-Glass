@@ -1,4 +1,4 @@
-<div id="todoAnchor">
+<div id="todoAnchor" class="inactive init">
 <div id="todoPlate">
 <div class="todoReadout">
 		<h4>

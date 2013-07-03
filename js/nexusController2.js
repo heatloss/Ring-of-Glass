@@ -1,3 +1,5 @@
+/*global gamedata, enviro, unbindBrowserDrag, triggerEvent, hasClass, addClass, removeClass, matrixToArray, deTilt, reTilt, singleUseListener, dragplate, bindBrowserDrag, unbindBrowserDrag, disableTiltDrag, getClosestIndex */
+
 var nexus = {};
 
 function initNexus() {
@@ -27,7 +29,7 @@ function initNexus() {
   nexus.browser.z = 0;
 
   gamedata.nexus.state.ringdata = gamedata.nexus.rings[gamedata.nexus.state.activepath.node]; // This is a convenience cache of the selected ring's data.
-  gamedata.nexus.state.browserpage = getSubserverTitle();
+//   gamedata.nexus.state.browserpage = getSubserverTitle();
 
   nexus.startSpindleFunc = function(e) {
     if (window.DeviceMotionEvent) {
@@ -66,7 +68,6 @@ function initNexus() {
       triggerEvent("touchtap", nexus.spindleplate);
     }
   };
-  // 	$("#nexusmap .servers > li > p").wrapInner("<span />");
 }
 
 function bindNexusDrag() {
@@ -93,7 +94,7 @@ function restoreNexus() {
   enterNexus();
   triggerEvent("nexusrestoring");
   gamedata.nexus.state.active = true;
-  var nexusState = gamedata.nexus.state.last || "galaxy";
+  var nexusState = gamedata.nexus.state.last || "galaxy"; // <- I don't believe the state.last can ever be undefined.
   switch (nexusState) {
   case "galaxy":
     // Eventually we'll transition from the central hub to full galaxy view.
@@ -134,9 +135,6 @@ function suspendNexus() {
 }
 
 function enterNexus() {
-  if (hasClass(conversation, "active")) {
-    return false;
-  } // <- The invoking listener should really be suppressed when conversation is active...
   triggerEvent("nexusinvoked");
   deTilt();
 	enterNexusTransition();
@@ -234,8 +232,9 @@ function exitRingTransition() {
 function enterBrowser() {
   gamedata.nexus.state.last = "browser";
   unbindNexusDrag();
-	gamedata.nexus.state.browserpage = getSubserverTitle();
+// 	gamedata.nexus.state.browserpage = getSubserverTitle();
   enterBrowserTransition();
+  singleUseListener("browserentered", announceBrowserPage);
 }
 
 function exitBrowser() {
@@ -249,7 +248,6 @@ function enterBrowserTransition() {
   addClass(enviro.screen, "browserOpen");
   setTimeout(function() {
     triggerEvent("browserentered");
-    triggerEvent("subservertitle-" + gamedata.nexus.state.browserpage);
     nexus.browser.drag = nexus.browser.snaps[1];
     nexus.browser.style.webkitTransitionDuration = "";
   }, 666);
@@ -309,7 +307,7 @@ function hidePuzzle() {
 }
 */
 function highlightServer() {
-  nearestServerIndex = getClosestIndex(-1 * nexus.spindle.z, nexus.serverSpans);
+  var nearestServerIndex = getClosestIndex(-1 * nexus.spindle.z, nexus.serverSpans);
   var i = 0,
     j = nexus.serverList.length;
   for (; i < j; i++) {
@@ -321,12 +319,12 @@ function highlightServer() {
 }
 
 function snapServer() {
-  nearestServerIndex = getClosestIndex(-1 * nexus.spindle.z, nexus.serverSpans);
+  var nearestServerIndex = getClosestIndex(-1 * nexus.spindle.z, nexus.serverSpans);
   if (nearestServerIndex !== gamedata.nexus.state.activepath.subserver) {
     gamedata.nexus.state.activepath.subserver = nearestServerIndex;
-    gamedata.nexus.state.browserpage = getSubserverTitle();
+//     gamedata.nexus.state.browserpage = getSubserverTitle();
     if (gamedata.nexus.state.last === "browser") {
-      triggerEvent("subservertitle-" + gamedata.nexus.state.browserpage);
+      announceBrowserPage();
     }
   }
   nexus.spindle.z = -1 * nexus.serverSpans[nearestServerIndex];
@@ -354,6 +352,17 @@ function makeUnblind() {
 
 function activateHUD() {}
 
-function updateGoal(newmission) {
-  //	visorGoal.innerHTML = newmission;
+function activateTodos() {
+	addClass(enviro.todo, "init");
+	removeClass(enviro.todo, "inactive");
+	setTimeout( function(){ removeClass(enviro.todo, "init"); }, 1000);
+	setTimeout( function(){ updateGoal("Look around; figure out what's going on."); }, 1500);
+}
+
+function updateGoal(goaltext) {
+	enviro.todotext.innerHTML = goaltext; 
+}
+
+function announceBrowserPage() {
+	triggerEvent("browserpagetitle-" + getSubserverTitle());
 }
