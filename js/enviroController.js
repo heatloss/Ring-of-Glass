@@ -6,21 +6,21 @@ window.addEventListener('DOMContentLoaded', initEnviro, true);
 
 function initEnviro() {
 	enviro = {
-		"dragplate" : document.getElementById("dragplate"),
-		"cube" : document.getElementById("cube"),
-		"screen" : document.getElementById("gameWindow"),
-		"help" : document.getElementById("helpScreen"),
-		"shifter" : document.getElementById("contextShifter"),
-		"todo" : document.getElementById("todoAnchor"),
-		"todoplate" : document.getElementById("todoPlate"),
-		"todotext" : document.querySelector("#todoPlate .todoReadout .todo"),
-		"touch" : false,
-		"radius" : 480,
-		"rotation" : 0,
-		"gyrotation" : 0,
-		"viewTop" : 0.523598776, // 30
-		"viewBottom" : -0.523598776, // -30
-		"adjustedTilt" : 0
+		dragplate : document.getElementById("dragplate"),
+		cube : document.getElementById("cube"),
+		screen : document.getElementById("gameWindow"),
+		help : document.getElementById("helpScreen"),
+		shifter : document.getElementById("contextShifter"),
+		todo : document.getElementById("todoAnchor"),
+		todoplate : document.getElementById("todoPlate"),
+		todotext : document.querySelector("#todoPlate .todoReadout .todo"),
+		touch : false,
+		radius : 480,
+		rotation : 0,
+		gyrotation : 0,
+		viewTop : 0.523598776, // 30
+		viewBottom : -0.523598776, // -30
+		adjustedTilt : 0
 	};
 	
 		enviro.dragplate.tilt = 0;
@@ -235,11 +235,55 @@ function reTilt() {
 	}, 333);
 }
 
-function showTray() {
-	addClass(enviro.tray,"active");
+function updateContextStack(layername, addContext) {
+  if (addContext) {
+    lastContextIndex = gamedata.contextStack.length - 1;
+    lastContextName = gamedata.contextStack[lastContextIndex];
+     // deactivate the current topmost context
+   switch (lastContextName) {
+    case "enviro":
+      // deactivate enviro
+      break;
+    case "conversation":
+      // deactivate convo
+      break;
+    case "nexus":
+      // deactivate nexus
+      break;
+    case "help":
+      // dismiss help
+      break;
+    default:
+      break;
+    gamedata.contextStack.push(lastContextName);
+  } else {
+    gamedata.contextStack.pop();
+    lastContextIndex = gamedata.contextStack.length - 1;
+    lastContextName = gamedata.contextStack[lastContextIndex];
+    // activate the new topmost context
+   switch (lastContextName) {
+    case "enviro":
+      // reactivate enviro
+      break;
+    case "conversation":
+      // reactivate convo
+      break;
+    case "nexus":
+      // reactivate nexus
+      break;
+    case "help":
+      // reactivate help
+      break;
+    default:
+      break;
+  }
 }
 
-function hideTray() {
-	removeClass(enviro.tray,"active");
-}
-
+// function showTray() {
+// 	addClass(enviro.tray,"active");
+// }
+// 
+// function hideTray() {
+// 	removeClass(enviro.tray,"active");
+// }
+// 
