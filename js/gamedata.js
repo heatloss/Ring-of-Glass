@@ -175,7 +175,7 @@ gamedata.events = {
 // 			gamedata.window.removeEventListener("nexusinvoked", hideHelp);		
 // 		});
 		bindConvoQ("nexusentered","meetyournexus");
-		bindConvoQ("browsertitle-manuals","whichmanual");
+		bindConvoQ("browserpagetitle-manuals","whichmanual");
 	},
 	"needmoreformanual" : function () {
 		updateGoal("Gather more info about the systems in the precinct.");

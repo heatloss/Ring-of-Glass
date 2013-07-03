@@ -29,7 +29,7 @@ function initNexus() {
   nexus.browser.z = 0;
 
   gamedata.nexus.state.ringdata = gamedata.nexus.rings[gamedata.nexus.state.activepath.node]; // This is a convenience cache of the selected ring's data.
-  gamedata.nexus.state.browserpage = getSubserverTitle();
+//   gamedata.nexus.state.browserpage = getSubserverTitle();
 
   nexus.startSpindleFunc = function(e) {
     if (window.DeviceMotionEvent) {
@@ -94,7 +94,7 @@ function restoreNexus() {
   enterNexus();
   triggerEvent("nexusrestoring");
   gamedata.nexus.state.active = true;
-  var nexusState = gamedata.nexus.state.last || "galaxy";
+  var nexusState = gamedata.nexus.state.last || "galaxy"; // <- I don't believe the state.last can ever be undefined.
   switch (nexusState) {
   case "galaxy":
     // Eventually we'll transition from the central hub to full galaxy view.
@@ -232,8 +232,9 @@ function exitRingTransition() {
 function enterBrowser() {
   gamedata.nexus.state.last = "browser";
   unbindNexusDrag();
-	gamedata.nexus.state.browserpage = getSubserverTitle();
+// 	gamedata.nexus.state.browserpage = getSubserverTitle();
   enterBrowserTransition();
+  singleUseListener("browserentered", announceBrowserPage);
 }
 
 function exitBrowser() {
@@ -247,7 +248,6 @@ function enterBrowserTransition() {
   addClass(enviro.screen, "browserOpen");
   setTimeout(function() {
     triggerEvent("browserentered");
-    triggerEvent("subservertitle-" + gamedata.nexus.state.browserpage);
     nexus.browser.drag = nexus.browser.snaps[1];
     nexus.browser.style.webkitTransitionDuration = "";
   }, 666);
@@ -322,9 +322,9 @@ function snapServer() {
   var nearestServerIndex = getClosestIndex(-1 * nexus.spindle.z, nexus.serverSpans);
   if (nearestServerIndex !== gamedata.nexus.state.activepath.subserver) {
     gamedata.nexus.state.activepath.subserver = nearestServerIndex;
-    gamedata.nexus.state.browserpage = getSubserverTitle();
+//     gamedata.nexus.state.browserpage = getSubserverTitle();
     if (gamedata.nexus.state.last === "browser") {
-      triggerEvent("subservertitle-" + gamedata.nexus.state.browserpage);
+      announceBrowserPage();
     }
   }
   nexus.spindle.z = -1 * nexus.serverSpans[nearestServerIndex];
@@ -361,4 +361,8 @@ function activateTodos() {
 
 function updateGoal(goaltext) {
 	enviro.todotext.innerHTML = goaltext; 
+}
+
+function announceBrowserPage() {
+	triggerEvent("browserpagetitle-" + getSubserverTitle());
 }

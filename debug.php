@@ -52,7 +52,8 @@ $(document).ready(function(){
  	initNexus();
  	enablePinchRotate();
 // 	restoreNexus();
- 	bindConvoQ("browsertitle-manuals","whichmanual");
+	bindConvoQ("nexusentered","meetyournexus");
+ 	bindConvoQ("browserpagetitle-manuals","whichmanual");
 });
 </script> 
 </body>
