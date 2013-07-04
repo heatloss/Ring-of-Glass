@@ -156,6 +156,7 @@ gamedata.events = {
 	},
 	showjail : function () {
 		unLock("seePoliceStation");
+		removeClass(enviro.environment, "paused"); // Just this once.	
 		makeUnblind();
 	},
 	missionphonecall : function () {

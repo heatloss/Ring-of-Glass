@@ -38,7 +38,7 @@
 		NAME 
 	</h4>
 	<p>
-		Introduction to Nexus: integrated network traversal environment
+		Introduction to Nexus: interactive network traversal environment
 	</p>
 <!-- 
 	<h4>

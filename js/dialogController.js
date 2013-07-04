@@ -16,12 +16,24 @@ String.prototype.replaceAt = function(index, char) {
 
 function openDialogWindow() {
 	addClass(convo.window,"active");
+	addContextStack("conversation");
 }
 
 function closeDialogWindow() {
 	removeClass(convo.window,"active");
+	if (removeContextStack("conversation") === "enviro") { 
+		enableTiltDrag(); 
+	}
 	// animate out the dialog window
 	// hide the characters; stop blinking
+}
+
+function pauseDialog() {
+	addClass(convo.window,"paused");
+}
+
+function unpauseDialog() {
+	removeClass(convo.window,"paused");
 }
 
 function isNodeList(nodes) {
@@ -216,7 +228,6 @@ function loadConversation(treeName,decisionName) {
 
 function unloadConversation() {
 	delete convo.dPoint;
-	enableTiltDrag();
 	closeDialogWindow();
 	var conversationCleaner = setTimeout(scrubConversation, 500);
 }

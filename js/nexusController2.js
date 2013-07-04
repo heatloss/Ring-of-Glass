@@ -134,20 +134,29 @@ function suspendNexus() {
   }
 }
 
+function pauseNexus() {
+	addClass(nexus.map,"paused");
+}
+
+function unpauseNexus() {
+	removeClass(nexus.map,"paused");
+}
+
 function enterNexus() {
   triggerEvent("nexusinvoked");
   deTilt();
+	addContextStack("nexus");
 	enterNexusTransition();
 }
 
 function exitNexus() {
   triggerEvent("nexusdismissed");
   singleUseListener("nexusexited", reTilt);
+	removeContextStack("nexus");
 	exitNexusTransition();
 }
 
 function enterNexusTransition() {
-  $("#sceneScrutiny").removeClass("active").addClass("inactive"); // <- We need a global modeSwitch function...
   dragplate.style.webkitTransitionDuration = ".666s";
   dragplate.style.webkitTransform = "scale(.125)"; 
   setTimeout(function() {
@@ -269,6 +278,7 @@ function showHelp(name) {
   addClass(enviro.help, "activeHelp-" + name);
   enviro.help.setAttribute("data-active", name);
   gamedata.nexus.help.active = true;
+	addContextStack("help");
   triggerEvent("showhelp");
 }
 
@@ -278,6 +288,7 @@ function hideHelp() {
   removeClass(enviro.help, "activeHelp-" + activeHelp);
   enviro.help.removeAttribute("data-active");
   gamedata.nexus.help.active = false;
+	removeContextStack("help");
   triggerEvent("hidehelp");
 }
 /*

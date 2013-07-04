@@ -73,10 +73,6 @@
 	/* rotateX(-90deg) */
 }
 
-.nexusState-active.paused #contextShifter .viewport {
-	display: none;
-}
-
 #contextShifter .viewport > .prev {
 	width: 600px;
 	height: 800px;
@@ -197,9 +193,8 @@
 	-webkit-transition-timing-function: cubic-bezier(.67,0,.67,0);
 }
 
-.nexusState-active.paused #nexusmap {
-	-webkit-transform: scale(.9);
-	opacity: 0.5;
+#nexusmap.paused {
+	-webkit-filter: blur(1.5px);  
 }
 
 #nexusmap .nexusfield,

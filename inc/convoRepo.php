@@ -205,7 +205,7 @@
 			<li data-ref="fineiwonthelpthen">If you think you can fix it yourself, then&#8230; 
 			<ol>
 				<li data-speaker="declan" data-pose="wtf">Suit yourself. If you&#8217;d rather waste your night swearing at a printer, be my guest.</li>
-				<li data-speaker="frank" data-pose="default">Nice one. We&#8217;ll see how far that attitude gets you in Riker&#8217;s.</li>
+				<li data-speaker="frank" data-pose="default">Nice one. We&#8217;ll see how far that attitude gets you at Riker&#8217;s.</li>
 				<li data-speaker="declan" data-pose="slowburn">Right. Well, until then, you&#8217;ve got a computer expert sitting ten feet away. Might as well make the most of it.</li>
 			</ol>
 			</li>
@@ -273,7 +273,7 @@
 			</li>
 		</ol>
 		<ol class="otherwise">
-			<li class="thinking" data-speaker="declan" data-pose="analyzing">Whatever. I&#8217;ll be sure to post all about it on Hack.Ops later. Right now I gotta find a way outta here.</li>
+			<li class="thinking" data-speaker="declan" data-pose="analyzing">Whatever. I&#8217;ll be sure to post all about it on HackOps later. Right now I gotta find a way outta here.</li>
 		</ol>
 		</li>
 	</ol>

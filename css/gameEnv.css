@@ -58,7 +58,7 @@ h1>em {
 	-webkit-transition-duration: .666s;	
 }
 
-#sceneScrutiny.inactive {
+#sceneScrutiny.paused {
 	-webkit-filter: blur(4px);  
 }
 
@@ -166,6 +166,10 @@ h1>em {
 #conversation.active,
 #conversation.transitioning {
 	-webkit-transform: translateY(0px);
+}
+
+#conversation.paused {
+	-webkit-filter: blur(1px);  
 }
 
 #conversation > #convoScrim {

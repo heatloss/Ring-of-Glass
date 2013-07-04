@@ -49,11 +49,13 @@ $(document).ready(function(){
 	fireEvent("offerhelpwithcomputer");
 	markAsRead("lookatdataroom");
 	markAsRead("lookatprinter");
- 	initNexus();
- 	enablePinchRotate();
+	singleUseListener("convotrees", function(){ debugConversation("askabouthackers", 29); });
+	
+//  	initNexus();
+//  	enablePinchRotate();
 // 	restoreNexus();
-	bindConvoQ("nexusentered","meetyournexus");
- 	bindConvoQ("browserpagetitle-manuals","whichmanual");
+// 	bindConvoQ("nexusentered","meetyournexus");
+//  	bindConvoQ("browserpagetitle-manuals","whichmanual");
 });
 </script> 
 </body>

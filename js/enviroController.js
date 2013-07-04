@@ -9,6 +9,7 @@ function initEnviro() {
 		dragplate : document.getElementById("dragplate"),
 		cube : document.getElementById("cube"),
 		screen : document.getElementById("gameWindow"),
+		environment : document.getElementById("sceneScrutiny"),
 		help : document.getElementById("helpScreen"),
 		shifter : document.getElementById("contextShifter"),
 		todo : document.getElementById("todoAnchor"),
@@ -235,50 +236,65 @@ function reTilt() {
 	}, 333);
 }
 
-function updateContextStack(layername, addContext) {
-  if (addContext) {
-    lastContextIndex = gamedata.contextStack.length - 1;
-    lastContextName = gamedata.contextStack[lastContextIndex];
-     // deactivate the current topmost context
-   switch (lastContextName) {
-    case "enviro":
-      // deactivate enviro
-      break;
-    case "conversation":
-      // deactivate convo
-      break;
-    case "nexus":
-      // deactivate nexus
-      break;
-    case "help":
-      // dismiss help
-      break;
-    default:
-      break;
-    gamedata.contextStack.push(lastContextName);
-  } else {
-    gamedata.contextStack.pop();
-    lastContextIndex = gamedata.contextStack.length - 1;
-    lastContextName = gamedata.contextStack[lastContextIndex];
-    // activate the new topmost context
-   switch (lastContextName) {
-    case "enviro":
-      // reactivate enviro
-      break;
-    case "conversation":
-      // reactivate convo
-      break;
-    case "nexus":
-      // reactivate nexus
-      break;
-    case "help":
-      // reactivate help
-      break;
-    default:
-      break;
-  }
+function pauseEnvironment() {
+	addClass(enviro.environment,"paused");
 }
 
+function unpauseEnvironment() {
+	removeClass(enviro.environment,"paused");
+}
+
+
+function addContextStack(layername) {
+	var lastContextIndex = gamedata.contextStack.length - 1;
+	var lastContextName = gamedata.contextStack[lastContextIndex];
+	// deactivate the current topmost context
+ switch (lastContextName) {
+	case "enviro":
+		pauseEnvironment();
+		break;
+	case "conversation":
+		// can't pause dialog.
+		break;
+	case "nexus":
+		pauseNexus();
+		break;
+	case "help":
+		// dismiss help
+		break;
+	default:
+		break;
+	}
+	gamedata.contextStack.push(layername);
+	return lastContextName;
+}
+
+function removeContextStack(layername) {
+	var i = gamedata.contextStack.indexOf(layername);
+	if(i !== -1) {
+		gamedata.contextStack.splice(i, 1);
+	}
+	var lastContextIndex = gamedata.contextStack.length - 1;
+	var lastContextName = gamedata.contextStack[lastContextIndex];
+	// activate the new topmost context
+	switch (lastContextName) {
+		case "enviro":
+			unpauseEnvironment();
+			break;
+		case "conversation":
+			// can't pause dialog.
+			break;
+		case "nexus":
+			unpauseNexus();
+			break;
+		case "help":
+			// reactivate help
+			break;
+		default:
+			break;
+	}
+	return lastContextName;
+}
 // function showTray() {
 // 	addClass(enviro.tray,"active");
 // }
