@@ -10,6 +10,7 @@ function initEnviro() {
 		cube : document.getElementById("cube"),
 		screen : document.getElementById("gameWindow"),
 		environment : document.getElementById("sceneScrutiny"),
+		scenePanels : document.querySelectorAll("#cube .scenePanel"),
 		help : document.getElementById("helpScreen"),
 		shifter : document.getElementById("contextShifter"),
 		todo : document.getElementById("todoAnchor"),
@@ -93,14 +94,23 @@ function initEnviro() {
 		enviro.screen.removeEventListener(enviro.endEvent, enviro.endFunc, false);
 	};
 
-	var panelsArray = document.querySelectorAll("#cube .scenePanel");
-	var i = 0, pLnth = panelsArray.length;
-	for (; i < pLnth; i++) {
-		panelsArray[i].addEventListener("click", plateHandler);
-	}  
-
+	enableScenePanels();
 	enableTiltDrag();
 
+}
+
+function enableScenePanels() {
+	var i = 0, pLnth = enviro.scenePanels.length;
+	for (; i < pLnth; i++) {
+		enviro.scenePanels[i].addEventListener("click", plateHandler);
+	}  
+}
+
+function disableScenePanels() {
+	var i = 0, pLnth = enviro.scenePanels.length;
+	for (; i < pLnth; i++) {
+		enviro.scenePanels[i].removeEventListener("click", plateHandler);
+	}  
 }
 
 function enableTiltDrag () {
@@ -224,7 +234,7 @@ function deTilt(scale) {
 	scale = scale || enviro.dragplate.scale;
 	enviro.dragplate.style.webkitTransitionDuration = ".333s";
 	enviro.dragplate.style.webkitTransform = "scale(" + scale + ")";
-	disableTiltDrag();
+// 	disableTiltDrag();
 	enviro.dragplate.tilt = 0; // During the scale, we also reset the tilt back to zero.
 //	hideHUD("down");
 	setTimeout(function () { 
@@ -238,16 +248,20 @@ function reTilt() {
 //	doTilt(); // Since the transitionDuration is still in effect, this will animate back to the accelerometer-tilted position.
 	setTimeout(function () { 
 		enviro.dragplate.style.webkitTransitionDuration = "0s";
-		enableTiltDrag();
+// 		enableTiltDrag();
 	}, 333);
 }
 
 function pauseEnvironment() {
 	addClass(enviro.environment,"paused");
+	disableTiltDrag();
+	disableScenePanels();
 }
 
 function unpauseEnvironment() {
 	removeClass(enviro.environment,"paused");
+	enableTiltDrag();
+	setTimeout(enableScenePanels, 1000); // This is HORRIBLE. But I haven't found any other way of preventing clicks from propagating.
 }
 
 

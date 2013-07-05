@@ -21,9 +21,7 @@ function openDialogWindow() {
 
 function closeDialogWindow() {
 	removeClass(convo.window,"active");
-	if (removeContextStack("conversation") === "enviro") { 
-		enableTiltDrag(); 
-	}
+	removeContextStack("conversation");
 	// animate out the dialog window
 	// hide the characters; stop blinking
 }
@@ -158,7 +156,6 @@ function endDialogBranch() {
 }
 
 function debugConversation(treeName, lineNum) {
-	disableTiltDrag();
 	convo.participants = {};
 	convo.participants.locals = [{ "character": "noone" },{ "character": "noone" }];
 	convo.participants.avatars = [{ "character": "noone" },{ "character": "noone" }];
@@ -170,7 +167,6 @@ function debugConversation(treeName, lineNum) {
 }
 
 function initConversation(treeName) {
-	disableTiltDrag();
 	convo.participants = {};
 	convo.participants.locals = [{ "character": "noone" },{ "character": "noone" }];
 	convo.participants.avatars = [{ "character": "noone" },{ "character": "noone" }];
@@ -522,7 +518,7 @@ function bindDecisionHandling() {
 			pStub.innerHTML = convo.dialog.pendingleaf.choices[i].target.choicedata.line.text;
 			convo.dialog.pendingleaf.choices[i].target.appendChild(pStub);
 			decisionLi.ul.appendChild(convo.dialog.pendingleaf.choices[i].target);
-			convo.dialog.pendingleaf.choices[i].target.addEventListener('click', decisionHandler);
+			convo.dialog.pendingleaf.choices[i].target.addEventListener(enviro.startEvent, decisionHandler);
 			decisionLi.appendChild(decisionLi.ul);
 			convo.window.textField.appendChild(decisionLi);
 		}
@@ -532,8 +528,13 @@ function bindDecisionHandling() {
 function unbindDecisionHandling () {
 	var i = 0, clnth = convo.dialog.pendingleaf.choices.length;
 	for (; i < clnth; i++) {
-    convo.dialog.pendingleaf.choices[i].target.removeEventListener('click', decisionHandler);
+    convo.dialog.pendingleaf.choices[i].target.removeEventListener(enviro.startEvent, decisionHandler);
 	}
+}
+
+function stopProp () {
+	event.stopPropagation();
+	return false;
 }
 
 window.addEventListener('DOMContentLoaded', initConvo);

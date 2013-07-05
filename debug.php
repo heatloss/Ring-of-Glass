@@ -49,7 +49,7 @@
 		fireEvent("offerhelpwithcomputer");
 // 		markAsRead("lookatdataroom");
 // 		markAsRead("lookatprinter");
-		singleUseListener("convotrees", function(){ debugConversation("phoneasrouter-shareother-login", 3); });
+// 		singleUseListener("convotrees", function(){ debugConversation("phoneasrouter-shareother-login", 3); });
 	
  	initNexus();
  	enablePinchRotate();

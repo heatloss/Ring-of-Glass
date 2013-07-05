@@ -256,7 +256,6 @@ function exitBrowserTransition() {
 }
 
 function showHelp(name) {
-	disableTiltDrag();
 	addClass(enviro.screen, "helpOpen");
 	addClass(enviro.help, "activeHelp-" + name);
 	enviro.help.setAttribute("data-active", name);
