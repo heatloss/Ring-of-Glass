@@ -184,7 +184,6 @@ function doTurn () {
 }
 
 function enablePinchRotate () {
-	console.log("enable pinch");
 	if (window.DeviceMotionEvent) {
 		enviro.screen.addEventListener("gesturechange", touchGesture, false);
 	} else {
@@ -193,7 +192,6 @@ function enablePinchRotate () {
 }
 
 function disablePinchRotate () {
-	console.log("kill pinch");
 	if (window.DeviceMotionEvent) {
 		enviro.screen.removeEventListener("gesturechange", touchGesture, false);
 	} else {

@@ -17,6 +17,7 @@
 	<ol>
 		<li>HASH ANALYZER</li>
 		<li>MULTI-COMPILER</li>
+		<li>RASTER IMAGE PROCESSOR</li>
 	</ol>
 	</li>
 	<li class="manuals" data-browser="manuals"> 

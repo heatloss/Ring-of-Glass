@@ -47,9 +47,9 @@
 		fireEvent("showtodos");
 		fireEvent("missionphonecall");
 		fireEvent("offerhelpwithcomputer");
-		markAsRead("lookatdataroom");
-		markAsRead("lookatprinter");
-// 		singleUseListener("convotrees", function(){ debugConversation("askabouthackers", 29); });
+// 		markAsRead("lookatdataroom");
+// 		markAsRead("lookatprinter");
+		singleUseListener("convotrees", function(){ debugConversation("phoneasrouter-shareother-login", 3); });
 	
  	initNexus();
  	enablePinchRotate();

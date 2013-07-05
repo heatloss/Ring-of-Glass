@@ -69,7 +69,7 @@ function initNexus() {
 	};
 }
 
-function bindNexusDrag() {
+function bindSpindleDrag() {
 	var i = 0,
 		j = nexus.serverList.length;
 	for (; i < j; i++) {
@@ -78,7 +78,7 @@ function bindNexusDrag() {
 	nexus.spindleplate.addEventListener(enviro.startEvent, nexus.startSpindleFunc, false);
 }
 
-function unbindNexusDrag() {
+function unbindSpindleDrag() {
 	nexus.spindleplate.removeEventListener(enviro.startEvent, nexus.startSpindleFunc, false);
 }
 
@@ -90,21 +90,21 @@ function nexusController(x, y) {
 }
 
 function restoreNexus() {
-	enterNexus();
+	enterNexusTransition();
 	triggerEvent("nexusrestoring");
 	gamedata.nexus.state.active = true;
 	var nexusState = gamedata.nexus.state.last || "galaxy"; // <- I don't believe the state.last can ever be undefined.
 	switch (nexusState) {
 	case "galaxy":
 		// Eventually we'll transition from the central hub to full galaxy view.
-		nexus.node.addEventListener("click", enterRing);
+		nexus.node.addEventListener("click", userEnterRing);
 		break;
-	case "spindle":
-		setTimeout(enterRing, 1333);
+	case "ring":
+		setTimeout(enterRingTransition, 1333);
 		break;
 	case "browser":
-		setTimeout(enterRing, 1333);
-		setTimeout(enterBrowser, 1666);
+		setTimeout(enterRingTransition, 1333);
+		setTimeout(enterBrowserTransition, 1666);
 		break;
 	default:
 		break;
@@ -117,44 +117,27 @@ function suspendNexus() {
 	var nexusState = gamedata.nexus.state.last || "galaxy";
 	switch (nexusState) {
 	case "galaxy":
-		exitNexus();
+		exitNexusTransition();
 		break;
 	case "ring":
-		exitRing();
-		setTimeout(exitNexus, 666);
+		exitRingTransition();
+		setTimeout(exitNexusTransition, 666);
 		break;
 	case "browser":
-		exitBrowser(); // Might speed up the exiting process by not exiting the browser.
-		exitRing();
-		setTimeout(exitNexus, 666);
+		exitBrowserTransition(); // Might speed up the exiting process by not exiting the browser.
+		exitRingTransition();
+		setTimeout(exitNexusTransition, 666);
 		break;
 	default:
 		break;
 	}
 }
 
-function pauseNexus() {
-	addClass(nexus.map,"paused");
-}
-
-function unpauseNexus() {
-	removeClass(nexus.map,"paused");
-}
-
-function enterNexus() {
+function enterNexusTransition() {
 	triggerEvent("nexusinvoked");
 	addContextStack("nexus");
-	enterNexusTransition();
-}
-
-function exitNexus() {
-	triggerEvent("nexusdismissed");
-	removeContextStack("nexus");
-	exitNexusTransition();
-}
-
-function enterNexusTransition() {
 	deTilt();
+	addClass(enviro.todo, "inactive");
 	dragplate.style.webkitTransitionDuration = ".666s";
 	dragplate.style.webkitTransform = "scale(.125)"; 
 	setTimeout(function() {
@@ -170,35 +153,33 @@ function enterNexusTransition() {
 }
 
 function exitNexusTransition() {
+	triggerEvent("nexusdismissed");
+	removeContextStack("nexus");
 	addClass(enviro.screen, "transitioning");
 	setTimeout(function() {
 		removeClass(enviro.screen, "transitioning");
 		removeClass(enviro.screen, "nexusState-active");
-// 		$("#sceneScrutiny").addClass("active").removeClass("inactive");
 	reTilt();
+	removeClass(enviro.todo, "inactive");
 	}, 444);
 	setTimeout(function() {
 		triggerEvent("nexusexited");
 	}, 555);
 }
 
-function enterRing() {
-	gamedata.nexus.state.last = "ring";
-	nexus.node.removeEventListener("click", enterRing);
-	bindBrowserDrag();
-	singleUseListener("ringentered", bindNexusDrag);
-	enterRingTransition();
+function userExitRing() { // We currently have no interface for exiting the ring at this stage.
+	gamedata.nexus.state.last = "galaxy";
+	exitRingTransition();
 }
 
-function exitRing() {
-	gamedata.nexus.state.last = "galaxy";
-	unbindNexusDrag();
-	unbindBrowserDrag();
-	exitRingTransition();
+function userEnterRing() {
+	gamedata.nexus.state.last = "ring";
+	enterRingTransition();
 }
 
 function enterRingTransition() {
 	triggerEvent("ringinvoked");
+	nexus.node.removeEventListener("click", userEnterRing);
 	addClass(enviro.screen, "zoomLevel-1");
 	addClass(enviro.screen, "zooming");
 	setTimeout(function() {
@@ -214,11 +195,15 @@ function enterRingTransition() {
 	}, 333);
 	setTimeout(function() {
 		triggerEvent("ringentered");
+		bindBrowserDrag();
+		bindSpindleDrag();
 	}, 999);
 }
 
 function exitRingTransition() {
 	triggerEvent("ringdismissed");
+	unbindSpindleDrag();
+	unbindBrowserDrag();
 	nexus.map.style.webkitTransitionDuration = ".333s";
 	removeClass(enviro.screen, "serverState-expanded");
 	nexus.spindle.style.webkitTransitionDuration = ".666s, .666s";
@@ -237,25 +222,23 @@ function exitRingTransition() {
 	}, 666);
 }
 
-function enterBrowser() {
-	gamedata.nexus.state.last = "browser";
-	unbindNexusDrag();
-//	gamedata.nexus.state.browserpage = getSubserverTitle();
-	enterBrowserTransition();
-	singleUseListener("browserentered", announceBrowserPage);
+function userExitBrowser() { // To ring
+	gamedata.nexus.state.last = "ring";
+	exitBrowserTransition();
 }
 
-function exitBrowser() {
-	gamedata.nexus.state.last = "ring";
-	singleUseListener("browserexited", bindNexusDrag);
-	exitBrowserTransition();
+function userEnterBrowser() { // From ring
+	gamedata.nexus.state.last = "browser";
+	enterBrowserTransition();
 }
 
 function enterBrowserTransition() {
 	triggerEvent("browserinvoked");
+	unbindSpindleDrag();
 	addClass(enviro.screen, "browserOpen");
 	setTimeout(function() {
 		triggerEvent("browserentered");
+		announceBrowserPage();
 		nexus.browser.drag = nexus.browser.snaps[1];
 		nexus.browser.style.webkitTransitionDuration = "";
 	}, 666);
@@ -266,6 +249,7 @@ function exitBrowserTransition() {
 	removeClass(enviro.screen, "browserOpen");
 	setTimeout(function() {
 		triggerEvent("browserexited");
+		bindSpindleDrag();
 		nexus.browser.drag = nexus.browser.snaps[0];
 		nexus.browser.style.webkitTransitionDuration = "";
 	}, 666);
@@ -357,6 +341,14 @@ function makeBlind() {
 
 function makeUnblind() {
 	removeClass(enviro.screen, "blind");
+}
+
+function pauseNexus() {
+	addClass(nexus.map,"paused");
+}
+
+function unpauseNexus() {
+	removeClass(nexus.map,"paused");
 }
 
 function activateHUD() {}

@@ -5,11 +5,11 @@
 		<li class="thinking" data-speaker="declan">All right, calm down. Never heard of mag-pulse exposure making people lose their eyesight.</li>
 		<li class="thinking" data-speaker="declan">Badge-wielding psychos. Shorting out a guy&#8217;s implants before they&#8217;ve even charged him with anything? What kind of&#8230;</li>
 		<li class="thinking" data-speaker="declan">Okay, focus. It can&#8217;t just be dark in here. I should be seeing error messages&#8212;hell, a command prompt, at least. Something.</li>
-		<li class="thinking" data-speaker="declan">So suppose I&#8217;m only snowblind: my optic implants are projecting a static image onto my retinas.</li>
+		<li class="thinking" data-speaker="declan">What if I&#8217;m only &#8220;snowblind,&#8221; and my optic implants are projecting a static image onto my retinas?</li>
 		<li class="thinking" data-speaker="declan">But then why aren&#8217;t they disabled entirely? The EMBlazers obviously worked—my wetware is toast.</li>
 		<li class="thinking" data-speaker="declan">How am I supposed to disable my optics without a functioning command interface? I can&#8217;t even&#8230; Everything&#8217;s&#8230;</li>
 		<li class="thinking" data-speaker="declan">Okay wait wait wait.</li>
-		<li class="thinking" data-speaker="declan">That minicomputer thing. All it runs is UL/M, but it&#8217;s shielded, right? Never thought I&#8217;d have to actually—</li>
+		<li class="thinking" data-speaker="declan">That minicomputer thing. It only runs UL/M, but it&#8217;s shielded, right? Never thought I&#8217;d ever actually—</li>
 		<li data-speaker="declan">Uh. Hey… minicomp? Command: wake.</li>
 		<li data-speaker="minicomp">MINICOMPUTER Status: BOOTING</li>
 		<li data-speaker="minicomp">Loading&#8230;</li>
@@ -226,7 +226,7 @@
 		<li data-speaker="frank">Leaving normal folks with whatever gimped systems are left once you&#8217;re all done joyriding and vandalizing.</li>
 		<li data-speaker="frank" data-pose="sulk">So yeah. I have a problem with hackers.</li>
 		<li data-speaker="declan" data-pose="surprised">Well&#8230; okay, but&#8230; I mean, not all hackers are like that.</li>
-		<li data-speaker="declan" data-pose="pondering">I mean, I guess some of them are criminals, sure, but most are motivated by curiosity more than anything else.</li>
+		<li data-speaker="declan" data-pose="pondering">I mean, some of them are criminals, sure, but most are motivated by curiosity more than anything else.</li>
 		<li data-speaker="declan" data-pose="wondering">There are even white-hat hackers, the ones who do security testing and work to make sure the grids are&#8212;</li>
 		<li data-speaker="frank" data-pose="shouting">Kid, anyone that gets his ass dragged in here by a SWAT team at three in the morning ain&#8217;t the good kind of hacker. You hear what I&#8217;m saying?</li>
 		<li data-speaker="declan" data-pose="unsure">Yeah. I hear you. </li>
@@ -554,7 +554,7 @@
 	</ol>
 	<ol class="root phonetodatacenter" data-ident="phonetodatacenter">
 		<li class="thinking" data-speaker="declan" data-listener="noone" data-pose="squint">It would be really great if I could hack into that data center. I could spend the night wiping out my entire police dossier. Hell, why stop there?</li>
-		<li class="thinking" data-speaker="declan" data-pose="wondering">All right, all right. Plenty of time for mad schemes later. The real question is, how do I do this?</li>
+		<li class="thinking" data-speaker="declan" data-pose="wondering">Dial it back. Plenty of time for mad schemes later. The real question is, could I get in there?</li>
 		<li class="thinking" data-speaker="declan" data-pose="wondering">The gridphone&#8217;s only set up to make phone calls and provide basic directory functions. To get access to the data center, I&#8217;d have to&#8230;</li>
 		<li class="decision" data-decision="patchintodatacenter"> 
 		<ol>
@@ -580,7 +580,7 @@
 	<ol class="root phonedistraction" data-ident="phonedistraction">
 		<li class="thinking" data-speaker="declan" data-listener="noone" data-pose="pondering">Could I use the phone to create a diversion? Shake off the guard and slip away?</li>
 		<li class="thinking" data-speaker="declan" data-pose="surprised">I could set off a station-wide fire alarm, or better yet&#8212;hack the phone so it catches fire!</li>
-		<li class="thinking" data-speaker="declan" data-pose="unsure">Except&#8230; The timing doesn&#8217;t work in my favor. I could fake a full-on Russian nuclear strike warning, but end up stuck back in my cell before I could take advantage of the confusion.</li>
+		<li class="thinking" data-speaker="declan" data-pose="unsure">Except&#8230; The timing doesn&#8217;t work in my favor. I could fake a full-on nuclear strike warning, but end up stuck back in my cell before I could take advantage of the confusion.</li>
 		<li class="thinking" data-speaker="declan" data-pose="grim">Distraction&#8217;s no good. I can&#8217;t take the chance that I&#8217;ll be locked up when it takes effect. Back to the drawing board.</li>
 	</ol>
 	<ol class="root phoneaselectrocutor" data-ident="phoneaselectrocutor">
@@ -607,7 +607,7 @@
 		<li class="thinking" data-speaker="declan" data-listener="noone" data-pose="grim">I could use the phone interface to telnet into the data room, wipe out all my records. Then just wait it out in my cell until tomorrow morning, and then&#8230;</li>
 		<li class="thinking" data-speaker="declan" data-pose="wtf">Then what? They just let me go free? The cops obviously rely on pen and paper around here. I could clean out their whole database and they might not even notice!</li>
 		<li class="thinking" data-speaker="declan" data-pose="squint">Plus, I question my ability to hack through data-room security protocols on a 15-year-old phone with a numeric keypad.</li>
-		<li class="thinking" data-speaker="declan" data-pose="pondering">A job like that, you&#8217;d want a cluster of petaFLOP rigs, packed to the brim with cryptkits. Even then&#8230;</li>
+		<li class="thinking" data-speaker="declan" data-pose="pondering">A job like that, you&#8217;d want a cluster of xFLOP rigs, packed to the brim with cryptkits. Even then&#8230;</li>
 		<li class="thinking" data-speaker="declan" data-pose="grim">No. Unworkable.</li>
 	</ol>
 	<ol class="root phonetodatacenter-barricade" data-ident="phonetodatacenter-barricade">
@@ -631,7 +631,7 @@
 	<ol class="root phoneasrouter-shareother" data-ident="phoneasrouter-shareother">
 		<li class="thinking" data-speaker="declan" data-listener="noone" data-pose="pondering">The phone&#8217;s just a node on the network. It&#8217;s not really the device I want to tap into. It&#8217;s the grid.</li>
 		<li class="thinking" data-speaker="declan">So how do I get into that network? It&#8217;s completely cable-based, no RAIN.</li>
-		<li class="thinking" data-speaker="declan" data-pose="wondering">Although, most corporate network routers have built-in RAIN these days, it&#8217;s just disabled for security reasons. And rightly so. I&#8217;d be able to crack it in minutes.</li>
+		<li class="thinking" data-speaker="declan" data-pose="wondering">Although, most corporate network routers have built-in RAIN these days, it&#8217;s just disabled for security reasons. And rightly so&#8212;I&#8217;d be able to crack it in minutes.</li>
 		<li class="thinking" data-speaker="declan">Could I use the phone to enable intra-office RAIN? It&#8217;d be perfect. I&#8217;d have unlimited grid access, even inside my cell. But to access the office network settings, I&#8217;d have to&#8230;</li>
 		<li class="decision" data-decision="phoneasrouteroptions" data-pose="analyzing"> 
 		<ol>
@@ -644,9 +644,9 @@
 	<ol class="root phoneasrouter-shareother-login" data-ident="phoneasrouter-shareother-login">
 		<li class="thinking" data-speaker="declan" data-listener="noone" data-pose="pondering">Okay, so let&#8217;s say I log into the phone using the guard&#8217;s credentials, which incidentally I don&#8217;t have, but let&#8217;s say I do.</li>
 		<li class="thinking" data-speaker="declan" data-pose="analyzing">I drop out of the telephone interface into kiosk mode, navigate my way to the office network settings, enable RAIN, and connect.</li>
-		<li class="thinking" data-speaker="declan">That&#8217;s a lot of hoops to jump through. But it should work. Really, it&#8217;s the only feasible plan I&#8217;ve come up with so far.</li>
+		<li class="thinking" data-speaker="declan">That&#8217;s a lot of hoops to jump through. But it should work. Right? Yeah. I like this one.</li>
 		<li class="thinking" data-speaker="declan" data-pose="unsure">Just one problem, though. I don&#8217;t have the guard&#8217;s login and password.</li>
-		<li class="exit thinking unlock" data-speaker="declan" data-pose="smirk" data-unlock="missiongetpassword" data-event="whatsyourpassword">Eh. Cross that bridge when I get to it. Can&#8217;t spend the whole night coming up with a flawless plan. Figure it out as I go.</li>
+		<li class="exit thinking" data-speaker="declan" data-pose="smirk" data-unlock="missiongetpassword" data-event="whatsyourpassword">Eh. Cross that bridge when I get to it. Can&#8217;t spend the whole night scheming. Figure it out as I go.</li>
 	</ol>
 	<ol class="root phoneasrouter-shareother-callout" data-ident="phoneasrouter-shareother-callout">
 		<li class="thinking" data-speaker="declan" data-listener="noone" data-pose="grim">Let&#8217;s say I use the phone to call network security, impersonate one of the staff, or better yet, a remote admin.</li>
@@ -659,10 +659,12 @@
 	</ol>
 	<ol class="root phonerewirealternatives-outside" data-ident="phonerewirealternatives-outside">
 		<li class="thinking" data-speaker="declan" data-listener="noone" data-pose="grim">Maybe there&#8217;s a nearby RAIN I could tap into, jump back onto the grids and figure out what&#8217;s going on.</li>
-		<li class="thinking" data-speaker="declan" data-pose="unsure">But I&#8217;ve been scanning for any trace of RAIN since I started up the Matryoshka. Not a blip.</li>
+		<li class="thinking" data-speaker="declan" data-pose="unsure">But I&#8217;ve been scanning for any trace of RAIN since I started up the minicomputer. Not a blip.</li>
+<!-- 
 		<li class="thinking" data-speaker="declan" data-pose="pondering">Which isn&#8217;t surprising. The Matryoshka&#8217;s built for concealment, not power. If I could, I&#8217;d try to augment its scanner, but&#8230;</li>
-		<li class="thinking" data-speaker="declan" data-pose="grim">I can&#8217;t do much with my wetware totalled like this. It&#8217;s not like there are any universities or private residences around here. Likely no wireless at all.</li>
-		<li class="thinking" data-speaker="declan" data-pose="grim">If I want RAIN, I&#8217;ll have to create it myself somehow.</li>
+ -->
+		<li class="thinking" data-speaker="declan" data-pose="grim">There aren't really any universities or hotels around here. Likely no wireless to be found.</li>
+		<li class="thinking" data-speaker="declan" data-pose="grim">If I want RAIN, I&#8217;ll have to make it myself somehow.</li>
 	</ol>
 	<ol class="root phonerewirealternatives-guard" data-ident="phonerewirealternatives-guard">
 		<li class="thinking" data-speaker="declan" data-listener="noone" data-pose="wondering">I bet I could figure out a way to trick the guard into sharing his connection over RAIN.</li>

@@ -456,12 +456,19 @@ function setConvoQ(object,title) {
 	gamedata.convoqueue[object] = title;
 }
 
-function bindConvoQ(eventname,title) { // <- Consider merging this with setConvoQ by using an event-based click-on-object system.
+function bindConvoQ(eventname,title,temp) { // <- Consider merging this with setConvoQ by using an event-based click-on-object system.
+	var temporary = temp || true;
 	gamedata.eventconvoqueue[eventname] = function() { // <- Only one conversation will be bound to a given event.
 		initConversation(title);
-		gamedata.window.removeEventListener(eventname, gamedata.eventconvoqueue[eventname]);
+		if (temporary) { 
+			unbindConvoQ(eventname, title); // <- for one-time conversations.
+		}
 	};
 	gamedata.window.addEventListener(eventname, gamedata.eventconvoqueue[eventname]);
+}
+
+function unbindConvoQ(eventname,title) { // <- Not currently making use of title, but we'll need it once bindConvoQ supports arrays of titles.
+	gamedata.window.removeEventListener(eventname, gamedata.eventconvoqueue[eventname]);
 }
 
 function dialogHandler() {

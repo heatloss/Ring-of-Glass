@@ -28,10 +28,6 @@ $(document).ready(function(){
 	allConvos += "\n\n}"
  
  	$("body").empty().append("<pre>" + allConvos + "</pre>");//.text(allConvos);
-// 	var sampleJSON = JSON.stringify(out);
-// 	console.log(sampleJSON);
-// 	
-// 	flattenJSON(out);
 
 });
 

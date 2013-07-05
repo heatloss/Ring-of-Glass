@@ -178,11 +178,11 @@ gamedata.events = {
 // 			gamedata.window.removeEventListener("nexusinvoked", hideHelp);		
 // 		});
 		bindConvoQ("nexusentered","meetyournexus");
-		bindConvoQ("browserpagetitle-manuals","whichmanual");
+		bindConvoQ("browserpagetitle-manuals","whichmanual", false);
 		setConvoQ("frank", "notalkingwithoutreport");
 	},
 	needmoreformanual : function () {
-		updateGoal("Gather more info about the systems in the precinct.");
+		updateGoal("Find out more about the hardware around here.");
 	},
 	displayexitnexushelp : function () {
 		showHelp("dismissNexus");
@@ -191,15 +191,12 @@ gamedata.events = {
 	},
 	deducemanual : function () {
 		showPuzzle("whichmanual");
-// 		$(puzzle).one("click", "#whichmanual button[name='solve']", function(){ evalEvents("solvepuzzle1"); } );
 	},
 	compilethis : function () {
 		showPuzzle("compileahack");
-// 		$(puzzle).one("click", "#compileahack button[name='solve']", function(){ evalEvents("solvepuzzle2"); } );
 	},
 	solvepuzzle1 : function () {
 		hidePuzzle();
-// 		$("#screenFrame").off("browseractive-manuals");
 		setConvoQ("frank", "solveerror84");
 		updateGoal("Help the guard reboot the print server.");
 		setTimeout(function () { 
@@ -220,7 +217,6 @@ gamedata.events = {
 	},
 	solvepuzzle2 : function () {
 		hidePuzzle();
-// 		$("#screenFrame").off("browseractive-tools");
 		setConvoQ("frank", "typethisforme");
 		updateGoal("Have Frank type in your text string.");
 		setTimeout(function () { 
@@ -228,19 +224,21 @@ gamedata.events = {
 		}, 500);
 	},
 	whatsyourpassword : function () {
-		updateGoal("Figure out the guard's login and password.");
-		setConvoQ("frank", "whatsyourpassword");
+// 		updateGoal("Figure out the guard's login and password.");
+		makeBlind();
+		setTimeout(deTilt, 666);
+		enviro.todo.querySelector(".todoReadout h4").innerHTML = "That's the end of the demo (for now). To be continued...";
+		addClass(enviro.todo, "init");
+// 		setConvoQ("frank", "whatsyourpassword");
 	},
 	planyourhack : function () {
-		updateGoal("Revisit the gridphone; figure out a way to hack it.");
+		updateGoal("Revisit the gridphone; figure out how to hack it.");
 		setConvoQ("phone", "planyourhack");
-// 		$("#cube div.scenePanel.phone").attr("data-convoqueue","planyourhack");
 	},
 	timetoobfuscate : function () {
 		updateGoal("Search the Nexus for a stealthy way to reset a password.");
 		setConvoQ("phone", "hackplanned");
 		setConvoQ("frank", "lookingforpassword");
-// 		$("#screenFrame").on("browseractive-tools", function(){ startConversation("letsobfuscate"); });
 	},
 	tothephone : function () {
 		updateGoal("Hack the phone; call someone who can help.");

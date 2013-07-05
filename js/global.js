@@ -27,7 +27,6 @@ function initGame() {
 
 
 function triggerEvent(theEvent, theElement) {
-	console.log(theEvent);
 	var e = document.createEvent("Events");
 	var element = theElement || gamedata.window;
 	e.initEvent(theEvent, true, true);

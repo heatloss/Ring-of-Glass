@@ -1,4 +1,4 @@
-/*global gamedata, enviro, nexus, bindNexusDrag, unbindNexusDrag, addClass, removeClass, triggerEvent, enterBrowser, exitBrowser  */
+/*global gamedata, enviro, nexus, bindSpindleDrag, unbindSpindleDrag, addClass, removeClass, triggerEvent, userEnterBrowser, userExitBrowser  */
 
 function bindBrowserDrag() {
   nexus.browserplate.addEventListener(enviro.startEvent, nexus.startBrowserFunc, false);
@@ -16,7 +16,7 @@ nexus.startBrowserFunc = function(e) {
       return false; // Don't track motion when multiple touches are down in this element (that's a gesture)
     }
   }
-  unbindNexusDrag();
+  unbindSpindleDrag();
   var evtData = enviro.parseEventData(e);
   nexus.browser.x = evtData.pageX;
   nexus.browser.y = evtData.pageY;
@@ -49,7 +49,7 @@ nexus.endBrowserFunc = function() {
   } else {
     snapBrowser();
   }
-  bindNexusDrag();
+  bindSpindleDrag();
 };
 
 function browserController(x, y) {
@@ -79,7 +79,7 @@ function snapBrowser() {
   if (gamedata.nexus.state.last === "browser") {
     if (perc < 0.8) {
       nexus.browser.style.webkitTransitionDuration = "0.333s";
-      exitBrowser();
+      userExitBrowser();
     } else {
       nexus.browser.style.webkitTransitionDuration = "0.1s";
       nexus.browser.drag = nexus.browser.snaps[1];
@@ -87,7 +87,7 @@ function snapBrowser() {
   } else {
     if (perc > 0.225) {
       nexus.browser.style.webkitTransitionDuration = "0.333s";
-      enterBrowser();
+      userEnterBrowser();
     } else {
       nexus.browser.style.webkitTransitionDuration = "0.1s";
       nexus.browser.drag = nexus.browser.snaps[0];
@@ -110,8 +110,8 @@ function resetNexusStyles() {
 function toggleBrowser() {
   nexus.browser.style.webkitTransitionDuration = "";
   if (gamedata.nexus.state.last === "browser") {
-    exitBrowser();
+    userExitBrowser();
   } else {
-    enterBrowser();
+    userEnterBrowser();
   }
 }
