@@ -1,0 +1,231 @@
+#puzzleWindow {
+	position: absolute;
+	width: 960px;
+	height: 640px;
+	left: 0;
+	top: -720px;
+	background-color: rgba(0,0,0,0.75);
+	opacity: 0;
+	-webkit-transition-property: -webkit-transform, opacity;
+	-webkit-transition-duration: .5s, .333s;
+	-webkit-transition-timing-function: cubic-bezier(0.25,0,0,1);
+}
+
+#puzzleField {
+	position: absolute;
+	width: 440px;
+	height: 280px;
+	left: 20px;
+	top: 20px;
+	background-color: #000;
+	border: 2px #bfbf80 solid;
+	border-radius: 8px;
+	-webkit-transform: scale(1.5);
+	-webkit-transition-property: -webkit-transform, opacity;
+	-webkit-transition-duration: .5s, .333s;
+	-webkit-transition-timing-function: cubic-bezier(0.25,0,0,1);
+	-webkit-transform-style: preserve-3d;
+	overflow: hidden;
+}
+
+.puzzleActive #puzzleWindow {
+	opacity: 1;
+	-webkit-transform: translateZ(1000px);
+}
+
+.puzzleActive.dismiss #puzzleWindow {
+	opacity: 0;
+}
+
+.puzzleActive #puzzleField {
+	-webkit-transform: scale(1);
+}
+
+.puzzleActive.dismiss #puzzleField {
+	-webkit-transform: scale(1) translateY(-5px) translateZ(-25px) rotateX(15deg);
+}
+
+#puzzleWindow .puzzleUnit {
+	margin: 15px;
+}
+
+#puzzleWindow.activePuzzle-whichmanual #whichmanual,
+#puzzleWindow.activePuzzle-compileahack #compileahack {
+	display: block;
+}
+
+#puzzleField .puzzleUnit {
+	z-index: 1;
+	display: none;
+	font-family: 'Inconsolata', Verdana, "Trebuchet MS", "Lucida Grande", sans-serif;
+	text-shadow: #fff 0px -1px 11px;
+	margin: 0 20px 0 20px;
+	width: 400px;
+	height: 280px;
+	position: relative;
+}
+
+#puzzleField .puzzleUnit .puzzleRules {
+	padding: 10px 20px 10px 0;
+	width: 320px;
+}
+
+#puzzleField .puzzleUnit .puzzleBoard {
+	width: 320px;
+	height: 300px;
+	border-left: 2px dotted #fff;
+	padding-left: 20px;
+	position: absolute;
+	top: 0;
+	left: 350px;
+}
+
+#puzzleField .puzzleUnit h3 {
+	font-size: 21px;
+	text-transform: uppercase;
+	line-height: 1em;
+	margin-bottom: .5em;
+}
+
+#puzzleField .puzzleUnit h4 {
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: .25em;
+	margin-top: 2em;
+}
+
+#puzzleField .puzzleUnit p {
+	line-height: 1.333em;
+	font-size: 14px;
+	margin: 0 0 1em 1em;
+}
+
+#puzzleField .puzzleUnit li {
+	line-height: 1.333em;
+	font-size: 14px;
+	margin: 0 0 .5em 1em;
+}
+
+#puzzleField .puzzleUnit table {
+	margin: 1em 0 .5em 1em;
+}
+
+#puzzleField .puzzleUnit thead tr {
+	border-bottom: 1px solid #fff;
+}
+
+#puzzleField .puzzleUnit tbody:last-child tr:last-child,
+#puzzleField .puzzleUnit tbody:last-child tr th:first-child {
+	border-bottom: 1px solid #fff;
+}
+
+#puzzleField .puzzleUnit tbody tr:last-child {
+	border-bottom: 3px double #fff;
+}
+
+#puzzleField .puzzleUnit tbody:last-child tr {
+	border-bottom: none;
+}
+
+#puzzleField .puzzleUnit tbody th,
+#puzzleField .puzzleUnit tbody td {
+	border-bottom: 1px solid #fff;
+}
+
+#puzzleField .puzzleUnit tbody tr:last-child th,
+#puzzleField .puzzleUnit tbody tr:last-child td,
+#puzzleField .puzzleUnit tbody th[rowspan="3"] {
+	border-bottom: none;
+}
+
+#puzzleField .puzzleUnit th {
+	line-height: 1.1em;
+	font-weight: normal;
+	font-size: 14px;
+	margin: 0 0 .5em 1em;
+	vertical-align: middle;
+	padding: 0 .5em 0 .5em;
+}
+
+#puzzleField .puzzleUnit th[rowspan="3"],
+#puzzleField .puzzleUnit th[colspan="2"] {
+	font-weight: bold;
+	padding-left: 0;
+	vertical-align: top;
+}
+
+#puzzleField .puzzleUnit td {
+	line-height: 1.1em;
+	font-size: 14px;
+	vertical-align: middle;
+	padding-bottom: .25em;
+	padding-top: .25em;
+	text-align: center;
+}
+
+#puzzleField .puzzleUnit thead th,
+#puzzleField .puzzleUnit thead th[colspan="2"] {
+	vertical-align: bottom;
+}
+
+#puzzleField .puzzleUnit thead td {
+	text-align: center;
+	vertical-align: bottom;
+	padding: 0 0.5em 0 0.5em;
+}
+
+#puzzleField .puzzleUnit tbody td {
+	cursor: pointer;
+}
+
+#puzzleField .puzzleUnit tbody td.suppressed {
+	cursor: auto;
+}
+
+#puzzleField .puzzleUnit tbody td .checked,
+#puzzleField .puzzleUnit tbody td .struck,
+#puzzleField .puzzleUnit tbody td.checked .unchecked,
+#puzzleField .puzzleUnit tbody td.struck .unchecked {
+	display: none;
+}
+
+#puzzleField .puzzleUnit tbody td .unchecked,
+#puzzleField .puzzleUnit tbody td.struck .struck,
+#puzzleField .puzzleUnit tbody td.checked .checked {
+	display: block;
+}
+
+#puzzleField .puzzleUnit tbody td.suppressed .checked,
+#puzzleField .puzzleUnit tbody td.suppressed .unchecked,
+#puzzleField .puzzleUnit tbody td.suppressed .struck {
+	display: none;
+}
+
+#puzzleField .puzzleUnit .operator,
+#puzzleField .puzzleUnit .fragment {
+	font-weight: bold;
+	font-family: courier new;
+}
+
+#puzzleField select {
+	border: 1px solid #fff;
+	background-color: #000;
+	-webkit-appearance: none;
+	color: #fff;
+	border-radius: 3px;
+	padding: 0.25em 0.5em 0.25em 0.5em;
+}
+
+#puzzleField button {
+	border: 1px solid #fff;
+	background-color: #000;
+	-webkit-appearance: none;
+	color: #fff;
+	border-radius: 3px;
+	padding: 0.25em 0.5em 0.25em 0.5em;
+	font-weight: bold;
+	text-transform: uppercase;
+	display: inline-block;
+	margin: 0.5em 0 0 1em;
+}

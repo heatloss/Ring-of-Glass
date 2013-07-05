@@ -98,8 +98,8 @@ h1>em {
 #todoPlate .todoReadout {
   position: absolute;
   bottom: 0;
-  width: 600px;
-  left: -300px;
+  width: 630px;
+  left: -315px;
 	-webkit-transition-property: -webkit-transform;
 	-webkit-transition-duration: 0.5s;	
 	-webkit-transition-timing-function: cubic-bezier(1,0,.67,1);

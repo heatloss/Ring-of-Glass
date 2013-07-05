@@ -42,13 +42,15 @@
 		<li data-speaker="minicomp">Loading&#8230;</li>
 		<li data-speaker="minicomp">MINICOMPUTER Status: READY</li>
 		<li data-event="showhud" data-speaker="declan">Oh thank God.</li>
+<!-- 
 		<li data-speaker="declan">All right. Now we&#8217;re getting somewhere. Let&#8217;s see if you can broadcast general commands.</li>
-		<li data-speaker="declan">Minicomp: Command queue: killall brace tick star dot wetware tick comma dash A unbrace. Execute.</li>
+ -->
+		<li data-speaker="declan">Minicomp: Command queue, killall brace tick star dot wetware tick comma dash A unbrace. Execute.</li>
 		<li data-speaker="minicomp">Executing&#8230;</li>
 		<li data-event="showjail" data-speaker="minicomp">WETWARE PROCESSES STOPPED</li>
 		<li class="thinking" data-speaker="declan" data-pose="surprised">&#8230;</li>
 		<li class="thinking" data-speaker="declan" data-pose="unsure">Right. Jail.</li>
-		<li class="thinking" data-speaker="declan" data-pose="analyzing">Why am I even in custody, though? Has to be some sort of local dragnet. Even the craziest jobs I&#8217;ve done wouldn&#8217;t warrant that level of SWAT response.</li>
+		<li class="thinking" data-speaker="declan" data-pose="analyzing">Why am I even in custody, though? Has to be some sort of local crackdown. Even the craziest jobs I&#8217;ve done wouldn&#8217;t warrant that level of SWAT response.</li>
 		<li class="thinking" data-speaker="declan" data-pose="default">Better have a look around, I guess.</li>
 		<li class="exit" data-speaker="declan" data-pose="wondering" data-event="showtodos">Minicomp: new VISOR overlay, type: to-do list. I'll update it as I go.</li>
 	</ol>
@@ -63,9 +65,14 @@
 			<li data-speaker="declan" data-pose="wtf">Hey!</li>
 			<li data-speaker="declan" data-listener="frank">I&#8217;m pretty sure I have the right to a phone call. </li>
 			<li data-speaker="frank" data-pose="shouting">Shut up and sit still. You&#8217;ll get your call when I&#8217;m done here.</li>
-			<li data-reqlocked="missionHelpGuard"> 
+			<li data-requnread="lookatcomputer,lookatphone" data-reqtype="or">
 			<ol>
-				<li class="exit thinking" data-speaker="declan" data-pose="slowburn" data-listener="noone">Typical. Screw this guy.</li>
+<!-- 
+				<li class="thinking" data-speaker="declan" data-pose="pondering" data-listener="noone" data-event="offerhelpwithcomputer">Hold up. He's having trouble with his computer, and I want my phone call. So let's see what we can work out&#8230;</li>
+			</ol>
+			<ol class="otherwise">
+ -->
+				<li class="thinking exit" data-speaker="declan" data-pose="slowburn" data-listener="noone">Typical. Screw this guy.</li>
 			</ol>
 			</li>
 		</ol>
@@ -78,17 +85,22 @@
 			</li>
 		</ol>
 		</li>
-		<li data-reqlocked="missionHelpGuard"> 
+		<li data-reqread="lookatcomputer,lookatphone" data-reqtype="and">
+			<ol>
+				<li class="thinking" data-speaker="declan" data-pose="squint" data-event="offerhelpwithcomputer">All right. Let's see if I can get some time with that videophone. Time to turn on the charm&#8230;</li>
+			</ol>
+			<ol class="otherwise">
+				<li class="thinking exit" data-speaker="declan" data-pose="analyzing">This is getting me nowhere. There&#8217;s gotta be something in this room I can use to get on this guy&#8217;s good side.</li>
+			</ol>
+		</li>
+		<li data-requnlocked="missionHelpGuard"> 
 		<ol>
-			<li class="thinking" data-speaker="declan" data-pose="analyzing">This is getting me nowhere. There&#8217;s gotta be something in this room I can use to get on this guy&#8217;s good side.</li>
-		</ol>
-		<ol class="otherwise">
 			<li class="decision" data-decision="whyamiinjail"> 
 			<ol>
 				<li data-ref="askaboutcomputer">Computer troubles?</li>
 				<li data-ref="iknowmyrights">You&#8217;re holding me here illegally.</li>
 				<li data-ref="demandalawyer">I demand to talk to a lawyer.</li>
-				<li data-reqread="askaboutcomputer,iknowmyrights,demandalawyer" data-reqtype="and"> 
+				<li data-reqread="askaboutcomputer,iknowmyrights,demandalawyer" data-reqtype="or"> 
 				<ol>
 					<li data-ref="askabouthackers">Do you have some kind of grudge against hackers?</li>
 				</ol>
@@ -114,15 +126,15 @@
 			</ol>
 			</li>
 			<li class="thinking" data-pose="pondering" data-event="missionphonecall" data-speaker="declan">I could probably crack my way into it&#8230; somehow&#8230; assuming I ever get my phone call.</li>
-			<li data-reqread="lookatcomputer" data-reqtype="or"> 
+			<li data-reqread="lookatcomputer,talktoguard" data-reqtype="and"> 
 			<ol>
-				<li class="thinking" data-speaker="declan" data-pose="grim" data-event="offerhelpwithcomputer">Dunno, maybe if I offer to help the guard with that Soviet-era computer of his&#8230;</li>
+				<li class="thinking" data-speaker="declan" data-pose="grim" data-event="offerhelpwithcomputer">I guess I should go offer to help the guard with that Soviet-era computer of his&#8230;</li>
 			</ol>
 			</li>
 		</ol>
 		<ol class="otherwise">
 			<li class="thinking" data-speaker="declan">That crappy old phone is probably the only chance I have of connecting to the grids.</li>
-			<li data-reqread="lookatcomputer" data-reqtype="or"> 
+			<li data-reqread="lookatcomputer,talktoguard" data-reqtype="and"> 
 			<ol>
 				<li class="thinking" data-speaker="declan" data-pose="pondering">I gotta get that guard to let me have my phone call.</li>
 			</ol>
@@ -146,7 +158,7 @@
 		</ol>
 		<ol class="otherwise">
 			<li class="thinking" data-speaker="declan">Looks like the guard&#8217;s still losing his battle of wits with that old Northstar-80.</li>
-			<li data-reqread="lookatphone" data-reqtype="or"> 
+			<li data-reqread="lookatphone,talktoguard" data-reqtype="and"> 
 			<ol>
 				<li class="thinking" data-event="offerhelpwithcomputer" data-speaker="declan" data-pose="confirming">S&#8217;pose I should give him a hand.</li>
 			</ol>

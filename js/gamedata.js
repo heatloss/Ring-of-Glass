@@ -56,7 +56,7 @@ gamedata.eventregistry = {
 gamedata.contextStack = [ "enviro" ]; // <- tracks the layering order of each game "context" e.g. environment, conversation, nexus.
 
 gamedata.convoqueue = {
-	frank : "donttalktoguard",
+	frank : "talktoguard",
 	phone : "lookatphone",
 	desktop : "lookatcomputer",
 	readout : "lookatdataroom",

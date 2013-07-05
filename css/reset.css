@@ -44,12 +44,10 @@ ul {
 }
 
 a:link {
-	color: #093d72;
 	text-decoration: none;
 }
 
 a:visited {
-	color: #093d72;
 	text-decoration: none;
 	outline: none;
 }

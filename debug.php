@@ -33,7 +33,7 @@
 <?php include 'conversation2.php'; ?>
 	</div>
 </div>
-<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+<!-- <script src="js/jquery-1.9.1.min.js" type="text/javascript"></script> -->
 <script src="js/convoImport.js" type="text/javascript"></script>
 <script src="js/global.js" type="text/javascript"></script>
 <script src="js/gamedata.js" type="text/javascript"></script>
@@ -42,21 +42,22 @@
 <script src="js/nexusController2.js" type="text/javascript"></script>
 <script src="js/browserController.js" type="text/javascript"></script>
 <script type="text/javascript">
-$(document).ready(function(){
- 	fireEvent("showtodos");
 	fireEvent("showjail");
-	fireEvent("missionphonecall");
-	fireEvent("offerhelpwithcomputer");
-	markAsRead("lookatdataroom");
-	markAsRead("lookatprinter");
-	singleUseListener("convotrees", function(){ debugConversation("askabouthackers", 29); });
+	window.addEventListener('DOMContentLoaded', function(){
+		fireEvent("showtodos");
+		fireEvent("missionphonecall");
+		fireEvent("offerhelpwithcomputer");
+		markAsRead("lookatdataroom");
+		markAsRead("lookatprinter");
+// 		singleUseListener("convotrees", function(){ debugConversation("askabouthackers", 29); });
 	
 //  	initNexus();
 //  	enablePinchRotate();
 // 	restoreNexus();
 // 	bindConvoQ("nexusentered","meetyournexus");
 //  	bindConvoQ("browserpagetitle-manuals","whichmanual");
-});
+	
+	});
 </script> 
 </body>
 </html>

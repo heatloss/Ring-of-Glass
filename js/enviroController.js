@@ -1,4 +1,4 @@
-/*global gamedata, hasClass, addClass, removeClass, plateHandler, suspendNexus, restoreNexus,  */
+/*global gamedata, hasClass, addClass, removeClass, plateHandler, suspendNexus, restoreNexus, pauseNexus, unpauseNexus */
 
 var enviro = {};
 
@@ -201,16 +201,22 @@ function disablePinchRotate () {
 
 function touchGesture (event) {
 	event.stopPropagation(); // <- this might reduce flickering on two-finger events
-	if (event.scale < 0.75) { // pinch, pull out
-		if (hasClass(enviro.screen, "nexusState-active")) { suspendNexus(); } else { restoreNexus(); }
-	} else if (event.scale > 1.25) { // zoom, dive in
-		if (hasClass(enviro.screen, "nexusState-active")) { suspendNexus(); } else { restoreNexus(); }
+	if (event.scale < 0.75 || event.scale > 1.25) { // pinch, pull out || push, dive in
+		if (gamedata.nexus.state.active) {
+			disablePinchRotate();
+			suspendNexus();
+			singleUseListener("nexusexited", enablePinchRotate);
+		} else { 
+			disablePinchRotate();
+			restoreNexus(); 
+			singleUseListener("nexusentered", enablePinchRotate);
+		}
 	}
 }
 
 function keyHandler (event) {
 	if (event.keyCode === 32) { 
-		if (hasClass(enviro.screen, "nexusState-active")) { suspendNexus(); } else { restoreNexus(); }
+		if (gamedata.nexus.state.active) { suspendNexus(); } else { restoreNexus(); }
 	} 
 }
 
@@ -295,11 +301,3 @@ function removeContextStack(layername) {
 	}
 	return lastContextName;
 }
-// function showTray() {
-// 	addClass(enviro.tray,"active");
-// }
-// 
-// function hideTray() {
-// 	removeClass(enviro.tray,"active");
-// }
-// 

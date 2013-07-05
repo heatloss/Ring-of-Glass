@@ -2,11 +2,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Ring of Glass: in-progress demo</title>
+	<title>Ring of Glass: tech demo</title>
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<meta name="viewport" content="width=960, user-scalable=no">
 	<link rel="stylesheet" media="all" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" media="all" type="text/css" href="css/poster.css">
 	<link rel="stylesheet" media="all" type="text/css" href="css/gameEnv.css">
 	<link rel="stylesheet" media="all" type="text/css" href="css/cube2.css">
 	<link rel="stylesheet" media="all" type="text/css" href="css/sceneObjects.css">
@@ -22,8 +23,8 @@
 </head>
 <body>
 <div id="screenFrame">
-	<div id="gameWindow">
-		<div id="sceneScrutiny" class="inactive">
+	<div id="gameWindow" class="blind">
+		<div id="sceneScrutiny">
 <?php include 'cube2.php'; ?>
 		</div>
 <?php include 'nexus.php'; ?>
@@ -31,6 +32,7 @@
 <?php include 'visor.php'; ?>
 <?php include 'touchplates.php'; ?>
 <?php include 'conversation2.php'; ?>
+<?php include 'poster.php'; ?>
 	</div>
 </div>
 <script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
@@ -41,10 +43,5 @@
 <script src="js/enviroController.js" type="text/javascript"></script>
 <script src="js/nexusController2.js" type="text/javascript"></script>
 <script src="js/browserController.js" type="text/javascript"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-	initGame();
-});
-</script> 
 </body>
 </html>
