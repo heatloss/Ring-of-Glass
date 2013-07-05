@@ -143,19 +143,18 @@ function unpauseNexus() {
 
 function enterNexus() {
 	triggerEvent("nexusinvoked");
-	deTilt();
 	addContextStack("nexus");
 	enterNexusTransition();
 }
 
 function exitNexus() {
 	triggerEvent("nexusdismissed");
-	singleUseListener("nexusexited", reTilt);
 	removeContextStack("nexus");
 	exitNexusTransition();
 }
 
 function enterNexusTransition() {
+	deTilt();
 	dragplate.style.webkitTransitionDuration = ".666s";
 	dragplate.style.webkitTransform = "scale(.125)"; 
 	setTimeout(function() {
@@ -176,6 +175,7 @@ function exitNexusTransition() {
 		removeClass(enviro.screen, "transitioning");
 		removeClass(enviro.screen, "nexusState-active");
 // 		$("#sceneScrutiny").addClass("active").removeClass("inactive");
+	reTilt();
 	}, 444);
 	setTimeout(function() {
 		triggerEvent("nexusexited");

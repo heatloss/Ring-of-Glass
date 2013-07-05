@@ -490,11 +490,11 @@ function decisionHandler() {
 }
 
 function bindDialogHandling() {
-	convo.window.dialogField.addEventListener("click", dialogHandler);
+	convo.window.dialogField.addEventListener(enviro.startEvent, dialogHandler);
 }
 
 function unbindDialogHandling () {
-	convo.window.dialogField.removeEventListener("click", dialogHandler);
+	convo.window.dialogField.removeEventListener(enviro.startEvent, dialogHandler);
 }
 
 function bindDecisionHandling() {

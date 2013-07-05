@@ -51,11 +51,11 @@
 		markAsRead("lookatprinter");
 // 		singleUseListener("convotrees", function(){ debugConversation("askabouthackers", 29); });
 	
-//  	initNexus();
-//  	enablePinchRotate();
-// 	restoreNexus();
+ 	initNexus();
+ 	enablePinchRotate();
 // 	bindConvoQ("nexusentered","meetyournexus");
-//  	bindConvoQ("browserpagetitle-manuals","whichmanual");
+// 	restoreNexus();
+ 	bindConvoQ("browserpagetitle-manuals","whichmanual");
 	
 	});
 </script> 

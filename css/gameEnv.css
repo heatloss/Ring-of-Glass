@@ -59,7 +59,8 @@ h1>em {
 }
 
 #sceneScrutiny.paused {
-	-webkit-filter: blur(4px);  
+	-webkit-filter: blur(4px);
+  -webkit-transform: translateZ(0);
 }
 
 .blind #sceneScrutiny {
@@ -166,10 +167,6 @@ h1>em {
 #conversation.active,
 #conversation.transitioning {
 	-webkit-transform: translateY(0px);
-}
-
-#conversation.paused {
-	-webkit-filter: blur(1px);  
 }
 
 #conversation > #convoScrim {

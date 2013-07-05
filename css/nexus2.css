@@ -195,6 +195,7 @@
 
 #nexusmap.paused {
 	-webkit-filter: blur(1.5px);  
+  -webkit-transform: translateZ(1px);
 }
 
 #nexusmap .nexusfield,

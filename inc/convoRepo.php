@@ -114,7 +114,7 @@
 		</li>
 		<li data-reqread="lookatcomputer,lookatphone" data-reqtype="and"> 
 		<ol>
-			<li class="thinking" data-speaker="declan" data-pose="squint" data-event="offerhelpwithcomputer">All right. Let&#8217;s see if I can score some time with that videophone. Time to turn on the charm&#8230;</li>
+			<li class="thinking" data-speaker="declan" data-pose="squint" data-event="offerhelpwithcomputer">All right. Let&#8217;s see if I can score a visit to that videophone. Time to turn on the charm&#8230;</li>
 		</ol>
 		<ol class="otherwise">
 			<li class="thinking exit" data-speaker="declan" data-pose="analyzing">This is getting me nowhere. There&#8217;s gotta be something in this room I can use to get on this guy&#8217;s good side.</li>
@@ -152,7 +152,7 @@
 				<li class="thinking" data-speaker="declan">Still. That thing&#8217;s gotta have a data connection.</li>
 			</ol>
 			</li>
-			<li class="thinking" data-pose="pondering" data-event="missionphonecall" data-speaker="declan">I could probably crack my way into it&#8230; somehow&#8230; assuming I ever get my phone call.</li>
+			<li class="thinking" data-pose="pondering" data-event="missionphonecall" data-speaker="declan">I bet I could crack my way into it&#8230; somehow&#8230; assuming I ever get my phone call.</li>
 			<li data-reqread="lookatcomputer,talktoguard" data-reqtype="and"> 
 			<ol>
 				<li class="thinking" data-speaker="declan" data-pose="grim" data-event="offerhelpwithcomputer">I guess I should go offer to help the guard with that Soviet-era computer of his&#8230;</li>
