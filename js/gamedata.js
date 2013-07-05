@@ -179,10 +179,10 @@ gamedata.events = {
 // 		});
 		bindConvoQ("nexusentered","meetyournexus");
 		bindConvoQ("browserpagetitle-manuals","whichmanual");
+		setConvoQ("frank", "notalkingwithoutreport");
 	},
 	needmoreformanual : function () {
 		updateGoal("Gather more info about the systems in the precinct.");
-		setConvoQ("frank", "notalkingwithoutreport");
 	},
 	displayexitnexushelp : function () {
 		showHelp("dismissNexus");

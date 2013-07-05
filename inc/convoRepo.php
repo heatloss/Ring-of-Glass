@@ -1,6 +1,31 @@
 <div id="convoRepo">
 	<ol class="root intro" data-ident="intro">
 		<li class="thinking" data-speaker="declan" data-pose="dark">Can&#8217;t&#8230; see.</li>
+		<li class="thinking" data-speaker="declan">What the hell, am I blind now?</li>
+		<li class="thinking" data-speaker="declan">All right, calm down. Never heard of mag-pulse exposure making people lose their eyesight.</li>
+		<li class="thinking" data-speaker="declan">Badge-wielding psychos. Shorting out a guy&#8217;s implants before they&#8217;ve even charged him with anything? What kind of&#8230;</li>
+		<li class="thinking" data-speaker="declan">Okay, focus. It can&#8217;t just be dark in here. I should be seeing error messages&#8212;hell, a command prompt, at least. Something.</li>
+		<li class="thinking" data-speaker="declan">So suppose I&#8217;m only snowblind: my optic implants are projecting a static image onto my retinas.</li>
+		<li class="thinking" data-speaker="declan">But then why aren&#8217;t they disabled entirely? The EMBlazers obviously worked—my wetware is toast.</li>
+		<li class="thinking" data-speaker="declan">How am I supposed to disable my optics without a functioning command interface? I can&#8217;t even&#8230; Everything&#8217;s&#8230;</li>
+		<li class="thinking" data-speaker="declan">Okay wait wait wait.</li>
+		<li class="thinking" data-speaker="declan">That minicomputer thing. All it runs is UL/M, but it&#8217;s shielded, right? Never thought I&#8217;d have to actually—</li>
+		<li data-speaker="declan">Uh. Hey… minicomp? Command: wake.</li>
+		<li data-speaker="minicomp">MINICOMPUTER Status: BOOTING</li>
+		<li data-speaker="minicomp">Loading&#8230;</li>
+		<li data-speaker="minicomp">MINICOMPUTER Status: READY</li>
+		<li data-event="showhud" data-speaker="declan">Oh thank God.</li>
+		<li data-speaker="declan">Minicomp: Command queue, killall brace tick star dot wetware tick comma dash A unbrace. Execute.</li>
+		<li data-speaker="minicomp">Executing&#8230;</li>
+		<li data-event="showjail" data-speaker="minicomp">WETWARE PROCESSES STOPPED</li>
+		<li class="thinking" data-speaker="declan" data-pose="surprised">&#8230;</li>
+		<li class="thinking" data-speaker="declan" data-pose="unsure">Right. Jail.</li>
+		<li class="thinking" data-speaker="declan" data-pose="analyzing">Why am I even in custody, though? Has to be some sort of local crackdown. Even the craziest jobs I&#8217;ve done wouldn&#8217;t warrant that level of SWAT response.</li>
+		<li data-speaker="declan" data-pose="wondering" data-event="showtodos">Minicomp: new VISOR overlay, type: to-do list. I&#8217;ll update it as I go.</li>
+		<li class="thinking exit" data-speaker="declan" data-pose="default">Let&#8217;s have a look around.</li>
+	</ol>
+	<ol class="root introlong" data-ident="introlong">
+		<li class="thinking" data-speaker="declan" data-pose="dark">Can&#8217;t&#8230; see.</li>
 		<li class="thinking" data-speaker="declan">What the hell?</li>
 		<li class="thinking" data-speaker="declan">Okay, this is bad.</li>
 		<li class="thinking" data-speaker="declan">Maybe I&#8217;m just&#8230;</li>
@@ -42,6 +67,7 @@
 		<li data-speaker="minicomp">Loading&#8230;</li>
 		<li data-speaker="minicomp">MINICOMPUTER Status: READY</li>
 		<li data-event="showhud" data-speaker="declan">Oh thank God.</li>
+
 <!-- 
 		<li data-speaker="declan">All right. Now we&#8217;re getting somewhere. Let&#8217;s see if you can broadcast general commands.</li>
  -->
@@ -52,7 +78,7 @@
 		<li class="thinking" data-speaker="declan" data-pose="unsure">Right. Jail.</li>
 		<li class="thinking" data-speaker="declan" data-pose="analyzing">Why am I even in custody, though? Has to be some sort of local crackdown. Even the craziest jobs I&#8217;ve done wouldn&#8217;t warrant that level of SWAT response.</li>
 		<li class="thinking" data-speaker="declan" data-pose="default">Better have a look around, I guess.</li>
-		<li class="exit" data-speaker="declan" data-pose="wondering" data-event="showtodos">Minicomp: new VISOR overlay, type: to-do list. I'll update it as I go.</li>
+		<li class="exit" data-speaker="declan" data-pose="wondering" data-event="showtodos">Minicomp: new VISOR overlay, type: to-do list. I&#8217;ll update it as I go.</li>
 	</ol>
 	<ol class="root donttalktoguard" data-ident="donttalktoguard">
 		<li class="thinking" data-speaker="declan" data-pose="unsure">That guy looks mean. Better not bother him without a good reason.</li>
@@ -65,8 +91,9 @@
 			<li data-speaker="declan" data-pose="wtf">Hey!</li>
 			<li data-speaker="declan" data-listener="frank">I&#8217;m pretty sure I have the right to a phone call. </li>
 			<li data-speaker="frank" data-pose="shouting">Shut up and sit still. You&#8217;ll get your call when I&#8217;m done here.</li>
-			<li data-requnread="lookatcomputer,lookatphone" data-reqtype="or">
+			<li data-requnread="lookatcomputer,lookatphone" data-reqtype="or"> 
 			<ol>
+
 <!-- 
 				<li class="thinking" data-speaker="declan" data-pose="pondering" data-listener="noone" data-event="offerhelpwithcomputer">Hold up. He's having trouble with his computer, and I want my phone call. So let's see what we can work out&#8230;</li>
 			</ol>
@@ -85,13 +112,13 @@
 			</li>
 		</ol>
 		</li>
-		<li data-reqread="lookatcomputer,lookatphone" data-reqtype="and">
-			<ol>
-				<li class="thinking" data-speaker="declan" data-pose="squint" data-event="offerhelpwithcomputer">All right. Let's see if I can get some time with that videophone. Time to turn on the charm&#8230;</li>
-			</ol>
-			<ol class="otherwise">
-				<li class="thinking exit" data-speaker="declan" data-pose="analyzing">This is getting me nowhere. There&#8217;s gotta be something in this room I can use to get on this guy&#8217;s good side.</li>
-			</ol>
+		<li data-reqread="lookatcomputer,lookatphone" data-reqtype="and"> 
+		<ol>
+			<li class="thinking" data-speaker="declan" data-pose="squint" data-event="offerhelpwithcomputer">All right. Let&#8217;s see if I can score some time with that videophone. Time to turn on the charm&#8230;</li>
+		</ol>
+		<ol class="otherwise">
+			<li class="thinking exit" data-speaker="declan" data-pose="analyzing">This is getting me nowhere. There&#8217;s gotta be something in this room I can use to get on this guy&#8217;s good side.</li>
+		</ol>
 		</li>
 		<li data-requnlocked="missionHelpGuard"> 
 		<ol>
@@ -100,7 +127,7 @@
 				<li data-ref="askaboutcomputer">Computer troubles?</li>
 				<li data-ref="iknowmyrights">You&#8217;re holding me here illegally.</li>
 				<li data-ref="demandalawyer">I demand to talk to a lawyer.</li>
-				<li data-reqread="askaboutcomputer,iknowmyrights,demandalawyer" data-reqtype="or"> 
+				<li data-reqread="askaboutcomputer" data-reqtype="and"> 
 				<ol>
 					<li data-ref="askabouthackers">Do you have some kind of grudge against hackers?</li>
 				</ol>
