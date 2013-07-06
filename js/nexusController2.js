@@ -352,11 +352,19 @@ function unpauseNexus() {
 
 function activateHUD() {}
 
-function activateTodos() {
+function initializeTodos() {
 	addClass(enviro.todo, "init");
-	removeClass(enviro.todo, "inactive");
+	enableTodos();
 	setTimeout( function(){ removeClass(enviro.todo, "init"); }, 1000);
 	setTimeout( function(){ updateGoal("Look around; figure out what's going on."); }, 1500);
+}
+
+function enableTodos() {
+	removeClass(enviro.todo, "inactive");
+}
+
+function disableTodos() {
+	addClass(enviro.todo, "inactive");
 }
 
 function updateGoal(goaltext) {
@@ -366,5 +374,6 @@ function updateGoal(goaltext) {
 }
 
 function announceBrowserPage() {
+	console.log("browser announcement");
 	triggerEvent("browserpagetitle-" + getSubserverTitle());
 }

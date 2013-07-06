@@ -1,4 +1,4 @@
-/*global gamedata, convo, enviro, addClass, removeClass, enableTiltDrag, disableTiltDrag */
+/*global gamedata, convo, enviro, addClass, removeClass, enableTiltDrag, disableTiltDrag, addContextStack, removeContextStack */
 
 function initConvo() {
 	convo.window = document.getElementById("conversation");
@@ -453,17 +453,25 @@ function setConvoQ(object,title) {
 }
 
 function bindConvoQ(eventname,title,temp) { // <- Consider merging this with setConvoQ by using an event-based click-on-object system.
-	var temporary = temp || true;
-	gamedata.eventconvoqueue[eventname] = function() { // <- Only one conversation will be bound to a given event.
-		initConversation(title);
-		if (temporary) { 
+	var temporary = typeof temp === "undefined" ? true : temp;
+	console.log("temp is " + temp + ". Binding " + eventname + " and temporary = " + temporary);
+	if (temporary) {
+		gamedata.eventconvoqueue[eventname] = function() { // <- Only one conversation will be bound to a given event.
+			initConversation(title);
 			unbindConvoQ(eventname, title); // <- for one-time conversations.
-		}
-	};
+			console.log(eventname + " WILL BE TEMP");
+		};
+	} else {
+		gamedata.eventconvoqueue[eventname] = function() { // <- Only one conversation will be bound to a given event.
+			initConversation(title);
+			console.log(eventname + " WILL BE PERSISTENT");
+		};
+	} 
 	gamedata.window.addEventListener(eventname, gamedata.eventconvoqueue[eventname]);
 }
 
 function unbindConvoQ(eventname,title) { // <- Not currently making use of title, but we'll need it once bindConvoQ supports arrays of titles.
+	console.log("Unbinding " + eventname);
 	gamedata.window.removeEventListener(eventname, gamedata.eventconvoqueue[eventname]);
 }
 

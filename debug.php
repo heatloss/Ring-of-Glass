@@ -47,6 +47,7 @@
 		fireEvent("showtodos");
 		fireEvent("missionphonecall");
 		fireEvent("offerhelpwithcomputer");
+		fireEvent("displayenternexushelp");
 // 		markAsRead("lookatdataroom");
 // 		markAsRead("lookatprinter");
 // 		singleUseListener("convotrees", function(){ debugConversation("phoneasrouter-shareother-login", 3); });
@@ -55,7 +56,7 @@
  	enablePinchRotate();
 // 	bindConvoQ("nexusentered","meetyournexus");
 // 	restoreNexus();
- 	bindConvoQ("browserpagetitle-manuals","whichmanual");
+//  	bindConvoQ("browserpagetitle-manuals","whichmanual");
 	
 	});
 </script> 

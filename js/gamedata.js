@@ -152,7 +152,7 @@ gamedata.events = {
 	},
 	showtodos : function () {
 		updateGoal("Create a to-do list.");
-		activateTodos();
+		initializeTodos();
 	},
 	showjail : function () {
 		unLock("seePoliceStation");

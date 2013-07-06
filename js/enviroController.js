@@ -256,12 +256,14 @@ function pauseEnvironment() {
 	addClass(enviro.environment,"paused");
 	disableTiltDrag();
 	disableScenePanels();
+	disableTodos();
 }
 
 function unpauseEnvironment() {
 	removeClass(enviro.environment,"paused");
 	enableTiltDrag();
 	setTimeout(enableScenePanels, 1000); // This is HORRIBLE. But I haven't found any other way of preventing clicks from propagating.
+	enableTodos();
 }
 
 
