@@ -611,7 +611,7 @@
 			<li data-ref="phonerewirealternatives-outside">&#8230;use an outside connection?</li>
 			<li data-ref="phoneasrouter2">&#8230;use the phone&#8217;s connection?</li>
 			<li data-ref="phonerewirealternatives-guard">&#8230;use the guard&#8217;s connection?</li>
-			<li class="loopback" data-ref="phonetodatacenter" data-dec="phonerewirealternatives">Nope, none of these.</li>
+			<li class="loopback" data-ref="phonetodatacenter" data-dec="patchintodatacenter">Nope, none of these.</li>
 		</ol>
 		</li>
 	</ol>
