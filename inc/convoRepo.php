@@ -658,7 +658,7 @@
 		<li class="thinking" data-speaker="declan" data-pose="analyzing">I drop out of the telephone interface into kiosk mode, navigate my way to the office network settings, enable RAIN, and connect.</li>
 		<li class="thinking" data-speaker="declan">That&#8217;s a lot of hoops to jump through. But it should work. Right? Yeah. I like this one.</li>
 		<li class="thinking" data-speaker="declan" data-pose="unsure">Just one problem, though. I don&#8217;t have the guard&#8217;s login and password.</li>
-		<li class="exit thinking" data-speaker="declan" data-pose="smirk" data-unlock="missiongetpassword" data-event="whatsyourpassword">Eh. Cross that bridge when I get to it. Can&#8217;t spend the whole night scheming. Figure it out as I go.</li>
+		<li class="exit thinking" data-speaker="declan" data-pose="smirk" data-unlock="missiongetpassword" data-event="whatsyourpassword">Eh. Cross that bridge when I get to it. Can&#8217;t spend the whole night plotting hypotheticals. Figure it out as I go.</li>
 	</ol>
 	<ol class="root phoneasrouter-shareother-callout" data-ident="phoneasrouter-shareother-callout">
 		<li class="thinking" data-speaker="declan" data-listener="noone" data-pose="grim">Let&#8217;s say I use the phone to call network security, impersonate one of the staff, or better yet, a remote admin.</li>
@@ -675,7 +675,7 @@
 <!-- 
 		<li class="thinking" data-speaker="declan" data-pose="pondering">Which isn&#8217;t surprising. The Matryoshka&#8217;s built for concealment, not power. If I could, I&#8217;d try to augment its scanner, but&#8230;</li>
  -->
-		<li class="thinking" data-speaker="declan" data-pose="grim">There aren't really any universities or hotels around here. Likely no wireless to be found.</li>
+		<li class="thinking" data-speaker="declan" data-pose="grim">There aren&#8217;t really any universities or hotels around here. Likely no wireless to be found.</li>
 		<li class="thinking" data-speaker="declan" data-pose="grim">If I want RAIN, I&#8217;ll have to make it myself somehow.</li>
 	</ol>
 	<ol class="root phonerewirealternatives-guard" data-ident="phonerewirealternatives-guard">
