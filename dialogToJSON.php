@@ -8,9 +8,6 @@
 <body>
 <?php include 'convoRepo.php'; ?>
 <script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
-<!-- 
-<script src="js/JSON2leaves.js" type="text/javascript"></script> 
- -->
 <script src="js/html2JSON.js" type="text/javascript"></script> 
 <script type="text/javascript">
 $(document).ready(function(){

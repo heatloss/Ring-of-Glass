@@ -374,6 +374,5 @@ function updateGoal(goaltext) {
 }
 
 function announceBrowserPage() {
-	console.log("browser announcement");
 	triggerEvent("browserpagetitle-" + getSubserverTitle());
 }

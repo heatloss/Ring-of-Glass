@@ -554,14 +554,14 @@
 	</ol>
 	<ol class="root phonetodatacenter" data-ident="phonetodatacenter">
 		<li class="thinking" data-speaker="declan" data-listener="noone" data-pose="squint">It would be really great if I could hack into that data center. I could spend the night wiping out my entire police dossier. Hell, why stop there?</li>
-		<li class="thinking" data-speaker="declan" data-pose="wondering">Dial it back. Plenty of time for mad schemes later. The real question is, could I get in there?</li>
+		<li class="thinking" data-speaker="declan" data-pose="wondering">Whoa, dial it back. Plenty of time for mad schemes later. The real question is, could I get in there?</li>
 		<li class="thinking" data-speaker="declan" data-pose="wondering">The gridphone&#8217;s only set up to make phone calls and provide basic directory functions. To get access to the data center, I&#8217;d have to&#8230;</li>
 		<li class="decision" data-decision="patchintodatacenter"> 
 		<ol>
 			<li data-ref="phonetodatacenter-rewire">&#8230;reroute the wiring?</li>
 			<li data-ref="phonetodatacenter-telnet">&#8230;telnet into the data room?</li>
 			<li data-ref="phonetodatacenter-barricade">&#8230;unlock the door and run inside?</li>
-			<li class="return" data-ref="phonetodatacenter">Back up. These are all terrible ideas.</li>
+			<li class="loopback" data-ref="planyourhack" data-dec="phonehackbrainstorm">Back up. These are all terrible ideas.</li>
 		</ol>
 		</li>
 	</ol>
@@ -573,7 +573,19 @@
 			<li data-ref="phoneasrouter-longcable">&#8230;plug in a really long cable?</li>
 			<li data-ref="phoneasrouter-useownrouter">&#8230;use my wetware as a router?</li>
 			<li data-ref="phoneasrouter-shareother">&#8230;share the connection from somewhere else?</li>
-			<li class="return" data-ref="phonetodatacenter">Nah, I don&#8217;t think any of these&#8217;ll work.</li>
+			<li class="loopback" data-ref="planyourhack" data-dec="phonehackbrainstorm">Nah, don&#8217;t think any of these&#8217;ll work.</li>
+		</ol>
+		</li>
+	</ol>
+		<ol class="root phoneasrouter2" data-ident="phoneasrouter2">
+		<li class="thinking" data-speaker="declan" data-listener="noone" data-pose="wondering">The phone&#8217;s already got a connection. Could I share it, somehow? Configure the phone to act as a router?</li>
+		<li class="thinking" data-speaker="declan" data-pose="grim">Not sure about this one. The phone just doesn&#8217;t have the hardware to distribute its own grid connection. Unless I&#8230;</li>
+		<li class="decision" data-decision="phoneasrouteroptions" data-pose="analyzing"> 
+		<ol>
+			<li data-ref="phoneasrouter-longcable">&#8230;plug in a really long cable?</li>
+			<li data-ref="phoneasrouter-useownrouter">&#8230;use my wetware as a router?</li>
+			<li data-ref="phoneasrouter-shareother">&#8230;share the connection from somewhere else?</li>
+			<li class="loopback" data-ref="phonetodatacenter-rewire" data-dec="phonerewirealternatives">Nah, don&#8217;t think any of these&#8217;ll work.</li>
 		</ol>
 		</li>
 	</ol>
@@ -597,9 +609,9 @@
 		<li class="decision" data-decision="phonerewirealternatives" data-pose="analyzing"> 
 		<ol>
 			<li data-ref="phonerewirealternatives-outside">&#8230;use an outside connection?</li>
-			<li data-ref="phoneasrouter">&#8230;use the phone&#8217;s connection?</li>
+			<li data-ref="phoneasrouter2">&#8230;use the phone&#8217;s connection?</li>
 			<li data-ref="phonerewirealternatives-guard">&#8230;use the guard&#8217;s connection?</li>
-			<li class="return" data-ref="phoneasrouter-shareother-callout">Go back. None of the above.</li>
+			<li class="loopback" data-ref="phonetodatacenter" data-dec="phonerewirealternatives">Nope, none of these.</li>
 		</ol>
 		</li>
 	</ol>
@@ -611,7 +623,7 @@
 		<li class="thinking" data-speaker="declan" data-pose="grim">No. Unworkable.</li>
 	</ol>
 	<ol class="root phonetodatacenter-barricade" data-ident="phonetodatacenter-barricade">
-		<li class="thinking" data-speaker="declan" data-listener="noone" data-pose="smirk">Use the phone to spring the data-room door, bolt through and barricade myself inside. The damage I could wreak would be epic. The Hack.Ops community would worship me as a god!</li>
+		<li class="thinking" data-speaker="declan" data-listener="noone" data-pose="smirk">Use the phone to spring the data-room door, bolt through and barricade myself inside. The damage I could wreak would be epic. The Hack.Ops community would worship me!</li>
 		<li class="thinking" data-speaker="declan" data-pose="waitaminute">Er, of course, I&#8217;d still be trapped in the police station. And charged with, like, a million counts of malicious hacking.</li>
 		<li class="thinking" data-speaker="declan" data-pose="smirk">But the sheer audacity of it! Hackers would be naming their workstations after me!</li>
 		<li class="thinking" data-speaker="declan" data-pose="slowburn">Stop. I&#8217;m supposed to be trying to get myself out of jail, not further in.</li>
@@ -637,7 +649,7 @@
 		<ol>
 			<li data-ref="phoneasrouter-shareother-login">&#8230;log in as the guard?</li>
 			<li data-ref="phoneasrouter-shareother-callout">&#8230;try to scam someone in network security?</li>
-			<li class="return" data-ref="phoneasrouter-shareother-callout">Hmm. Better rethink this.</li>
+			<li class="loopback" data-ref="phoneasrouter" data-dec="phoneasrouteroptions">Hmm. Better rethink this.</li>
 		</ol>
 		</li>
 	</ol>

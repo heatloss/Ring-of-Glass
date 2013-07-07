@@ -47,10 +47,11 @@
 		fireEvent("showtodos");
 		fireEvent("missionphonecall");
 		fireEvent("offerhelpwithcomputer");
-		fireEvent("displayenternexushelp");
+// 		fireEvent("displayenternexushelp");
 // 		markAsRead("lookatdataroom");
 // 		markAsRead("lookatprinter");
-// 		singleUseListener("convotrees", function(){ debugConversation("phoneasrouter-shareother-login", 3); });
+		fireEvent("planyourhack");
+		singleUseListener("convotrees", function(){ debugConversation("planyourhack", 1); });
 	
  	initNexus();
  	enablePinchRotate();

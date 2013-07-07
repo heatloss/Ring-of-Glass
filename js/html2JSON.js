@@ -60,11 +60,14 @@ if (node.is("[data-reqplay],[data-reqread],[data-requnread],[data-reqlocked],[da
   
   retVal.line = {
     "text": $.trim(justThisLi.text()),
-    "reference": node.attr("data-ref") // This is for decision links
+    "reference": node.attr("data-ref"), // This is for decision links
+    "refdecision": node.attr("data-dec") // This is for loopbacks to earlier decisions
   };
   if (node.hasClass("thinking")) { retVal.line.delivery = "thinking"; }
 
   if (node.hasClass("exit")) { retVal.operation = "exit"; }
+
+  if (node.hasClass("loopback")) { retVal.operation = "loopback"; }
 }
 
   node.find("> ol:not(.otherwise) > li").each(function() {

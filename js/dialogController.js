@@ -71,7 +71,7 @@ function fireEvent(eventName) {
 	}
 }
 	
-function decisionMode(decisionNode) {
+function decisionMode() {
 	var newPose = convo.dialog.pendingleaf.decision.pose || "default"; // Prepping a pose variable to serve various swap/fade scenarios.
 	if (convo.participants.avatars[0].character !== "declan") { // If the previous speaker wasn't Declan, add his avatar now.
 		convo.participants.avatars[0] = {"character":"declan","pose":newPose,"transition":"swap"};
@@ -85,9 +85,8 @@ function decisionMode(decisionNode) {
 	}
 	
 	addClass(convo.window,"decisionMode");
-	var remindLine = convo.window.textField.querySelector("li");
+	var remindLine = convo.window.textField.querySelector("li"); // TODO: This needs to retrieved programmatically.
 	addClass(remindLine,"reminder");
-    
 	bindDecisionHandling();
 }
 
@@ -214,11 +213,12 @@ function makeDialog(name) {
 	return dialog;
 }
 
-function loadConversation(treeName,decisionName) {
+function loadConversation(treeName,decisionName,loopback) {
 	convo.dialog = makeDialog(treeName);
 //	convo.dialog = JSON.parse(JSON.stringify(convo.trees[treeName])); // Clones the whole branch. We'll be flattening it as we traverse. 
 //	convo.dialog.title = treeName; // We need to know the name of the loaded conversation tree in order to check/increment its playcount.
-	convo.line = typeof decisionName !== "undefined" ? convo.dialog.findDecision(decisionName) : 0; // Determine whether to start at line 0 or at some arbitrary previous-decision point.
+	var loopInc = loopback ? -1 : 0;
+	convo.line = typeof decisionName !== "undefined" ? convo.dialog.findDecision(decisionName) + loopInc : 0; // Determine whether to start at line 0 or at some arbitrary previous-decision point.
 	showThisLine();
 }
 
@@ -253,7 +253,6 @@ function advanceLine() {
 
 function showThisLine() {
 	convo.dialog.pendingleaf = convo.dialog.getLeaf(convo.line);
-	
 	if (typeof convo.dialog.pendingleaf === "undefined") { // Check to see if we've run out of dialog.
 		endDialogBranch();
 		return false;
@@ -454,24 +453,20 @@ function setConvoQ(object,title) {
 
 function bindConvoQ(eventname,title,temp) { // <- Consider merging this with setConvoQ by using an event-based click-on-object system.
 	var temporary = typeof temp === "undefined" ? true : temp;
-	console.log("temp is " + temp + ". Binding " + eventname + " and temporary = " + temporary);
 	if (temporary) {
 		gamedata.eventconvoqueue[eventname] = function() { // <- Only one conversation will be bound to a given event.
 			initConversation(title);
 			unbindConvoQ(eventname, title); // <- for one-time conversations.
-			console.log(eventname + " WILL BE TEMP");
 		};
 	} else {
 		gamedata.eventconvoqueue[eventname] = function() { // <- Only one conversation will be bound to a given event.
 			initConversation(title);
-			console.log(eventname + " WILL BE PERSISTENT");
 		};
 	} 
 	gamedata.window.addEventListener(eventname, gamedata.eventconvoqueue[eventname]);
 }
 
 function unbindConvoQ(eventname,title) { // <- Not currently making use of title, but we'll need it once bindConvoQ supports arrays of titles.
-	console.log("Unbinding " + eventname);
 	gamedata.window.removeEventListener(eventname, gamedata.eventconvoqueue[eventname]);
 }
 
@@ -490,6 +485,10 @@ function decisionHandler() {
 			delete convo.dPoint; // We're not going to revert back to the previous decision.
 			endDialogBranch();
 			return false;
+		} else if (this.choicedata.operation === "loopback") { // Check to see if we're looping back to a parent decision.
+// 		console.log(this.choicedata);
+			loadConversation(this.choicedata.line.reference, this.choicedata.line.refdecision, true);
+			return false;		
 		}
 	} else if (this.choicedata.hasOwnProperty("branch")) { // In the case of an inline decision, collapse it and proceed.
 		convo.dialog.insertBranch(this.choicedata.branch, convo.line);
