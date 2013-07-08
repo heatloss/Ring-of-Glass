@@ -71,6 +71,7 @@ gamedata.readtally = {
 
 gamedata.nexus = {
 	state: {
+		on: false,
 		active: false,
 		last: "galaxy",
 		activepath: {node: "wetware", subserver: 3, browser: 1},

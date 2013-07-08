@@ -592,7 +592,7 @@
 	<ol class="root phonedistraction" data-ident="phonedistraction">
 		<li class="thinking" data-speaker="declan" data-listener="noone" data-pose="pondering">Could I use the phone to create a diversion? Shake off the guard and slip away?</li>
 		<li class="thinking" data-speaker="declan" data-pose="surprised">I could set off a station-wide fire alarm, or better yet&#8212;hack the phone so it catches fire!</li>
-		<li class="thinking" data-speaker="declan" data-pose="unsure">Except&#8230; The timing doesn&#8217;t work in my favor. I could fake a full-on nuclear strike warning, but end up stuck back in my cell before I could take advantage of the confusion.</li>
+		<li class="thinking" data-speaker="declan" data-pose="unsure">Except&#8230; The timing doesn&#8217;t work in my favor. I could fake a full-on nuclear strike warning, but end up back in my cell before I could take advantage of the confusion.</li>
 		<li class="thinking" data-speaker="declan" data-pose="grim">Distraction&#8217;s no good. I can&#8217;t take the chance that I&#8217;ll be locked up when it takes effect. Back to the drawing board.</li>
 	</ol>
 	<ol class="root phoneaselectrocutor" data-ident="phoneaselectrocutor">

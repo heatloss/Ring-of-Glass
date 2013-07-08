@@ -3,7 +3,6 @@
 var nexus = {};
 
 function initNexus() {
-	//	var nexus = document.getElementById("activeNode");
 	nexus.map = document.getElementById("nexusmap");
 	nexus.node = document.getElementById("activeNode");
 	nexus.browser = nexus.map.querySelector(".nexusbrowser");
@@ -67,6 +66,9 @@ function initNexus() {
 			triggerEvent("touchtap", nexus.spindleplate);
 		}
 	};
+	
+	gamedata.nexus.state.on = true;
+	
 }
 
 function bindSpindleDrag() {
@@ -344,10 +346,14 @@ function makeUnblind() {
 
 function pauseNexus() {
 	addClass(nexus.map,"paused");
+	disablePinchRotate(); 
 }
 
 function unpauseNexus() {
 	removeClass(nexus.map,"paused");
+	if (gamedata.nexus.state.on) { 
+		enablePinchRotate(); 
+	}
 }
 
 function activateHUD() {}

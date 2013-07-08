@@ -1,4 +1,4 @@
-/*global gamedata, hasClass, addClass, removeClass, plateHandler, suspendNexus, restoreNexus, pauseNexus, unpauseNexus */
+/*global gamedata, singleUseListener, hasClass, addClass, removeClass, plateHandler, suspendNexus, restoreNexus, pauseNexus, unpauseNexus, enableTodos, disableTodos */
 
 var enviro = {};
 
@@ -234,9 +234,7 @@ function deTilt(scale) {
 	scale = scale || enviro.dragplate.scale;
 	enviro.dragplate.style.webkitTransitionDuration = ".333s";
 	enviro.dragplate.style.webkitTransform = "scale(" + scale + ")";
-// 	disableTiltDrag();
 	enviro.dragplate.tilt = 0; // During the scale, we also reset the tilt back to zero.
-//	hideHUD("down");
 	setTimeout(function () { 
 		enviro.dragplate.style.webkitTransitionDuration = "0s";
 	}, 666);
@@ -245,10 +243,8 @@ function deTilt(scale) {
 function reTilt() {
 	enviro.dragplate.style.webkitTransitionDuration = ".333s";
 	enviro.dragplate.style.webkitTransform = "scale(" + enviro.dragplate.scale +")";
-//	doTilt(); // Since the transitionDuration is still in effect, this will animate back to the accelerometer-tilted position.
 	setTimeout(function () { 
 		enviro.dragplate.style.webkitTransitionDuration = "0s";
-// 		enableTiltDrag();
 	}, 333);
 }
 
@@ -287,6 +283,9 @@ function addContextStack(layername) {
 	default:
 		break;
 	}
+	if (layername === "conversation") {
+		disablePinchRotate();
+	}
 	gamedata.contextStack.push(layername);
 	return lastContextName;
 }
@@ -314,6 +313,11 @@ function removeContextStack(layername) {
 			break;
 		default:
 			break;
+	}
+	if (layername === "conversation") {
+		if (gamedata.nexus.state.on) {
+			enablePinchRotate();
+		}
 	}
 	return lastContextName;
 }
