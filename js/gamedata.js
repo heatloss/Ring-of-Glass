@@ -232,6 +232,8 @@ gamedata.events = {
 		addClass(enviro.todo, "init");
 // 		setConvoQ("frank", "whatsyourpassword");
 	},
+	filtertools : function () {
+	},
 	planyourhack : function () {
 		updateGoal("Revisit the gridphone; figure out how to hack it.");
 		setConvoQ("phone", "planyourhack");

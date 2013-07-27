@@ -462,6 +462,11 @@
 	</ol>
 	</li>
 	</ol>
+	<ol class="root meetyourtools" data-ident="meetyourtools">
+		<li class="thinking" data-speaker="declan" data-pose="default">Pretty anemic toolbox. And these all require a grid connection anyway. Well, except for the raster enhancer. But I&#8217;m no mood to play with images right now.</li>
+		<li data-speaker="declan" data-pose="default">Minicomp, hide the disabled list items.</li>
+		<li data-speaker="minicomp" data-event="filtertools">Filters applied. List refreshed.</li>
+	</ol>
 	<ol class="root afterpuzzle1solve" data-ident="afterpuzzle1solve">
 		<li class="thinking" data-speaker="declan" data-pose="confirming">All right, let&#8217;s see what the manual says about&#8230; Ah. Error -84. &#8220;Print queue not responding.&#8221; </li>
 		<li class="thinking" data-speaker="declan" data-pose="default">Well that&#8217;s not too bad. Just gotta send a reboot command to the printer, then. Right, time to go talk to that guard.</li>

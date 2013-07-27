@@ -15,8 +15,8 @@
 		Hacking tools 
 	</h3>
 	<ol>
-		<li>HASH ANALYZER</li>
-		<li>MULTI-COMPILER</li>
+		<li class="disabled">HASH ANALYZER</li>
+		<li class="disabled">MULTI-COMPILER</li>
 		<li>RASTER IMAGE PROCESSOR</li>
 	</ol>
 	</li>
