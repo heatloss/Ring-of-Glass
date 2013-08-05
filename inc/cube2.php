@@ -2,18 +2,19 @@
 	<div id="dragplate">
 		<div id="cube">
 			<div class="rotator">
-				<div class="face">
+				<div class="face precinct">
 					<div class="scenePanel frank" data-name="frank">
 					</div>
 					<div class="scenePanel desktop" data-name="desktop">
 					</div>
-					<div class="scenePanel readout" data-name="readout">
-					</div>
 				</div>
+				<div class="face overlay zoom"></div>
 			</div>
 			<div class="rotator">
-				<div class="face">
+				<div class="face precinct">
 					<div class="scenePanel printer" data-name="printer">
+					</div>
+					<div class="scenePanel phone" data-name="phone">
 					</div>
 					<!-- 
 <div id="todo" class="todoPanel" data-name="checkout">
@@ -25,28 +26,33 @@
 					</div>
  -->
 				</div>
+				<div class="face overlay zoom"></div>
 			</div>
 			<div class="rotator">
-				<div class="face">
-					<div class="scenePanel phone" data-name="phone">
+				<div class="face precinct">
+					<div class="scenePanel readout" data-name="readout">
 					</div>
 <!-- 
 					<div class="todoPanel" data-name="getpassword">
 					</div>
  -->
 				</div>
+				<div class="face overlay zoom"></div>
 			</div>
 			<div class="rotator">
-				<div class="face">
+				<div class="face precinct">
 				</div>
+				<div class="face overlay zoom"></div>
 			</div>
 			<div id="top">
-				<div class="face">
+				<div class="face precinct">
 				</div>
+				<div class="face overlay zoom"></div>
 			</div>
 			<div id="bottom">
-				<div class="face">
+				<div class="face precinct">
 				</div>
+				<div class="face overlay zoom"></div>
 			</div>
 		</div>
 	</div>

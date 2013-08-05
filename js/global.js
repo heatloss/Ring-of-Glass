@@ -8,6 +8,7 @@ function initGame() {
 		var help2 = document.querySelector("code.dismissNexus p:first-of-type").innerHTML = "To exit the Nexus and return to your original context, perform a &#8220;push&#8221; motion using your DataGlove or your keyboard&#8217;s space bar.";
 		document.querySelector("code.invokeNexus pre.instructional").innerHTML = " >>> PUSH / SPACE <<< ";
 		document.querySelector("code.dismissNexus pre.instructional").innerHTML = " >>> PUSH / SPACE <<< ";
+		// gamedata.window.addEventListener("click", function() { this.webkitRequestFullScreen(); } ); // Add listener to toggle fullscreen mode
 	}
 	if (isLocked("seePoliceStation")) {
 		addClass(document.getElementById("gameWindow"), "blind");

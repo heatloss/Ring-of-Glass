@@ -2,67 +2,59 @@
 	position: absolute;
 	cursor: pointer;
 	z-index: 20;
+	background-size: contain;
+	background-repeat: no-repeat;
 }
 
 #cube .rotator .face .scenePanel.frank {
-	top: 462px;
-	left: 319px;
-	width: 120px;
+	top: 422px;
+	left: 488px;
+	width: 110px;
 	height: 160px;
 	background-image: url(../images/frank_pose1.png);
-	background-size: contain;
-	background-repeat: no-repeat;
 	z-index: 1;
 	-webkit-transition: 150ms ease-in;
 }
 
 #cube .rotator .face .scenePanel.phone {
 	position: absolute;
-	top: 404px;
-	left: 840px;
-	width: 90px;
-	height: 140px;
-	background-image: url(../images/wall-phone.png);
-	background-size: contain;
-	background-repeat: no-repeat;
+	top: 420px;
+	left: 193px;
+	width: 60px;
+	height: 70px;
+/* 	background-image: url(../images/wall-phone.png); */
 	z-index: 1;
 }
 
 #cube .rotator .face .scenePanel.desktop {
 	position: absolute;
-	top: 496px;
-	left: 252px;
-	width: 80px;
-	height: 80px;
+	top: 470px;
+	left: 428px;
+	width: 70px;
+	height: 60px;
 	background-image: url(../images/1972-Plato-IV.png);
-	background-size: contain;
-	background-repeat: no-repeat;
 	z-index: 2;
 }
 
 #cube .rotator .face .scenePanel.readout {
 	position: absolute;
-	top: 285px;
-	left: 660px;
-	width: 220px;
-	height: 320px;
+	top: 335px;
+	left: 225px;
+	width: 180px;
+	height: 240px;
 	background-color: transparent;
-	opacity: .5;
-	background-size: contain;
-	background-repeat: no-repeat;
+/* 	opacity: .5; */
 	z-index: 2;
 }
 
 #cube .rotator .face .scenePanel.printer {
-	background-image: url(../images/officeprinter.png);
+/* 	background-image: url(../images/officeprinter.png); */
 	position: absolute;
-	top: 480px;
-	left: 780px;
-	width: 140px;
-	height: 150px;
+	top: 460px;
+	left: 725px;
+	width: 110px;
+	height: 120px;
 	background-color: transparent;
-	background-size: contain;
-	background-repeat: no-repeat;
 	z-index: 2;
 }
 
@@ -76,8 +68,6 @@
 	width: 960px;
 	height: 960px;
 	background-image: url(../images/Nexus-ring.png);
-	background-size: contain;
-	background-repeat: no-repeat;
 /*
 	-webkit-transform: translateZ(-160px);
 */

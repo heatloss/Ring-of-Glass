@@ -51,7 +51,7 @@
 // 		markAsRead("lookatdataroom");
 // 		markAsRead("lookatprinter");
 		fireEvent("planyourhack");
-		singleUseListener("convotrees", function(){ debugConversation("planyourhack", 1); });
+// 		singleUseListener("convotrees", function(){ debugConversation("planyourhack", 1); });
 	
  	initNexus();
  	enablePinchRotate();
