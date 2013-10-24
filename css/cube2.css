@@ -139,8 +139,13 @@ html, body, p {
 	-webkit-transform: scaleY(-1);
 }
 
-.face.zoom {
+.face.zoom,
+.face.precinct {
 	display: none !important;
+}
+
+.face.map {
+	display: block;
 }
 
 #cube .rotator:nth-child(1) .face.zoom {
@@ -170,6 +175,38 @@ html, body, p {
 
 #bottom .face.zoom {
 	background-image: url(../images/zoom0005.jpg);
+	background-position: center center;
+	-webkit-background-size: cover;
+	-webkit-transform: scaleY(-1) translateZ(-1px);
+}
+
+#cube .rotator:nth-child(1) .face.map {
+	background-image: url(../images/map_face0000.png);
+}
+
+#cube .rotator:nth-child(2) .face.map {
+	background-image: url(../images/map_face0003.png);
+	-webkit-transform: scaleX(-1);
+}
+
+#cube .rotator:nth-child(3) .face.map {
+	background-image: url(../images/map_face0002.png);
+}
+
+#cube .rotator:nth-child(4) .face.map {
+	background-image: url(../images/map_face0001.png);
+	-webkit-transform: scaleX(-1);
+}
+
+#top .face.map {
+	background-image: url(../images/map_face0004.png);
+	background-position: center center;
+	-webkit-background-size: cover;
+	-webkit-transform: scaleY(-1) translateZ(-1px);
+}
+
+#bottom .face.map {
+	background-image: url(../images/map_face0005.png);
 	background-position: center center;
 	-webkit-background-size: cover;
 	-webkit-transform: scaleY(-1) translateZ(-1px);
