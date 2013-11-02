@@ -140,11 +140,11 @@ html, body, p {
 }
 
 .face.zoom,
-.face.precinct {
+.face.map {
 	display: none !important;
 }
 
-.face.map {
+.face.precinct {
 	display: block;
 }
 
