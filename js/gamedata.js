@@ -69,6 +69,10 @@ gamedata.eventconvoqueue = {
 gamedata.readtally = {
 }; // <- Holds all playcount-related metadata; starts game as empty.
 
+gamedata.visionmode = [
+	"blind"
+]
+
 gamedata.nexus = {
 	state: {
 		on: false,

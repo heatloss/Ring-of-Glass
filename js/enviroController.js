@@ -248,6 +248,15 @@ function reTilt() {
 	}, 333);
 }
 
+function switchVisionMode(newmode) {
+	var currentmode = gamedata.visionmode[0];
+// 	Initiate the vision swap animation
+// 	var cubeFaces = enviro.cube.querySelector(".face");
+	removeClass(enviro.environment,"vision-" + currentmode);
+	addClass(enviro.environment,"vision-" + newmode);
+	gamedata.visionmode[0] = newmode;
+}
+
 function pauseEnvironment() {
 	addClass(enviro.environment,"paused");
 	disableTiltDrag();
