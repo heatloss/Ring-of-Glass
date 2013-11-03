@@ -142,6 +142,7 @@ html, body, p {
 
 .textureset.buffer .rotator:nth-child(2) .face {
 	-webkit-transform: scaleX(-1) translateZ(-2px);
+}
 
 .textureset.buffer .rotator:nth-child(3) .face {
 	-webkit-transform: translateZ(2px);
