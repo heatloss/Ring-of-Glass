@@ -35,6 +35,11 @@ function triggerEvent(theEvent, theElement) {
 }
 
 function addClass(ele, cls) {
+	/*
+	for (var i = 0; i < myNodeList.length; ++i) {
+		var item = myNodeList[i];  // Calling myNodeList.item(i) isn't necessary in JavaScript
+	}
+	*/
 	if (typeof ele !== 'undefined' && ele !== null) {
 		ele.classList.add(cls);
 	}

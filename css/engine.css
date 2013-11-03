@@ -220,6 +220,35 @@
     100% { opacity: 0; -webkit-transform: scale(1.5); }
 }
 
+@-webkit-keyframes switchVisionCube {
+    0% { 
+    	-webkit-transform: scale(1); 
+    	-webkit-animation-timing-function: cubic-bezier(0.5,0,0,1);
+    }
+    50% { 
+    	-webkit-transform: scale(1.5); 
+    }
+    100% { 
+    	-webkit-transform: scale(1); 
+    }
+}
+
+@-webkit-keyframes switchVisionBuffer {
+    0% { 
+    	opacity: 0; 
+    	-webkit-animation-timing-function: cubic-bezier(0.5,0,0,1);
+    }
+    33% { 
+    	opacity: 1; 
+    }
+    67% { 
+    	opacity: 1; 
+    }
+    100% { 
+    	opacity: 0; 
+    }
+}
+
 #convoThread > li > p {
 	-webkit-animation-duration: 200ms;
 }
@@ -265,4 +294,14 @@
 .helpOpen #helpScreen {
 	display: block;
 	-webkit-animation-name: pushIn;
+}
+
+/* 
+.visionTransition #container {
+	-webkit-animation-name: switchVisionCube;
+}
+ */
+
+.visionTransition .cube .textureset.buffer {
+	-webkit-animation-name: switchVisionBuffer;
 }

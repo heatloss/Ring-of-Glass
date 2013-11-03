@@ -69,9 +69,9 @@ gamedata.eventconvoqueue = {
 gamedata.readtally = {
 }; // <- Holds all playcount-related metadata; starts game as empty.
 
-gamedata.visionmode = [
-	"blind"
-]
+gamedata.visionmode = {
+	state: "blind",
+}
 
 gamedata.nexus = {
 	state: {
@@ -150,7 +150,8 @@ gamedata.conditions = {
 
 gamedata.events = {
 	gamelaunch : function () {
-		makeBlind();
+// 		makeBlind();
+// 		switchVisionMode("blind");
 	},
 	showhud : function () {
 		activateHUD();
@@ -163,6 +164,7 @@ gamedata.events = {
 		unLock("seePoliceStation");
 		removeClass(enviro.environment, "paused"); // Just this once.	
 		makeUnblind();
+// 		switchVisionMode("holdingcell");
 	},
 	missionphonecall : function () {
 		updateGoal("Convince the guard to let you have a phone call.");

@@ -8,9 +8,11 @@ function initEnviro() {
 	enviro = {
 		dragplate : document.getElementById("dragplate"),
 		cube : document.getElementById("cube"),
+		cubeprime : document.querySelector(".cube .textureset.prime"),
+		cubebuffer : document.querySelector(".cube .textureset.buffer"),
 		screen : document.getElementById("gameWindow"),
 		environment : document.getElementById("sceneScrutiny"),
-		scenePanels : document.querySelectorAll("#cube .scenePanel"),
+		scenePanels : document.querySelectorAll(".cube .scenePanel"),
 		help : document.getElementById("helpScreen"),
 		shifter : document.getElementById("contextShifter"),
 		todo : document.getElementById("todoAnchor"),
@@ -228,6 +230,9 @@ function keyHandler (event) {
 	if (event.keyCode === 32) { 
 		if (gamedata.nexus.state.active) { suspendNexus(); } else { restoreNexus(); }
 	} 
+	if (event.keyCode === 86) { 
+		if (gamedata.visionmode.state === "map") { switchVisionMode("holdingcell"); } else { switchVisionMode("map"); }
+	} 
 }
 
 function deTilt(scale) {
@@ -249,12 +254,21 @@ function reTilt() {
 }
 
 function switchVisionMode(newmode) {
-	var currentmode = gamedata.visionmode[0];
+	var currentmode = gamedata.visionmode.state;
 // 	Initiate the vision swap animation
-// 	var cubeFaces = enviro.cube.querySelector(".face");
-	removeClass(enviro.environment,"vision-" + currentmode);
-	addClass(enviro.environment,"vision-" + newmode);
-	gamedata.visionmode[0] = newmode;
+// 	var primeFaces = enviro.cube.querySelector(".face.prime");
+// 	var bufferFaces = enviro.cube.querySelector(".face.buffer");
+	addClass(enviro.cubebuffer, newmode);
+	removeClass(enviro.cubebuffer, currentmode);
+	addClass(enviro.environment,"visionTransition");
+	setTimeout(function () { 
+		addClass(enviro.cubeprime, newmode);
+		removeClass(enviro.cubeprime, currentmode);
+	}, 1600);
+	setTimeout(function () { 
+		removeClass(enviro.environment, "visionTransition");
+	}, 2000);
+	gamedata.visionmode.state = newmode;
 }
 
 function pauseEnvironment() {

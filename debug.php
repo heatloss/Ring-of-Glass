@@ -45,12 +45,13 @@
 	fireEvent("showjail");
 	window.addEventListener('DOMContentLoaded', function(){
 		fireEvent("showtodos");
+		fireEvent("showjail");
 		fireEvent("missionphonecall");
 		fireEvent("offerhelpwithcomputer");
 // 		fireEvent("displayenternexushelp");
 // 		markAsRead("lookatdataroom");
 // 		markAsRead("lookatprinter");
-		fireEvent("planyourhack");
+// 		fireEvent("planyourhack");
 // 		singleUseListener("convotrees", function(){ debugConversation("planyourhack", 1); });
 	
  	initNexus();
@@ -58,6 +59,7 @@
 // 	bindConvoQ("nexusentered","meetyournexus");
 // 	restoreNexus();
 //  	bindConvoQ("browserpagetitle-manuals","whichmanual");
+//  	switchVisionMode("holdingcell");
 	
 	});
 </script> 
