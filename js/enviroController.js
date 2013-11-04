@@ -258,18 +258,27 @@ function switchVisionMode(newmode) {
 // 	Initiate the vision swap animation
 // 	var primeFaces = enviro.cube.querySelector(".face.prime");
 // 	var bufferFaces = enviro.cube.querySelector(".face.buffer");
+	addClass(enviro.cubebuffer, "transition");
 	addClass(enviro.cubebuffer, newmode);
-	removeClass(enviro.cubebuffer, currentmode);
-	addClass(enviro.environment,"visionTransition");
-	setTimeout(function () { 
+	addClass(enviro.environment, "visionIn");
+	enviro.environment.addEventListener("webkitAnimationEnd", startVisionSwitch);
+	function startVisionSwitch() {
+		enviro.environment.removeEventListener("webkitAnimationEnd", startVisionSwitch);
 		addClass(enviro.cubeprime, newmode);
 		removeClass(enviro.cubeprime, currentmode);
-	}, 1600);
-	setTimeout(function () { 
-		removeClass(enviro.environment, "visionTransition");
-	}, 2000);
-	gamedata.visionmode.state = newmode;
+		addClass(enviro.environment,"visionOut");
+		removeClass(enviro.environment,"visionIn");
+		enviro.environment.addEventListener("webkitAnimationEnd", completeVisionSwitch);
+	}
+	function completeVisionSwitch() {
+		enviro.environment.removeEventListener("webkitAnimationEnd", completeVisionSwitch);
+		removeClass(enviro.environment,"visionOut");
+		removeClass(enviro.cubebuffer, newmode);
+		removeClass(enviro.cubebuffer, "transition");
+		gamedata.visionmode.state = newmode;
+	}
 }
+
 
 function pauseEnvironment() {
 	addClass(enviro.environment,"paused");

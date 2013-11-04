@@ -220,28 +220,43 @@
     100% { opacity: 0; -webkit-transform: scale(1.5); }
 }
 
-@-webkit-keyframes switchVisionCube {
+@-webkit-keyframes switchVisionIn {
     0% { 
-    	-webkit-transform: scale(1); 
+    	-webkit-transform: scaleY(1); 
     	-webkit-animation-timing-function: cubic-bezier(0.5,0,0,1);
     }
-    50% { 
-    	-webkit-transform: scale(1.5); 
-    }
     100% { 
-    	-webkit-transform: scale(1); 
+    	-webkit-transform: scaleY(1.05); 
     }
 }
 
-@-webkit-keyframes switchVisionBuffer {
+@-webkit-keyframes switchVisionOut {
+    0% { 
+    	-webkit-animation-timing-function: cubic-bezier(0.5,0,0,1);
+    	-webkit-transform: scaleY(1.05); 
+    }
+    100% { 
+    	-webkit-transform: scaleY(1); 
+    }
+}
+
+@-webkit-keyframes switchVisionBufferIn {
     0% { 
     	opacity: 0; 
-    	-webkit-animation-timing-function: cubic-bezier(0.5,0,0,1);
     }
-    33% { 
+    50% { 
     	opacity: 1; 
     }
-    67% { 
+    100% { 
+    	opacity: 1; 
+    }
+}
+
+@-webkit-keyframes switchVisionBufferOut {
+    0% { 
+    	opacity: 1; 
+    }
+    50% { 
     	opacity: 1; 
     }
     100% { 
@@ -296,12 +311,18 @@
 	-webkit-animation-name: pushIn;
 }
 
-/* 
-.visionTransition #container {
-	-webkit-animation-name: switchVisionCube;
+.visionIn #container {
+	-webkit-animation-name: switchVisionIn;
 }
- */
 
-.visionTransition .cube .textureset.buffer {
-	-webkit-animation-name: switchVisionBuffer;
+.visionOut #container {
+	-webkit-animation-name: switchVisionOut;
+}
+
+.visionIn .cube .textureset.buffer {
+	-webkit-animation-name: switchVisionBufferIn;
+}
+
+.visionOut .cube .textureset.buffer {
+	-webkit-animation-name: switchVisionBufferOut;
 }
