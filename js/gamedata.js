@@ -151,7 +151,6 @@ gamedata.conditions = {
 gamedata.events = {
 	gamelaunch : function () {
 // 		makeBlind();
-// 		switchVisionMode("blind");
 	},
 	showhud : function () {
 		activateHUD();

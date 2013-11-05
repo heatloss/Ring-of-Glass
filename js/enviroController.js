@@ -44,7 +44,8 @@ function initEnviro() {
 		enviro.moveEvent = "touchmove";
 		enviro.endEvent = "touchend";
 		enviro.tapEvent = "touchtap";
-		
+		enviro.holdEvent = "touchhold";
+
 		enviro.parseEventData = function(e) {
 			return e.targetTouches[0];
 		};
@@ -53,7 +54,8 @@ function initEnviro() {
 		enviro.startEvent = "mousedown";
 		enviro.moveEvent = "mousemove";
 		enviro.endEvent = "mouseup";
-		enviro.tapEvent = "touchtap";
+		enviro.tapEvent = "mousetap";
+		enviro.holdEvent = "mousehold";
 
 		enviro.parseEventData = function(e) {
 			return e;
@@ -67,6 +69,8 @@ function initEnviro() {
 			}
 		}
 		var evtData = enviro.parseEventData(e);
+		enviro.screen.tapped = true;
+		enviro.screen.holdTimer = setTimeout(enviro.holdFunc, 1000);
 		enviro.screen.x = evtData.pageX;
 		enviro.screen.y = evtData.pageY;
 		enviro.screen.addEventListener(enviro.moveEvent, enviro.moveFunc, false); 
@@ -80,6 +84,8 @@ function initEnviro() {
 		e.preventDefault();
 		e.stopPropagation();
 		var evtData = enviro.parseEventData(e);
+		enviro.screen.tapped = false;
+		window.clearTimeout(enviro.screen.holdTimer);
 		var xPos = evtData.pageX;
 		var yPos = evtData.pageY;
 		var xDelta = enviro.screen.x - xPos;
@@ -92,8 +98,15 @@ function initEnviro() {
 	};
 
 	enviro.endFunc = function () {
+	  triggerEvent(enviro.tapEvent, enviro.screen);
 		enviro.screen.removeEventListener(enviro.moveEvent, enviro.moveFunc, false); 
 		enviro.screen.removeEventListener(enviro.endEvent, enviro.endFunc, false);
+		window.clearTimeout(enviro.screen.holdTimer);
+	};
+
+	enviro.holdFunc = function () {
+	  triggerEvent(enviro.holdEvent, enviro.screen);
+		if (gamedata.visionmode.state === "precinct") { switchVisionMode("holdingcell"); } else { switchVisionMode("precinct"); }
 	};
 
 	enableScenePanels();
@@ -230,9 +243,9 @@ function keyHandler (event) {
 	if (event.keyCode === 32) { 
 		if (gamedata.nexus.state.active) { suspendNexus(); } else { restoreNexus(); }
 	} 
-	if (event.keyCode === 86) { 
-		if (gamedata.visionmode.state === "map") { switchVisionMode("holdingcell"); } else { switchVisionMode("map"); }
-	} 
+// 	if (event.keyCode === 86) { 
+// 		if (gamedata.visionmode.state === "precinct") { switchVisionMode("holdingcell"); } else { switchVisionMode("precinct"); }
+// 	} 
 }
 
 function deTilt(scale) {
@@ -261,17 +274,18 @@ function switchVisionMode(newmode) {
 	addClass(enviro.cubebuffer, "transition");
 	addClass(enviro.cubebuffer, newmode);
 	addClass(enviro.environment, "visionIn");
-	enviro.environment.addEventListener("webkitAnimationEnd", startVisionSwitch);
+	deTilt();
+	enviro.cubebuffer.addEventListener("webkitAnimationEnd", startVisionSwitch);
 	function startVisionSwitch() {
-		enviro.environment.removeEventListener("webkitAnimationEnd", startVisionSwitch);
+		enviro.cubebuffer.removeEventListener("webkitAnimationEnd", startVisionSwitch);
 		addClass(enviro.cubeprime, newmode);
 		removeClass(enviro.cubeprime, currentmode);
 		addClass(enviro.environment,"visionOut");
 		removeClass(enviro.environment,"visionIn");
-		enviro.environment.addEventListener("webkitAnimationEnd", completeVisionSwitch);
+		enviro.cubebuffer.addEventListener("webkitAnimationEnd", completeVisionSwitch);
 	}
 	function completeVisionSwitch() {
-		enviro.environment.removeEventListener("webkitAnimationEnd", completeVisionSwitch);
+		enviro.cubebuffer.removeEventListener("webkitAnimationEnd", completeVisionSwitch);
 		removeClass(enviro.environment,"visionOut");
 		removeClass(enviro.cubebuffer, newmode);
 		removeClass(enviro.cubebuffer, "transition");

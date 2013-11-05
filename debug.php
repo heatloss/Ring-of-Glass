@@ -42,7 +42,7 @@
 <script src="js/nexusController2.js" type="text/javascript"></script>
 <script src="js/browserController.js" type="text/javascript"></script>
 <script type="text/javascript">
-	fireEvent("showjail");
+	unLock("seePoliceStation");
 	window.addEventListener('DOMContentLoaded', function(){
 		fireEvent("showtodos");
 		fireEvent("showjail");

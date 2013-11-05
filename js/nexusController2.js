@@ -337,11 +337,13 @@ function getSubserverTitle(index) {
 }
 
 function makeBlind() {
-	addClass(enviro.screen, "blind");
+// 	addClass(enviro.screen, "blind");
+		switchVisionMode("blind");
 }
 
 function makeUnblind() {
-	removeClass(enviro.screen, "blind");
+// 	removeClass(enviro.screen, "blind");
+		switchVisionMode("holdingcell");
 }
 
 function pauseNexus() {

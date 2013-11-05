@@ -74,8 +74,8 @@ html, body, p {
 
 .cube .textureset {
 	-webkit-transform-style: preserve-3d;
-	-webkit-animation-duration: 0.25s;
-	-webkit-animation-fill-mode: both;
+	-webkit-animation-duration: .333s;
+	-webkit-animation-fill-mode: forward;
 }
 
 .cube .face {
@@ -162,28 +162,52 @@ html, body, p {
 }
  */
 
-.textureset.holdingcell .rotator:nth-child(1) .face {
+.textureset.precinct .rotator:nth-child(1) .face {
 	background-image: url(../images/cube0000.jpg);
 }
 
-.textureset.holdingcell .rotator:nth-child(2) .face {
+.textureset.precinct .rotator:nth-child(2) .face {
 	background-image: url(../images/cube0003.jpg);
 }
 
-.textureset.holdingcell .rotator:nth-child(3) .face {
+.textureset.precinct .rotator:nth-child(3) .face {
 	background-image: url(../images/cube0002.jpg);
 }
 
-.textureset.holdingcell .rotator:nth-child(4) .face {
+.textureset.precinct .rotator:nth-child(4) .face {
 	background-image: url(../images/cube0001.jpg);
 }
 
-.textureset.holdingcell .top .face {
+.textureset.precinct .top .face {
 	background-image: url(../images/cube0004.jpg);
 }
 
-.textureset.holdingcell .bottom .face {
+.textureset.precinct .bottom .face {
 	background-image: url(../images/cube0005.jpg);
+}
+
+.textureset.holdingcell .rotator:nth-child(1) .face {
+	background-image: url(../images/holding-cell0000.jpg);
+}
+
+.textureset.holdingcell .rotator:nth-child(2) .face {
+	background-image: url(../images/holding-cell0003.jpg);
+}
+
+.textureset.holdingcell .rotator:nth-child(3) .face {
+	background-image: url(../images/holding-cell0002.jpg);
+}
+
+.textureset.holdingcell .rotator:nth-child(4) .face {
+	background-image: url(../images/holding-cell0001.jpg);
+}
+
+.textureset.holdingcell .top .face {
+	background-image: url(../images/holding-cell0004.jpg);
+}
+
+.textureset.holdingcell .bottom .face {
+	background-image: url(../images/holding-cell0005.jpg);
 }
 
 .textureset.map .rotator:nth-child(1) .face {
@@ -214,11 +238,9 @@ html, body, p {
 	opacity: 0;
 }
 
-/* 
 .textureset.buffer:not(.transition) {
 	display: none;
 }
- */
 
 
 /* 

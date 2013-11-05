@@ -6,18 +6,17 @@
 	background-repeat: no-repeat;
 }
 
-#cube .rotator .face .scenePanel.frank {
+#cube .precinct .rotator .face .scenePanel.frank {
 	top: 422px;
 	left: 488px;
 	width: 110px;
 	height: 160px;
 	background-image: url(../images/frank_pose1.png);
 	z-index: 1;
-	-webkit-transition: 150ms ease-in;
+/* 	-webkit-transition: 150ms ease-in; */
 }
 
-#cube .rotator .face .scenePanel.phone {
-	position: absolute;
+#cube .precinct .rotator .face .scenePanel.phone {
 	top: 420px;
 	left: 193px;
 	width: 60px;
@@ -26,8 +25,7 @@
 	z-index: 1;
 }
 
-#cube .rotator .face .scenePanel.desktop {
-	position: absolute;
+#cube .precinct .rotator .face .scenePanel.desktop {
 	top: 470px;
 	left: 428px;
 	width: 70px;
@@ -36,8 +34,7 @@
 	z-index: 2;
 }
 
-#cube .rotator .face .scenePanel.readout {
-	position: absolute;
+#cube .precinct .rotator .face .scenePanel.readout {
 	top: 335px;
 	left: 225px;
 	width: 180px;
@@ -47,9 +44,8 @@
 	z-index: 2;
 }
 
-#cube .rotator .face .scenePanel.printer {
+#cube .precinct .rotator .face .scenePanel.printer {
 /* 	background-image: url(../images/officeprinter.png); */
-	position: absolute;
 	top: 460px;
 	left: 725px;
 	width: 110px;
@@ -58,7 +54,7 @@
 	z-index: 2;
 }
 
-.listener-frank #cube .rotator .face .scenePanel.frank {
+.listener-frank #cube .precinct .rotator .face .scenePanel.frank {
 	opacity: 0;
 }
 
