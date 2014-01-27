@@ -134,13 +134,59 @@ h1>em {
   display: none;
 }
 
-#modeSwitcher li {
-  display: block;
+#modeSwitcher .locations > li {
+  float: left;;
 	border: 1px solid #fff;
-	border-radius: 5px;
+	border-radius: 10px;
+	height: 40px;
+	width: 70px;
+	position: relative;
+}
+
+#modeSwitcher .locations > li > .title {
+  font-family: "saxMonoRegular", Verdana, "Trebuchet MS", "Lucida Grande", sans-serif;
+  text-shadow: #fff 0px -1px 11px;
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  position: absolute;
+  left: 0px;
+  margin-left: -50%;
+  top: -20px;
+  text-align: center;
+}
+
+#modeSwitcher .modes {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+#modeSwitcher .modes > li {
+  display: block;
+	border: 6px solid rgba(255,255,255,0.5);
+	border-radius: 10px;
 	height: 30px;
 	width: 60px;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
+	position: relative;
+}
+
+#modeSwitcher .modes > li.disabled {
+  display: none;
+}
+
+#modeSwitcher .modes > li > .title {
+	font-family: "saxMonoRegular", Verdana, "Trebuchet MS", "Lucida Grande", sans-serif;
+	text-shadow: #fff 0px -1px 11px;
+	font-weight: bold;
+  font-size: 10px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  position: absolute;
+  left: 5px;
+  bottom: 10px;
 }
 
 /* 

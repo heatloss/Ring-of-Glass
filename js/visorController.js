@@ -4,7 +4,7 @@ var visor = {};
 
 function initVisor() {
 	visor.moder = document.getElementById("modeSwitcher");
-	visor.modeList = visor.moder.querySelector("ul");
+	visor.modeList = visor.moder.querySelector("ul.modes");
 	visor.modeListModes = visor.modeList.querySelectorAll("li");
 	visor.moder.x = 0;
 	visor.moder.y = 0;
