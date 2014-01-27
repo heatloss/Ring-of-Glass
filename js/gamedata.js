@@ -201,6 +201,9 @@ gamedata.events = {
 	compilethis : function () {
 		showPuzzle("compileahack");
 	},
+	switchvision : function () {
+		initVisor();
+	},
 	solvepuzzle1 : function () {
 		hidePuzzle();
 		setConvoQ("frank", "solveerror84");

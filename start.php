@@ -43,5 +43,6 @@
 <script src="js/enviroController.js" type="text/javascript"></script>
 <script src="js/nexusController2.js" type="text/javascript"></script>
 <script src="js/browserController.js" type="text/javascript"></script>
+<script src="js/visorController.js" type="text/javascript"></script>
 </body>
 </html>

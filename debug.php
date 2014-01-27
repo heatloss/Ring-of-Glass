@@ -41,6 +41,7 @@
 <script src="js/enviroController.js" type="text/javascript"></script>
 <script src="js/nexusController2.js" type="text/javascript"></script>
 <script src="js/browserController.js" type="text/javascript"></script>
+<script src="js/visorController.js" type="text/javascript"></script>
 <script type="text/javascript">
 	unLock("seePoliceStation");
 	window.addEventListener('DOMContentLoaded', function(){
@@ -48,6 +49,7 @@
 		fireEvent("showjail");
 		fireEvent("missionphonecall");
 		fireEvent("offerhelpwithcomputer");
+		fireEvent("switchvision");
 // 		fireEvent("displayenternexushelp");
 // 		markAsRead("lookatdataroom");
 // 		markAsRead("lookatprinter");
