@@ -69,10 +69,6 @@ gamedata.eventconvoqueue = {
 gamedata.readtally = {
 }; // <- Holds all playcount-related metadata; starts game as empty.
 
-gamedata.visionmode = {
-	state: "blind",
-}
-
 gamedata.nexus = {
 	state: {
 		on: false,
@@ -89,6 +85,15 @@ gamedata.nexus = {
 			subservers: ["misc", "tools", "manuals", "welcome", "hyperlinks", "photos", "music"]
 		}
 	}
+};
+
+gamedata.visor = {
+	state: {
+		on: false,
+		active: false,
+		visionmode: "blind",
+		activemodeindex: 1
+	},
 };
 
 gamedata.locks = {

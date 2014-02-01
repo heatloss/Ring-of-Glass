@@ -15,23 +15,6 @@ function initVisor() {
 	visor.modeList.y = 0;
 	visor.modeList.z = 0;
 
-// 	gamedata.visor.state.visiondata = gamedata.nexus.rings[gamedata.nexus.state.activepath.node]; // This is a convenience cache of the selected ring's data.
-
-// 	nexus.startSpindleFunc = function(e) {
-// 		if (window.DeviceMotionEvent) {
-// 			if (e.targetTouches.length !== 1) {
-// 				return false; // Don't track motion when multiple touches are down in this element (that's a gesture)
-// 			}
-// 		}
-// 		var evtData = enviro.parseEventData(e);
-// 		nexus.spindle.x = evtData.pageX;
-// 		nexus.spindle.y = evtData.pageY;
-// 		nexus.spindleplate.addEventListener(enviro.moveEvent, nexus.moveSpindleFunc, false);
-// 		nexus.spindleplate.addEventListener(enviro.endEvent, nexus.endSpindleFunc, false);
-// 		nexus.spindleplate.tapped = true;
-// 		unbindBrowserDrag();
-// 	};
-
 	visor.moveVisorFunc = function(e) {
 		e.preventDefault();
 		e.stopPropagation();
@@ -48,7 +31,7 @@ function initVisor() {
 	visor.endVisorFunc = function() {
 		enviro.screen.removeEventListener(enviro.moveEvent, visor.moveVisorFunc, false);
 		enviro.screen.removeEventListener(enviro.endEvent, visor.endVisorFunc, false);
-	// 	snapVisionMode();
+		snapVisionMode();
 		hideVisionSwitcher();
 	};
 
@@ -60,8 +43,18 @@ function initVisor() {
 	
 }
 
+function getModeSpans() {
+	var i = 0,
+		j = visor.modeListModes.length,
+		spans = [];
+	for (; i < j; i++) {
+			spans[i] = visor.modeListModes[i].offsetTop || 0; 
+			if (hasClass(visor.modeListModes[i], "disabled")) { spans[i] = 9999; } // THIS HACK WILL NOT STAND 
+	}
+	return spans;
+}
+
 function showVisionSwitcher() {
-// 	var currentmode = gamedata.visionmode.state;
 	addClass(enviro.screen, "visionSwitch");
 	visor.moder.style.left = (enviro.screen.mousex -31 + "px");
 	visor.moder.style.top = (enviro.screen.mousey -16 + "px");
@@ -75,7 +68,7 @@ function showVisionSwitcher() {
 }
 
 function hideVisionSwitcher() {
-	var currentmode = gamedata.visionmode.state;
+	var currentmode = gamedata.visor.state.visionmode;
 	removeClass(enviro.screen, "visionSwitch");
 	addClass(visor.moder, "inactive");
 	removeContextStack("visor");
@@ -83,7 +76,7 @@ function hideVisionSwitcher() {
 }
 
 function switchVisionMode(newmode) {
-	var currentmode = gamedata.visionmode.state;
+	var currentmode = gamedata.visor.state.visionmode;
 // 	Initiate the vision swap animation
 // 	var primeFaces = enviro.cube.querySelector(".face.prime");
 // 	var bufferFaces = enviro.cube.querySelector(".face.buffer");
@@ -105,7 +98,7 @@ function switchVisionMode(newmode) {
 		removeClass(enviro.environment,"visionOut");
 		removeClass(enviro.cubebuffer, newmode);
 		removeClass(enviro.cubebuffer, "transition");
-		gamedata.visionmode.state = newmode;
+		gamedata.visor.state.visionmode = newmode;
 	}
 }
 
@@ -113,4 +106,14 @@ function adjustVisionList() {
 	visor.modeList.style.webkitTransform = "translateY(" + visor.modeList.y + "px)";
 }
 
+function snapVisionMode() {
+	var vSpans = getModeSpans()
+	var nearestModeIndex = getClosestIndex(-1 * visor.modeList.y, vSpans);
+	console.log(vSpans[nearestModeIndex]);
+	if (nearestModeIndex !== gamedata.visor.state.activemodeindex) {
+		gamedata.visor.state.activemodeindex = nearestModeIndex;
+	}
+	visor.modeList.y = -1 * vSpans[nearestModeIndex];
+	adjustVisionList();
+}
 
