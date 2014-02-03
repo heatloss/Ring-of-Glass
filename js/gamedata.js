@@ -91,9 +91,31 @@ gamedata.visor = {
 	state: {
 		on: false,
 		active: false,
-		visionmode: "blind",
+		currentvisionmodes: ["optical","zoom","thermal"]
 		activemodeindex: 1
 	},
+	visionmodes: [
+    {
+      name: "blind",
+      enabled: false
+    },
+    {
+      name: "optical",
+      enabled: true
+    },
+    {
+      name: "zoom",
+      enabled: true
+    },
+    {
+      name: "thermal",
+      enabled: true
+    },
+    {
+      name: "geography",
+      enabled: false
+    }
+  ]
 };
 
 gamedata.locks = {

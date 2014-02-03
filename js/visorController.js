@@ -43,6 +43,21 @@ function initVisor() {
 	
 }
 
+function setVisionModes(mode, state) {
+	var i = 0,
+		j = gamedata.visor.visionmodes.length,
+		spans = [];
+	for (; i < j; i++) {
+		if (gamedata.visor.visionmodes[i].name === mode) {
+		  gamedata.visor.visionmodes[i].enabled = state;
+		}
+		if (gamedata.visor.visionmodes[i].enabled) {
+		  spans.push(gamedata.visor.visionmodes[i].name); // Creating a new array of only the enabled modes.
+		}
+	}
+	// REGENERATE THE GAMEDATA MODES AND THE MARKUP
+}
+
 function getModeSpans() {
 	var i = 0,
 		j = visor.modeListModes.length,
