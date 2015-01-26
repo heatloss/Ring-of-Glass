@@ -11,7 +11,7 @@ function unbindBrowserDrag() {
 }
 
 nexus.startBrowserFunc = function(e) {
-  if (window.DeviceMotionEvent) {
+  if ('ontouchstart' in document.documentElement) {
     if (e.targetTouches.length !== 1) {
       return false; // Don't track motion when multiple touches are down in this element (that's a gesture)
     }

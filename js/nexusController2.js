@@ -30,7 +30,7 @@ function initNexus() {
 	gamedata.nexus.state.ringdata = gamedata.nexus.rings[gamedata.nexus.state.activepath.node]; // This is a convenience cache of the selected ring's data.
 
 	nexus.startSpindleFunc = function(e) {
-		if (window.DeviceMotionEvent) {
+		if ('ontouchstart' in document.documentElement) {
 			if (e.targetTouches.length !== 1) {
 				return false; // Don't track motion when multiple touches are down in this element (that's a gesture)
 			}

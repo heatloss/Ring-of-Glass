@@ -17,7 +17,7 @@ function bindPageDrag (selector, proxySelector, pagingSelector) {
 		swipeRow.snaps = [0, offsetH];
 		proxy.dir = "none";
 	} 
-	if (window.DeviceMotionEvent) {
+	if ('ontouchstart' in document.documentElement) {
 		proxy.addEventListener("touchstart", touchPage, false);
 	} else {
 		proxy.addEventListener("mousedown", mousePage, false);
@@ -25,7 +25,7 @@ function bindPageDrag (selector, proxySelector, pagingSelector) {
 }
 
 function unbindPageDrag () {
-	if (window.DeviceMotionEvent) {
+	if ('ontouchstart' in document.documentElement) {
 //		window.removeEventListener('deviceorientation', deviceOrientationHandler, false);
 		scrollColumn.removeEventListener("touchstart", touchPage, false);
 	} else {

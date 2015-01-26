@@ -35,7 +35,7 @@ function initEnviro() {
 		enviro.screen.x = 0;
 		enviro.screen.y = 0;
 
-		if (window.DeviceMotionEvent) {
+		if ('ontouchstart' in document.documentElement) {
 		document.body.addEventListener('touchmove', function(e){ e.preventDefault(); });
 		setTimeout(function () {
 			window.scrollTo(0, 1);
@@ -64,7 +64,7 @@ function initEnviro() {
 	}
 	
 	enviro.startFunc = function (e) {
-		if (window.DeviceMotionEvent) {
+		if ('ontouchstart' in document.documentElement) {
 			if (e.targetTouches.length !== 1) {
 				return false; // Don't track motion when multiple touches are down in this element (that's a gesture)
 			}
@@ -134,7 +134,7 @@ function disableScenePanels() {
 }
 
 function enableTiltDrag () {
-	if (window.DeviceMotionEvent) {
+	if ('ontouchstart' in document.documentElement) {
 		harmonizeForAccel();
 	} else {
 		enviro.screen.addEventListener(enviro.startEvent, enviro.startFunc, false);
@@ -142,7 +142,7 @@ function enableTiltDrag () {
 }
 
 function disableTiltDrag () {
-	if (window.DeviceMotionEvent) {
+	if ('ontouchstart' in document.documentElement) {
 		window.removeEventListener('deviceorientation', deviceOrientationHandler, false);
 	}
 	enviro.screen.removeEventListener(enviro.startEvent, enviro.startFunc, false);
@@ -214,7 +214,7 @@ function doTurn () {
 }
 
 function enablePinchRotate () {
-	if (window.DeviceMotionEvent) {
+	if ('ontouchstart' in document.documentElement) {
 		enviro.screen.addEventListener("gesturechange", touchGesture, false);
 	} else {
 		document.addEventListener("keydown", keyHandler, false);
@@ -222,7 +222,7 @@ function enablePinchRotate () {
 }
 
 function disablePinchRotate () {
-	if (window.DeviceMotionEvent) {
+	if ('ontouchstart' in document.documentElement) {
 		enviro.screen.removeEventListener("gesturechange", touchGesture, false);
 	} else {
 		document.removeEventListener("keydown", keyHandler, false);
